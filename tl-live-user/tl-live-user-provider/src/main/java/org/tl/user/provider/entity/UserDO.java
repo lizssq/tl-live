@@ -75,4 +75,7 @@ public class UserDO {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+    public UserDO() {
+    }
 }

@@ -78,4 +78,7 @@ public class UserDTO implements Serializable {
                 ", createTime=" + createTime +'\'' +
                 ", updateTime=" + updateTime;
     }
+
+    public UserDTO() {
+    }
 }

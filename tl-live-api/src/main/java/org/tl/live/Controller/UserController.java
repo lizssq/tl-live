@@ -26,7 +26,7 @@ public class UserController {
 
     @RequestMapping("/getUser")
     public WebResDTO getUserById() {
-        String userId="1";
+        String userId="102";
 
         if(StringUtils.isEmpty(userId)){
             return new WebResDTO(ERROR_CODE, "userId不能为空");
