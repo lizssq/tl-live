@@ -1,0 +1,65 @@
+server:
+  port: 8083
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tllive_cosid?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+
+  application:
+    name: tl-live-id-generate-provider
+  cloud:
+    nacos:
+      discovery:
+        namespace: tl-live
+        server-addr: 127.0.0.1:8848
+
+cosid:
+  snowflake:
+    enabled: true
+    provider:
+      snowflakeID:
+        sequence-reset-threshold: 10
+        clock-sync: true
+    share:
+      enabled: false
+  machine:
+    enabled: true
+    distributor:
+      type: jdbc
+
+  segment:
+    enabled: true
+    provider:
+      segmentID:
+        offset: 1
+        step: 1
+
+    share:
+      enabled: false
+
+    distributor:
+      type: jdbc
+      jdbc:
+        enable-auto-init-cosid-table: true
+    mode: chain
+    chain:
+      safe-distance: 10
+
+dubbo:
+  application:
+    name: ${spring.application.name}
+    qos-enable: false
+  registry:
+    address: nacos://127.0.0.1:8848?namespace=tl-live
+    id: nacos-registry
+  protocol:
+    name: dubbo
+    port: -1
+
+
+#      manual:
+#        machine-id: 1
+#        machine-id-range: 1-1024

@@ -1,0 +1,38 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: tl-live-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: tl-live
+    gateway:
+      discovery:
+        locator:
+            enabled: true
+      routes:
+        - id: tl-live-user
+          uri: lb://tl-live-user
+          predicates:
+            - Path=/user/**
+tltk:
+  gateway:
+    whitelist:
+      - /sms/loginPhone
+      - /sms/sendLoginSms
+      - /user/getUser
+
+
+dubbo:
+  application:
+    name: ${spring.application.name}
+    qos-enable: false
+  registry:
+    address: nacos://127.0.0.1:8848?namespace=tl-live
+    id: nacos-registry
+  protocol:
+    name: dubbo
+    port: -1

@@ -1,0 +1,24 @@
+server:
+    port: 8081
+
+#nacos配置
+spring:
+  application:
+    name: tl-live-user
+  cloud:
+    nacos:
+      discovery:
+        namespace: tl-live
+        server-addr: 127.0.0.1:8848
+
+#dubbo配置
+dubbo:
+  application:
+    name: ${spring.application.name}
+    qos-enable: false
+  registry:
+    address: nacos://127.0.0.1:8848?namespace=tl-live
+    id: nacos-registry
+  protocol:
+    name: dubbo
+    port: -1

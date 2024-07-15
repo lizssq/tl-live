@@ -1,0 +1,828 @@
+2024-07-13 20:24:11.233 [main] INFO  o.a.d.s.b.c.event.WelcomeLogoApplicationListener -  [DUBBO] 
+
+ :: Dubbo (v3.2.9) : https://github.com/apache/dubbo
+ :: Discuss group : dev@dubbo.apache.org
+, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:11.252 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 20:24:11.376 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 20:24:13.204 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 20:24:13.237 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 20:24:13.241 [main] INFO  org.tl.user.provider.mysql.MySqlTest - No active profile set, falling back to 1 default profile: "default" 
+2024-07-13 20:24:13.865 [main] INFO  org.apache.dubbo.rpc.model.FrameworkModel -  [DUBBO] Dubbo Framework[1] is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:13.884 [main] INFO  o.a.d.common.resource.GlobalResourcesRepository -  [DUBBO] Creating global shared handler ..., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.007 [main] INFO  org.apache.dubbo.rpc.model.ApplicationModel -  [DUBBO] Dubbo Application[1.0](unknown) is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.011 [main] INFO  org.apache.dubbo.rpc.model.ScopeModel -  [DUBBO] Dubbo Module[1.0.0] is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.041 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.042 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.053 [main] INFO  o.a.dubbo.common.utils.SerializeSecurityManager -  [DUBBO] Serialize check serializable: true, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.057 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.allowlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.091 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.blockedlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.264 [main] INFO  org.apache.dubbo.rpc.model.ApplicationModel -  [DUBBO] Dubbo Application[1.1](unknown) is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.265 [main] INFO  org.apache.dubbo.rpc.model.ScopeModel -  [DUBBO] Dubbo Module[1.1.0] is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.276 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.277 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.282 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.allowlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.282 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.blockedlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.303 [main] INFO  o.a.d.config.spring.context.DubboSpringInitializer -  [DUBBO] Use default application: Dubbo Application[1.1](unknown), dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.303 [main] INFO  org.apache.dubbo.rpc.model.ScopeModel -  [DUBBO] Dubbo Module[1.1.1] is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.312 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.316 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.allowlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.317 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.blockedlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.321 [main] INFO  o.a.d.config.spring.context.DubboSpringInitializer -  [DUBBO] Use default module model of target application: Dubbo Module[1.1.1], dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.324 [main] INFO  o.a.d.config.spring.context.DubboSpringInitializer -  [DUBBO] Bind Dubbo Module[1.1.1] to spring container: org.springframework.beans.factory.support.DefaultListableBeanFactory@2e23c180, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:14.728 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode 
+2024-07-13 20:24:14.736 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode. 
+2024-07-13 20:24:14.810 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 26 ms. Found 0 Redis repository interfaces. 
+2024-07-13 20:24:15.045 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] BeanNameGenerator bean can't be found in BeanFactory with name [org.springframework.context.annotation.internalConfigurationBeanNameGenerator], dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:15.045 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] BeanNameGenerator will be a instance of org.springframework.context.annotation.AnnotationBeanNameGenerator , it maybe a potential problem on bean name generation., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:15.049 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] Found 3 classes annotated by Dubbo @Service under package [org.tl.user.provider]: [org.tl.user.provider.impl.SmsRPCService, org.tl.user.provider.impl.UserPhoneLoginRPCService, org.tl.user.provider.impl.UserRPCService], dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:15.084 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] Register ServiceBean[ServiceBean:org.tl.user.inter.ISmsRPCService::]: Root bean: class [org.apache.dubbo.config.spring.ServiceBean]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:15.086 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] Register ServiceBean[ServiceBean:org.tl.user.inter.IUserPhoneLoginRPCService::]: Root bean: class [org.apache.dubbo.config.spring.ServiceBean]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:15.088 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] Register ServiceBean[ServiceBean:org.tl.user.inter.IUserRPCService::]: Root bean: class [org.apache.dubbo.config.spring.ServiceBean]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:15.326 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=141f9a68-d5f7-31b3-bb3a-33b94e304124 
+2024-07-13 20:24:15.901 [main] INFO  o.a.d.c.s.b.f.a.ReferenceAnnotationBeanPostProcessor -  [DUBBO] class org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor was destroying!, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:16.152 [main] INFO  o.a.d.c.spring.context.DubboConfigBeanInitializer -  [DUBBO] loading dubbo config beans ..., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:16.158 [main] INFO  o.a.d.c.spring.context.DubboConfigBeanInitializer -  [DUBBO] dubbo config beans are loaded., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:16.227 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] No value is configured in the registry, the DynamicConfigurationFactory extension[name : nacos] supports as the config center, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:16.229 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] The registry[<dubbo:registry port="8848" parameters="{namespace=tl-live}" id="nacos-registry" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" />] will be used as the config center, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:16.234 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] use registry as config-center: <dubbo:config-center highestPriority="false" id="config-center-nacos-127.0.0.1-8848" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" port="8848" parameters="{namespace=tl-live, client=null}" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:16.254 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 20:24:16.259 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [req-serv] nacos-server port:8848 
+2024-07-13 20:24:16.259 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [http-client] connect timeout:1000 
+2024-07-13 20:24:16.261 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - PER_TASK_CONFIG_SIZE: 3000.0 
+2024-07-13 20:24:16.380 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2024-07-13 20:24:16.380 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2024-07-13 20:24:16.384 [main] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - null No credential found 
+2024-07-13 20:24:16.402 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of 390cbad7-30aa-4206-9efe-7f0e0a4ad8c1_config-0 
+2024-07-13 20:24:16.450 [main] INFO  com.alibaba.nacos.common.remote.client - [390cbad7-30aa-4206-9efe-7f0e0a4ad8c1_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$922/0x000000080110c7a0 
+2024-07-13 20:24:16.451 [main] INFO  com.alibaba.nacos.common.remote.client - [390cbad7-30aa-4206-9efe-7f0e0a4ad8c1_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$923/0x000000080110cbc0 
+2024-07-13 20:24:16.451 [main] INFO  com.alibaba.nacos.common.remote.client - [390cbad7-30aa-4206-9efe-7f0e0a4ad8c1_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1 
+2024-07-13 20:24:16.451 [main] INFO  com.alibaba.nacos.common.remote.client - [390cbad7-30aa-4206-9efe-7f0e0a4ad8c1_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2 
+2024-07-13 20:24:16.463 [main] INFO  com.alibaba.nacos.common.remote.client - [390cbad7-30aa-4206-9efe-7f0e0a4ad8c1_config-0] Try to connect to server on start up, server: {serverIp = '127.0.0.1', server main port = 8848} 
+2024-07-13 20:24:16.508 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:127.0.0.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false} 
+2024-07-13 20:24:17.997 [main] INFO  com.alibaba.nacos.common.remote.client - [390cbad7-30aa-4206-9efe-7f0e0a4ad8c1_config-0] Success to connect to server [127.0.0.1:8848] on start up, connectionId = 1720873457766_127.0.0.1_52368 
+2024-07-13 20:24:17.998 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client - [390cbad7-30aa-4206-9efe-7f0e0a4ad8c1_config-0] Notify connected event to listeners. 
+2024-07-13 20:24:17.999 [main] INFO  com.alibaba.nacos.common.remote.client - [390cbad7-30aa-4206-9efe-7f0e0a4ad8c1_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler 
+2024-07-13 20:24:17.999 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [390cbad7-30aa-4206-9efe-7f0e0a4ad8c1_config-0] Connected,notify listen context... 
+2024-07-13 20:24:18.000 [main] INFO  com.alibaba.nacos.common.remote.client - [390cbad7-30aa-4206-9efe-7f0e0a4ad8c1_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$945/0x0000000801293ee8 
+2024-07-13 20:24:18.005 [main] INFO  c.a.n.client.config.impl.LocalConfigInfoProcessor - LOCAL_SNAPSHOT_PATH:C:\Users\k1341\nacos\config 
+2024-07-13 20:24:18.064 [main] INFO  com.alibaba.nacos.client.config.impl.Limiter - limitTime:5.0 
+2024-07-13 20:24:18.093 [main] INFO  org.apache.dubbo.common.config.ConfigurationUtils -  [DUBBO] Config center was specified, but no config item found., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:18.095 [main] INFO  org.apache.dubbo.common.config.ConfigurationUtils -  [DUBBO] Config center was specified, but no config item found., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:18.117 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] The current configurations or effective configurations are as follows:, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:18.118 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] <dubbo:application enableFileCache="true" executorManagementMode="isolation" parameters="{}" name="tl-live-user-provider" qosEnable="false" protocol="dubbo" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:18.118 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] <dubbo:protocol preferSerialization="fastjson2,hessian2" port="-1" name="dubbo" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:18.119 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] <dubbo:registry port="8848" parameters="{namespace=tl-live}" id="nacos-registry" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:18.119 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] <dubbo:ssl />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:18.147 [main] INFO  o.apache.dubbo.config.deploy.DefaultModuleDeployer -  [DUBBO] Dubbo Module[1.1.0] has been initialized!, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:18.152 [main] INFO  o.apache.dubbo.config.deploy.DefaultModuleDeployer -  [DUBBO] Dubbo Module[1.1.1] has been initialized!, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:18.165 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] No value is configured in the registry, the MetadataReportFactory extension[name : nacos] supports as the metadata center, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:18.166 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] The registry[<dubbo:registry port="8848" parameters="{namespace=tl-live}" id="nacos-registry" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" />] will be used as the metadata center, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:18.169 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] use registry as metadata-center: <dubbo:metadata-report id="nacos-registry" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" port="8848" parameters="{namespace=tl-live, client=null}" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:18.328 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2024-07-13 20:24:18.328 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2024-07-13 20:24:18.329 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of 299ff06f-4ccc-4e90-9232-e219f70ea3c8_config-0 
+2024-07-13 20:24:18.329 [main] INFO  com.alibaba.nacos.common.remote.client - [299ff06f-4ccc-4e90-9232-e219f70ea3c8_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$922/0x000000080110c7a0 
+2024-07-13 20:24:18.329 [main] INFO  com.alibaba.nacos.common.remote.client - [299ff06f-4ccc-4e90-9232-e219f70ea3c8_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$923/0x000000080110cbc0 
+2024-07-13 20:24:18.329 [main] INFO  com.alibaba.nacos.common.remote.client - [299ff06f-4ccc-4e90-9232-e219f70ea3c8_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1 
+2024-07-13 20:24:18.329 [main] INFO  com.alibaba.nacos.common.remote.client - [299ff06f-4ccc-4e90-9232-e219f70ea3c8_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2 
+2024-07-13 20:24:18.329 [main] INFO  com.alibaba.nacos.common.remote.client - [299ff06f-4ccc-4e90-9232-e219f70ea3c8_config-0] Try to connect to server on start up, server: {serverIp = '127.0.0.1', server main port = 8848} 
+2024-07-13 20:24:18.330 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:127.0.0.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false} 
+2024-07-13 20:24:18.460 [main] INFO  com.alibaba.nacos.common.remote.client - [299ff06f-4ccc-4e90-9232-e219f70ea3c8_config-0] Success to connect to server [127.0.0.1:8848] on start up, connectionId = 1720873458335_127.0.0.1_52369 
+2024-07-13 20:24:18.460 [main] INFO  com.alibaba.nacos.common.remote.client - [299ff06f-4ccc-4e90-9232-e219f70ea3c8_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler 
+2024-07-13 20:24:18.460 [main] INFO  com.alibaba.nacos.common.remote.client - [299ff06f-4ccc-4e90-9232-e219f70ea3c8_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$945/0x0000000801293ee8 
+2024-07-13 20:24:18.460 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client - [299ff06f-4ccc-4e90-9232-e219f70ea3c8_config-0] Notify connected event to listeners. 
+2024-07-13 20:24:18.460 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [299ff06f-4ccc-4e90-9232-e219f70ea3c8_config-0] Connected,notify listen context... 
+2024-07-13 20:24:18.470 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] Dubbo Application[1.1](tl-live-user-provider) has been initialized!, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:19.464 [main] WARN  o.s.w.context.support.GenericWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginService': Injection of resource dependencies failed 
+2024-07-13 20:24:19.497 [main] INFO  o.s.b.a.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled. 
+2024-07-13 20:24:19.530 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'org.tl.live.id.inter.IGenerateIDRPCService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.tl.live.id.inter.IGenerateIDRPCService' in your configuration.
+ 
+2024-07-13 20:24:19.536 [main] ERROR o.springframework.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [org.tl.user.provider.mysql.MySqlTest@3d213a2b] 
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@510bd87a testClass = org.tl.user.provider.mysql.MySqlTest, locations = [], classes = [org.tl.user.provider.UserProvideApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceLocations = [], propertySourceProperties = ["org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@67d48005, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@5876a9af, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@16d04d3d, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@9da1, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@74f0ea28, org.springframework.boot.test.context.SpringBootTestAnnotation@7b3552e8], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:142)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:241)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginService': Injection of resource dependencies failed
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:303)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1408)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:961)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:917)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:59)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:47)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1388)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:545)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:184)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:118)
+	... 27 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userService': Injection of resource dependencies failed
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:303)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1408)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.resolveBeanByName(AbstractAutowireCapableBeanFactory.java:458)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:496)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:467)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:618)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:242)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:133)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:300)
+	... 49 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.tl.live.id.inter.IGenerateIDRPCService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@jakarta.annotation.Resource(shareable=true, lookup="", name="", description="", authenticationType=CONTAINER, type=java.lang.Object.class, mappedName="")}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1812)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1371)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:490)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:467)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:618)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:242)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:133)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:300)
+	... 63 common frames omitted
+2024-07-13 20:24:19.557 [Thread-3] WARN  c.alibaba.nacos.common.http.HttpClientBeanHolder - [HttpClientBeanHolder] Start destroying common HttpClient 
+2024-07-13 20:24:19.558 [DubboShutdownHook] INFO  org.apache.dubbo.config.DubboShutdownHook -  [DUBBO] Run shutdown hook now., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 20:24:19.557 [Thread-8] WARN  com.alibaba.nacos.common.notify.NotifyCenter - [NotifyCenter] Start destroying Publisher 
+2024-07-13 20:24:19.558 [Thread-8] WARN  com.alibaba.nacos.common.notify.NotifyCenter - [NotifyCenter] Destruction of the end 
+2024-07-13 20:24:19.558 [Thread-3] WARN  c.alibaba.nacos.common.http.HttpClientBeanHolder - [HttpClientBeanHolder] Destruction of the end 
+2024-07-13 21:08:20.698 [main] INFO  o.a.d.s.b.c.event.WelcomeLogoApplicationListener -  [DUBBO] 
+
+ :: Dubbo (v3.2.9) : https://github.com/apache/dubbo
+ :: Discuss group : dev@dubbo.apache.org
+, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:20.721 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 21:08:20.829 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 21:08:22.607 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 21:08:22.644 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 21:08:22.645 [main] INFO  org.tl.user.provider.mysql.MySqlTest - No active profile set, falling back to 1 default profile: "default" 
+2024-07-13 21:08:23.096 [main] INFO  org.apache.dubbo.rpc.model.FrameworkModel -  [DUBBO] Dubbo Framework[1] is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.111 [main] INFO  o.a.d.common.resource.GlobalResourcesRepository -  [DUBBO] Creating global shared handler ..., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.205 [main] INFO  org.apache.dubbo.rpc.model.ApplicationModel -  [DUBBO] Dubbo Application[1.0](unknown) is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.207 [main] INFO  org.apache.dubbo.rpc.model.ScopeModel -  [DUBBO] Dubbo Module[1.0.0] is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.260 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.261 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.285 [main] INFO  o.a.dubbo.common.utils.SerializeSecurityManager -  [DUBBO] Serialize check serializable: true, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.286 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.allowlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.320 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.blockedlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.509 [main] INFO  org.apache.dubbo.rpc.model.ApplicationModel -  [DUBBO] Dubbo Application[1.1](unknown) is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.509 [main] INFO  org.apache.dubbo.rpc.model.ScopeModel -  [DUBBO] Dubbo Module[1.1.0] is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.517 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.518 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.521 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.allowlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.522 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.blockedlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.537 [main] INFO  o.a.d.config.spring.context.DubboSpringInitializer -  [DUBBO] Use default application: Dubbo Application[1.1](unknown), dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.538 [main] INFO  org.apache.dubbo.rpc.model.ScopeModel -  [DUBBO] Dubbo Module[1.1.1] is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.541 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.543 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.allowlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.544 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.blockedlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.549 [main] INFO  o.a.d.config.spring.context.DubboSpringInitializer -  [DUBBO] Use default module model of target application: Dubbo Module[1.1.1], dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.551 [main] INFO  o.a.d.config.spring.context.DubboSpringInitializer -  [DUBBO] Bind Dubbo Module[1.1.1] to spring container: org.springframework.beans.factory.support.DefaultListableBeanFactory@2e23c180, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:23.843 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode 
+2024-07-13 21:08:23.847 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode. 
+2024-07-13 21:08:23.884 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces. 
+2024-07-13 21:08:24.043 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] BeanNameGenerator bean can't be found in BeanFactory with name [org.springframework.context.annotation.internalConfigurationBeanNameGenerator], dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:24.043 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] BeanNameGenerator will be a instance of org.springframework.context.annotation.AnnotationBeanNameGenerator , it maybe a potential problem on bean name generation., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:24.051 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] Found 3 classes annotated by Dubbo @Service under package [org.tl.user.provider]: [org.tl.user.provider.impl.SmsRPCService, org.tl.user.provider.impl.UserPhoneLoginRPCService, org.tl.user.provider.impl.UserRPCService], dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:24.086 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] Register ServiceBean[ServiceBean:org.tl.user.inter.ISmsRPCService::]: Root bean: class [org.apache.dubbo.config.spring.ServiceBean]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:24.088 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] Register ServiceBean[ServiceBean:org.tl.user.inter.IUserPhoneLoginRPCService::]: Root bean: class [org.apache.dubbo.config.spring.ServiceBean]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:24.090 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] Register ServiceBean[ServiceBean:org.tl.user.inter.IUserRPCService::]: Root bean: class [org.apache.dubbo.config.spring.ServiceBean]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:24.268 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=141f9a68-d5f7-31b3-bb3a-33b94e304124 
+2024-07-13 21:08:24.877 [main] INFO  o.a.d.c.s.b.f.a.ReferenceAnnotationBeanPostProcessor -  [DUBBO] class org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor was destroying!, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:25.073 [main] INFO  o.a.d.c.spring.context.DubboConfigBeanInitializer -  [DUBBO] loading dubbo config beans ..., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:25.075 [main] INFO  o.a.d.c.spring.context.DubboConfigBeanInitializer -  [DUBBO] dubbo config beans are loaded., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:25.154 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] No value is configured in the registry, the DynamicConfigurationFactory extension[name : nacos] supports as the config center, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:25.156 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] The registry[<dubbo:registry port="8848" parameters="{namespace=tl-live}" id="nacos-registry" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" />] will be used as the config center, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:25.161 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] use registry as config-center: <dubbo:config-center highestPriority="false" id="config-center-nacos-127.0.0.1-8848" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" port="8848" parameters="{namespace=tl-live, client=null}" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:25.185 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 21:08:25.187 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [req-serv] nacos-server port:8848 
+2024-07-13 21:08:25.187 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [http-client] connect timeout:1000 
+2024-07-13 21:08:25.188 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - PER_TASK_CONFIG_SIZE: 3000.0 
+2024-07-13 21:08:25.312 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2024-07-13 21:08:25.313 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2024-07-13 21:08:25.319 [main] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - null No credential found 
+2024-07-13 21:08:25.333 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of 1ab4c904-ab24-4385-ac8e-968dd0fd4a9d_config-0 
+2024-07-13 21:08:25.361 [main] INFO  com.alibaba.nacos.common.remote.client - [1ab4c904-ab24-4385-ac8e-968dd0fd4a9d_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$922/0x000000080110b3a0 
+2024-07-13 21:08:25.362 [main] INFO  com.alibaba.nacos.common.remote.client - [1ab4c904-ab24-4385-ac8e-968dd0fd4a9d_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$923/0x000000080110b7c0 
+2024-07-13 21:08:25.366 [main] INFO  com.alibaba.nacos.common.remote.client - [1ab4c904-ab24-4385-ac8e-968dd0fd4a9d_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1 
+2024-07-13 21:08:25.367 [main] INFO  com.alibaba.nacos.common.remote.client - [1ab4c904-ab24-4385-ac8e-968dd0fd4a9d_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2 
+2024-07-13 21:08:25.382 [main] INFO  com.alibaba.nacos.common.remote.client - [1ab4c904-ab24-4385-ac8e-968dd0fd4a9d_config-0] Try to connect to server on start up, server: {serverIp = '127.0.0.1', server main port = 8848} 
+2024-07-13 21:08:25.444 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:127.0.0.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false} 
+2024-07-13 21:08:26.675 [main] INFO  com.alibaba.nacos.common.remote.client - [1ab4c904-ab24-4385-ac8e-968dd0fd4a9d_config-0] Success to connect to server [127.0.0.1:8848] on start up, connectionId = 1720876106474_127.0.0.1_54644 
+2024-07-13 21:08:26.676 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client - [1ab4c904-ab24-4385-ac8e-968dd0fd4a9d_config-0] Notify connected event to listeners. 
+2024-07-13 21:08:26.676 [main] INFO  com.alibaba.nacos.common.remote.client - [1ab4c904-ab24-4385-ac8e-968dd0fd4a9d_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler 
+2024-07-13 21:08:26.676 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [1ab4c904-ab24-4385-ac8e-968dd0fd4a9d_config-0] Connected,notify listen context... 
+2024-07-13 21:08:26.676 [main] INFO  com.alibaba.nacos.common.remote.client - [1ab4c904-ab24-4385-ac8e-968dd0fd4a9d_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$945/0x000000080128edd8 
+2024-07-13 21:08:26.677 [main] INFO  c.a.n.client.config.impl.LocalConfigInfoProcessor - LOCAL_SNAPSHOT_PATH:C:\Users\k1341\nacos\config 
+2024-07-13 21:08:26.726 [main] INFO  com.alibaba.nacos.client.config.impl.Limiter - limitTime:5.0 
+2024-07-13 21:08:26.758 [main] INFO  org.apache.dubbo.common.config.ConfigurationUtils -  [DUBBO] Config center was specified, but no config item found., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:26.758 [main] INFO  org.apache.dubbo.common.config.ConfigurationUtils -  [DUBBO] Config center was specified, but no config item found., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:26.786 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] The current configurations or effective configurations are as follows:, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:26.788 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] <dubbo:application enableFileCache="true" executorManagementMode="isolation" parameters="{}" name="tl-live-user-provider" qosEnable="false" protocol="dubbo" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:26.788 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] <dubbo:protocol preferSerialization="fastjson2,hessian2" port="-1" name="dubbo" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:26.788 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] <dubbo:registry port="8848" parameters="{namespace=tl-live}" id="nacos-registry" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:26.788 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] <dubbo:ssl />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:26.818 [main] INFO  o.apache.dubbo.config.deploy.DefaultModuleDeployer -  [DUBBO] Dubbo Module[1.1.0] has been initialized!, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:26.823 [main] INFO  o.apache.dubbo.config.deploy.DefaultModuleDeployer -  [DUBBO] Dubbo Module[1.1.1] has been initialized!, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:26.834 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] No value is configured in the registry, the MetadataReportFactory extension[name : nacos] supports as the metadata center, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:26.835 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] The registry[<dubbo:registry port="8848" parameters="{namespace=tl-live}" id="nacos-registry" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" />] will be used as the metadata center, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:26.839 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] use registry as metadata-center: <dubbo:metadata-report id="nacos-registry" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" port="8848" parameters="{namespace=tl-live, client=null}" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:26.963 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2024-07-13 21:08:26.963 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2024-07-13 21:08:26.966 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of 940f3827-f529-4fb5-947c-c71c96c70711_config-0 
+2024-07-13 21:08:26.967 [main] INFO  com.alibaba.nacos.common.remote.client - [940f3827-f529-4fb5-947c-c71c96c70711_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$922/0x000000080110b3a0 
+2024-07-13 21:08:26.967 [main] INFO  com.alibaba.nacos.common.remote.client - [940f3827-f529-4fb5-947c-c71c96c70711_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$923/0x000000080110b7c0 
+2024-07-13 21:08:26.967 [main] INFO  com.alibaba.nacos.common.remote.client - [940f3827-f529-4fb5-947c-c71c96c70711_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1 
+2024-07-13 21:08:26.967 [main] INFO  com.alibaba.nacos.common.remote.client - [940f3827-f529-4fb5-947c-c71c96c70711_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2 
+2024-07-13 21:08:26.968 [main] INFO  com.alibaba.nacos.common.remote.client - [940f3827-f529-4fb5-947c-c71c96c70711_config-0] Try to connect to server on start up, server: {serverIp = '127.0.0.1', server main port = 8848} 
+2024-07-13 21:08:26.968 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:127.0.0.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false} 
+2024-07-13 21:08:27.095 [main] INFO  com.alibaba.nacos.common.remote.client - [940f3827-f529-4fb5-947c-c71c96c70711_config-0] Success to connect to server [127.0.0.1:8848] on start up, connectionId = 1720876106975_127.0.0.1_54646 
+2024-07-13 21:08:27.095 [main] INFO  com.alibaba.nacos.common.remote.client - [940f3827-f529-4fb5-947c-c71c96c70711_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler 
+2024-07-13 21:08:27.095 [main] INFO  com.alibaba.nacos.common.remote.client - [940f3827-f529-4fb5-947c-c71c96c70711_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$945/0x000000080128edd8 
+2024-07-13 21:08:27.095 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client - [940f3827-f529-4fb5-947c-c71c96c70711_config-0] Notify connected event to listeners. 
+2024-07-13 21:08:27.096 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [940f3827-f529-4fb5-947c-c71c96c70711_config-0] Connected,notify listen context... 
+2024-07-13 21:08:27.108 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] Dubbo Application[1.1](tl-live-user-provider) has been initialized!, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:27.919 [main] WARN  o.s.w.context.support.GenericWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginService': Injection of resource dependencies failed 
+2024-07-13 21:08:27.942 [main] INFO  o.s.b.a.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled. 
+2024-07-13 21:08:27.969 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'org.tl.live.id.inter.IGenerateIDRPCService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.tl.live.id.inter.IGenerateIDRPCService' in your configuration.
+ 
+2024-07-13 21:08:27.974 [main] ERROR o.springframework.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [org.tl.user.provider.mysql.MySqlTest@78a34c47] 
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@27691ee8 testClass = org.tl.user.provider.mysql.MySqlTest, locations = [], classes = [org.tl.user.provider.UserProvideApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceLocations = [], propertySourceProperties = ["org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@67d48005, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@5876a9af, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@16d04d3d, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@9da1, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@74f0ea28, org.springframework.boot.test.context.SpringBootTestAnnotation@7b3552e8], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:142)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:241)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginService': Injection of resource dependencies failed
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:303)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1408)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:961)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:917)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:59)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:47)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1388)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:545)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:184)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:118)
+	... 27 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userService': Injection of resource dependencies failed
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:303)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1408)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.resolveBeanByName(AbstractAutowireCapableBeanFactory.java:458)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:496)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:467)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:618)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:242)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:133)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:300)
+	... 49 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.tl.live.id.inter.IGenerateIDRPCService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@jakarta.annotation.Resource(shareable=true, lookup="", name="", description="", authenticationType=CONTAINER, type=java.lang.Object.class, mappedName="")}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1812)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1371)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:490)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:467)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:618)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:242)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:133)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:300)
+	... 63 common frames omitted
+2024-07-13 21:08:27.992 [DubboShutdownHook] INFO  org.apache.dubbo.config.DubboShutdownHook -  [DUBBO] Run shutdown hook now., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:08:27.992 [Thread-3] WARN  c.alibaba.nacos.common.http.HttpClientBeanHolder - [HttpClientBeanHolder] Start destroying common HttpClient 
+2024-07-13 21:08:27.992 [Thread-8] WARN  com.alibaba.nacos.common.notify.NotifyCenter - [NotifyCenter] Start destroying Publisher 
+2024-07-13 21:26:05.886 [main] INFO  o.a.d.s.b.c.event.WelcomeLogoApplicationListener -  [DUBBO] 
+
+ :: Dubbo (v3.2.9) : https://github.com/apache/dubbo
+ :: Discuss group : dev@dubbo.apache.org
+, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:05.898 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 21:26:05.980 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 21:26:07.661 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 21:26:07.690 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 21:26:07.691 [main] INFO  org.tl.user.provider.mysql.MySqlTest - No active profile set, falling back to 1 default profile: "default" 
+2024-07-13 21:26:08.135 [main] INFO  org.apache.dubbo.rpc.model.FrameworkModel -  [DUBBO] Dubbo Framework[1] is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.150 [main] INFO  o.a.d.common.resource.GlobalResourcesRepository -  [DUBBO] Creating global shared handler ..., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.223 [main] INFO  org.apache.dubbo.rpc.model.ApplicationModel -  [DUBBO] Dubbo Application[1.0](unknown) is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.225 [main] INFO  org.apache.dubbo.rpc.model.ScopeModel -  [DUBBO] Dubbo Module[1.0.0] is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.261 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.262 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.276 [main] INFO  o.a.dubbo.common.utils.SerializeSecurityManager -  [DUBBO] Serialize check serializable: true, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.277 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.allowlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.303 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.blockedlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.513 [main] INFO  org.apache.dubbo.rpc.model.ApplicationModel -  [DUBBO] Dubbo Application[1.1](unknown) is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.514 [main] INFO  org.apache.dubbo.rpc.model.ScopeModel -  [DUBBO] Dubbo Module[1.1.0] is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.521 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.523 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.527 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.allowlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.529 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.blockedlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.547 [main] INFO  o.a.d.config.spring.context.DubboSpringInitializer -  [DUBBO] Use default application: Dubbo Application[1.1](unknown), dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.548 [main] INFO  org.apache.dubbo.rpc.model.ScopeModel -  [DUBBO] Dubbo Module[1.1.1] is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.551 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.556 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.allowlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.557 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.blockedlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.561 [main] INFO  o.a.d.config.spring.context.DubboSpringInitializer -  [DUBBO] Use default module model of target application: Dubbo Module[1.1.1], dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.561 [main] INFO  o.a.d.config.spring.context.DubboSpringInitializer -  [DUBBO] Bind Dubbo Module[1.1.1] to spring container: org.springframework.beans.factory.support.DefaultListableBeanFactory@74aa9c72, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:08.859 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode 
+2024-07-13 21:26:08.864 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode. 
+2024-07-13 21:26:08.898 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces. 
+2024-07-13 21:26:09.005 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] BeanNameGenerator bean can't be found in BeanFactory with name [org.springframework.context.annotation.internalConfigurationBeanNameGenerator], dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:09.006 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] BeanNameGenerator will be a instance of org.springframework.context.annotation.AnnotationBeanNameGenerator , it maybe a potential problem on bean name generation., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:09.016 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] Found 3 classes annotated by Dubbo @Service under package [org.tl.user.provider]: [org.tl.user.provider.impl.SmsRPCService, org.tl.user.provider.impl.UserPhoneLoginRPCService, org.tl.user.provider.impl.UserRPCService], dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:09.036 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] Register ServiceBean[ServiceBean:org.tl.user.inter.ISmsRPCService::]: Root bean: class [org.apache.dubbo.config.spring.ServiceBean]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:09.039 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] Register ServiceBean[ServiceBean:org.tl.user.inter.IUserPhoneLoginRPCService::]: Root bean: class [org.apache.dubbo.config.spring.ServiceBean]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:09.040 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] Register ServiceBean[ServiceBean:org.tl.user.inter.IUserRPCService::]: Root bean: class [org.apache.dubbo.config.spring.ServiceBean]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:09.187 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=141f9a68-d5f7-31b3-bb3a-33b94e304124 
+2024-07-13 21:26:09.573 [main] INFO  o.a.d.c.s.b.f.a.ReferenceAnnotationBeanPostProcessor -  [DUBBO] class org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor was destroying!, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:09.784 [main] INFO  o.a.d.c.spring.context.DubboConfigBeanInitializer -  [DUBBO] loading dubbo config beans ..., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:09.787 [main] INFO  o.a.d.c.spring.context.DubboConfigBeanInitializer -  [DUBBO] dubbo config beans are loaded., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:09.855 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] No value is configured in the registry, the DynamicConfigurationFactory extension[name : nacos] supports as the config center, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:09.857 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] The registry[<dubbo:registry port="8848" parameters="{namespace=tl-live}" id="nacos-registry" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" />] will be used as the config center, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:09.864 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] use registry as config-center: <dubbo:config-center highestPriority="false" id="config-center-nacos-127.0.0.1-8848" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" port="8848" parameters="{namespace=tl-live, client=null}" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:09.880 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 21:26:09.882 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [req-serv] nacos-server port:8848 
+2024-07-13 21:26:09.882 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [http-client] connect timeout:1000 
+2024-07-13 21:26:09.883 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - PER_TASK_CONFIG_SIZE: 3000.0 
+2024-07-13 21:26:09.979 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2024-07-13 21:26:09.979 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2024-07-13 21:26:09.983 [main] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - null No credential found 
+2024-07-13 21:26:09.993 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of 78aee584-dd65-47ce-a9fa-adad6fb997a2_config-0 
+2024-07-13 21:26:10.019 [main] INFO  com.alibaba.nacos.common.remote.client - [78aee584-dd65-47ce-a9fa-adad6fb997a2_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$922/0x000000080110d198 
+2024-07-13 21:26:10.019 [main] INFO  com.alibaba.nacos.common.remote.client - [78aee584-dd65-47ce-a9fa-adad6fb997a2_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$923/0x000000080110d5b8 
+2024-07-13 21:26:10.020 [main] INFO  com.alibaba.nacos.common.remote.client - [78aee584-dd65-47ce-a9fa-adad6fb997a2_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1 
+2024-07-13 21:26:10.021 [main] INFO  com.alibaba.nacos.common.remote.client - [78aee584-dd65-47ce-a9fa-adad6fb997a2_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2 
+2024-07-13 21:26:10.035 [main] INFO  com.alibaba.nacos.common.remote.client - [78aee584-dd65-47ce-a9fa-adad6fb997a2_config-0] Try to connect to server on start up, server: {serverIp = '127.0.0.1', server main port = 8848} 
+2024-07-13 21:26:10.118 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:127.0.0.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false} 
+2024-07-13 21:26:11.179 [main] INFO  com.alibaba.nacos.common.remote.client - [78aee584-dd65-47ce-a9fa-adad6fb997a2_config-0] Success to connect to server [127.0.0.1:8848] on start up, connectionId = 1720877170995_127.0.0.1_55178 
+2024-07-13 21:26:11.180 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client - [78aee584-dd65-47ce-a9fa-adad6fb997a2_config-0] Notify connected event to listeners. 
+2024-07-13 21:26:11.180 [main] INFO  com.alibaba.nacos.common.remote.client - [78aee584-dd65-47ce-a9fa-adad6fb997a2_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler 
+2024-07-13 21:26:11.180 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [78aee584-dd65-47ce-a9fa-adad6fb997a2_config-0] Connected,notify listen context... 
+2024-07-13 21:26:11.180 [main] INFO  com.alibaba.nacos.common.remote.client - [78aee584-dd65-47ce-a9fa-adad6fb997a2_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$945/0x0000000801290f80 
+2024-07-13 21:26:11.182 [main] INFO  c.a.n.client.config.impl.LocalConfigInfoProcessor - LOCAL_SNAPSHOT_PATH:C:\Users\k1341\nacos\config 
+2024-07-13 21:26:11.216 [main] INFO  com.alibaba.nacos.client.config.impl.Limiter - limitTime:5.0 
+2024-07-13 21:26:11.242 [main] INFO  org.apache.dubbo.common.config.ConfigurationUtils -  [DUBBO] Config center was specified, but no config item found., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:11.242 [main] INFO  org.apache.dubbo.common.config.ConfigurationUtils -  [DUBBO] Config center was specified, but no config item found., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:11.261 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] The current configurations or effective configurations are as follows:, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:11.262 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] <dubbo:application enableFileCache="true" executorManagementMode="isolation" parameters="{}" name="tl-live-user-provider" qosEnable="false" protocol="dubbo" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:11.262 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] <dubbo:protocol preferSerialization="fastjson2,hessian2" port="-1" name="dubbo" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:11.262 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] <dubbo:registry port="8848" parameters="{namespace=tl-live}" id="nacos-registry" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:11.263 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] <dubbo:ssl />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:11.294 [main] INFO  o.apache.dubbo.config.deploy.DefaultModuleDeployer -  [DUBBO] Dubbo Module[1.1.0] has been initialized!, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:11.299 [main] INFO  o.apache.dubbo.config.deploy.DefaultModuleDeployer -  [DUBBO] Dubbo Module[1.1.1] has been initialized!, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:11.306 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] No value is configured in the registry, the MetadataReportFactory extension[name : nacos] supports as the metadata center, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:11.306 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] The registry[<dubbo:registry port="8848" parameters="{namespace=tl-live}" id="nacos-registry" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" />] will be used as the metadata center, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:11.310 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] use registry as metadata-center: <dubbo:metadata-report id="nacos-registry" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" port="8848" parameters="{namespace=tl-live, client=null}" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:11.397 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2024-07-13 21:26:11.397 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2024-07-13 21:26:11.397 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of 32c049d2-6bf6-497f-90fa-a1b5ee778b03_config-0 
+2024-07-13 21:26:11.398 [main] INFO  com.alibaba.nacos.common.remote.client - [32c049d2-6bf6-497f-90fa-a1b5ee778b03_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$922/0x000000080110d198 
+2024-07-13 21:26:11.398 [main] INFO  com.alibaba.nacos.common.remote.client - [32c049d2-6bf6-497f-90fa-a1b5ee778b03_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$923/0x000000080110d5b8 
+2024-07-13 21:26:11.398 [main] INFO  com.alibaba.nacos.common.remote.client - [32c049d2-6bf6-497f-90fa-a1b5ee778b03_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1 
+2024-07-13 21:26:11.398 [main] INFO  com.alibaba.nacos.common.remote.client - [32c049d2-6bf6-497f-90fa-a1b5ee778b03_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2 
+2024-07-13 21:26:11.398 [main] INFO  com.alibaba.nacos.common.remote.client - [32c049d2-6bf6-497f-90fa-a1b5ee778b03_config-0] Try to connect to server on start up, server: {serverIp = '127.0.0.1', server main port = 8848} 
+2024-07-13 21:26:11.399 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:127.0.0.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false} 
+2024-07-13 21:26:11.522 [main] INFO  com.alibaba.nacos.common.remote.client - [32c049d2-6bf6-497f-90fa-a1b5ee778b03_config-0] Success to connect to server [127.0.0.1:8848] on start up, connectionId = 1720877171405_127.0.0.1_55179 
+2024-07-13 21:26:11.522 [main] INFO  com.alibaba.nacos.common.remote.client - [32c049d2-6bf6-497f-90fa-a1b5ee778b03_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler 
+2024-07-13 21:26:11.522 [main] INFO  com.alibaba.nacos.common.remote.client - [32c049d2-6bf6-497f-90fa-a1b5ee778b03_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$945/0x0000000801290f80 
+2024-07-13 21:26:11.522 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client - [32c049d2-6bf6-497f-90fa-a1b5ee778b03_config-0] Notify connected event to listeners. 
+2024-07-13 21:26:11.522 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [32c049d2-6bf6-497f-90fa-a1b5ee778b03_config-0] Connected,notify listen context... 
+2024-07-13 21:26:11.528 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] Dubbo Application[1.1](tl-live-user-provider) has been initialized!, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:12.335 [main] WARN  o.s.w.context.support.GenericWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginService': Injection of resource dependencies failed 
+2024-07-13 21:26:12.355 [main] INFO  o.s.b.a.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled. 
+2024-07-13 21:26:12.375 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'org.tl.live.id.inter.IGenerateIDRPCService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.tl.live.id.inter.IGenerateIDRPCService' in your configuration.
+ 
+2024-07-13 21:26:12.382 [main] ERROR o.springframework.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [org.tl.user.provider.mysql.MySqlTest@33060020] 
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@1afabf06 testClass = org.tl.user.provider.mysql.MySqlTest, locations = [], classes = [org.tl.user.provider.UserProvideApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceLocations = [], propertySourceProperties = ["org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@323b36e0, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@5ffead27, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@37afeb11, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@9da1, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@6069db50, org.springframework.boot.test.context.SpringBootTestAnnotation@5ce40f1c], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:142)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:241)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginService': Injection of resource dependencies failed
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:303)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1408)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:961)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:917)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:59)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:47)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1388)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:545)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:184)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:118)
+	... 36 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userService': Injection of resource dependencies failed
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:303)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1408)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.resolveBeanByName(AbstractAutowireCapableBeanFactory.java:458)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:496)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:467)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:618)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:242)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:133)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:300)
+	... 58 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.tl.live.id.inter.IGenerateIDRPCService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@jakarta.annotation.Resource(shareable=true, lookup="", name="", description="", authenticationType=CONTAINER, type=java.lang.Object.class, mappedName="")}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1812)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1371)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:490)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:467)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:618)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:242)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:133)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:300)
+	... 72 common frames omitted
+2024-07-13 21:26:12.413 [DubboShutdownHook] INFO  org.apache.dubbo.config.DubboShutdownHook -  [DUBBO] Run shutdown hook now., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:26:12.413 [Thread-8] WARN  com.alibaba.nacos.common.notify.NotifyCenter - [NotifyCenter] Start destroying Publisher 
+2024-07-13 21:26:12.413 [Thread-3] WARN  c.alibaba.nacos.common.http.HttpClientBeanHolder - [HttpClientBeanHolder] Start destroying common HttpClient 
+2024-07-13 21:26:12.414 [Thread-8] WARN  com.alibaba.nacos.common.notify.NotifyCenter - [NotifyCenter] Destruction of the end 
+2024-07-13 21:26:12.414 [Thread-3] WARN  c.alibaba.nacos.common.http.HttpClientBeanHolder - [HttpClientBeanHolder] Destruction of the end 
+2024-07-13 21:32:41.324 [main] INFO  o.a.d.s.b.c.event.WelcomeLogoApplicationListener -  [DUBBO] 
+
+ :: Dubbo (v3.2.9) : https://github.com/apache/dubbo
+ :: Discuss group : dev@dubbo.apache.org
+, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:41.337 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 21:32:41.414 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 21:32:43.156 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 21:32:43.180 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 21:32:43.181 [main] INFO  org.tl.user.provider.mysql.MySqlTest - No active profile set, falling back to 1 default profile: "default" 
+2024-07-13 21:32:43.648 [main] INFO  org.apache.dubbo.rpc.model.FrameworkModel -  [DUBBO] Dubbo Framework[1] is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:43.662 [main] INFO  o.a.d.common.resource.GlobalResourcesRepository -  [DUBBO] Creating global shared handler ..., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:43.750 [main] INFO  org.apache.dubbo.rpc.model.ApplicationModel -  [DUBBO] Dubbo Application[1.0](unknown) is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:43.752 [main] INFO  org.apache.dubbo.rpc.model.ScopeModel -  [DUBBO] Dubbo Module[1.0.0] is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:43.786 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:43.787 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:43.799 [main] INFO  o.a.dubbo.common.utils.SerializeSecurityManager -  [DUBBO] Serialize check serializable: true, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:43.800 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.allowlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:43.836 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.blockedlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:43.980 [main] INFO  org.apache.dubbo.rpc.model.ApplicationModel -  [DUBBO] Dubbo Application[1.1](unknown) is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:43.980 [main] INFO  org.apache.dubbo.rpc.model.ScopeModel -  [DUBBO] Dubbo Module[1.1.0] is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:43.986 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:43.986 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:43.990 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.allowlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:43.991 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.blockedlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:43.998 [main] INFO  o.a.d.config.spring.context.DubboSpringInitializer -  [DUBBO] Use default application: Dubbo Application[1.1](unknown), dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:43.998 [main] INFO  org.apache.dubbo.rpc.model.ScopeModel -  [DUBBO] Dubbo Module[1.1.1] is created, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:44.001 [main] INFO  o.a.dubbo.config.context.AbstractConfigManager -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:44.003 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.allowlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:44.003 [main] INFO  o.a.d.common.utils.SerializeSecurityConfigurator -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/k1341/.m2/repository/org/apache/dubbo/dubbo/3.2.9/dubbo-3.2.9.jar!/security/serialize.blockedlist, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:44.005 [main] INFO  o.a.d.config.spring.context.DubboSpringInitializer -  [DUBBO] Use default module model of target application: Dubbo Module[1.1.1], dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:44.005 [main] INFO  o.a.d.config.spring.context.DubboSpringInitializer -  [DUBBO] Bind Dubbo Module[1.1.1] to spring container: org.springframework.beans.factory.support.DefaultListableBeanFactory@4b7c4456, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:44.220 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode 
+2024-07-13 21:32:44.225 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode. 
+2024-07-13 21:32:44.263 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces. 
+2024-07-13 21:32:44.377 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] BeanNameGenerator bean can't be found in BeanFactory with name [org.springframework.context.annotation.internalConfigurationBeanNameGenerator], dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:44.377 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] BeanNameGenerator will be a instance of org.springframework.context.annotation.AnnotationBeanNameGenerator , it maybe a potential problem on bean name generation., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:44.383 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] Found 3 classes annotated by Dubbo @Service under package [org.tl.user.provider]: [org.tl.user.provider.impl.SmsRPCService, org.tl.user.provider.impl.UserPhoneLoginRPCService, org.tl.user.provider.impl.UserRPCService], dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:44.399 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] Register ServiceBean[ServiceBean:org.tl.user.inter.ISmsRPCService::]: Root bean: class [org.apache.dubbo.config.spring.ServiceBean]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:44.401 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] Register ServiceBean[ServiceBean:org.tl.user.inter.IUserPhoneLoginRPCService::]: Root bean: class [org.apache.dubbo.config.spring.ServiceBean]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:44.402 [main] INFO  o.a.d.c.s.b.f.a.ServiceAnnotationPostProcessor -  [DUBBO] Register ServiceBean[ServiceBean:org.tl.user.inter.IUserRPCService::]: Root bean: class [org.apache.dubbo.config.spring.ServiceBean]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:44.546 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=141f9a68-d5f7-31b3-bb3a-33b94e304124 
+2024-07-13 21:32:44.881 [main] INFO  o.a.d.c.s.b.f.a.ReferenceAnnotationBeanPostProcessor -  [DUBBO] class org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor was destroying!, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:45.044 [main] INFO  o.a.d.c.spring.context.DubboConfigBeanInitializer -  [DUBBO] loading dubbo config beans ..., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:45.047 [main] INFO  o.a.d.c.spring.context.DubboConfigBeanInitializer -  [DUBBO] dubbo config beans are loaded., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:45.115 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] No value is configured in the registry, the DynamicConfigurationFactory extension[name : nacos] supports as the config center, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:45.117 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] The registry[<dubbo:registry port="8848" parameters="{namespace=tl-live}" id="nacos-registry" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" />] will be used as the config center, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:45.123 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] use registry as config-center: <dubbo:config-center highestPriority="false" id="config-center-nacos-127.0.0.1-8848" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" port="8848" parameters="{namespace=tl-live, client=null}" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:45.143 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml 
+2024-07-13 21:32:45.146 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [req-serv] nacos-server port:8848 
+2024-07-13 21:32:45.146 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [http-client] connect timeout:1000 
+2024-07-13 21:32:45.147 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - PER_TASK_CONFIG_SIZE: 3000.0 
+2024-07-13 21:32:45.237 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2024-07-13 21:32:45.237 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2024-07-13 21:32:45.240 [main] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - null No credential found 
+2024-07-13 21:32:45.246 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of e8d9ec02-a970-4bd4-af12-8e1e80463717_config-0 
+2024-07-13 21:32:45.263 [main] INFO  com.alibaba.nacos.common.remote.client - [e8d9ec02-a970-4bd4-af12-8e1e80463717_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$922/0x000000080110d840 
+2024-07-13 21:32:45.264 [main] INFO  com.alibaba.nacos.common.remote.client - [e8d9ec02-a970-4bd4-af12-8e1e80463717_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$923/0x000000080110dc60 
+2024-07-13 21:32:45.264 [main] INFO  com.alibaba.nacos.common.remote.client - [e8d9ec02-a970-4bd4-af12-8e1e80463717_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1 
+2024-07-13 21:32:45.265 [main] INFO  com.alibaba.nacos.common.remote.client - [e8d9ec02-a970-4bd4-af12-8e1e80463717_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2 
+2024-07-13 21:32:45.270 [main] INFO  com.alibaba.nacos.common.remote.client - [e8d9ec02-a970-4bd4-af12-8e1e80463717_config-0] Try to connect to server on start up, server: {serverIp = '127.0.0.1', server main port = 8848} 
+2024-07-13 21:32:45.302 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:127.0.0.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false} 
+2024-07-13 21:32:46.309 [main] INFO  com.alibaba.nacos.common.remote.client - [e8d9ec02-a970-4bd4-af12-8e1e80463717_config-0] Success to connect to server [127.0.0.1:8848] on start up, connectionId = 1720877566115_127.0.0.1_55746 
+2024-07-13 21:32:46.310 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client - [e8d9ec02-a970-4bd4-af12-8e1e80463717_config-0] Notify connected event to listeners. 
+2024-07-13 21:32:46.311 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [e8d9ec02-a970-4bd4-af12-8e1e80463717_config-0] Connected,notify listen context... 
+2024-07-13 21:32:46.311 [main] INFO  com.alibaba.nacos.common.remote.client - [e8d9ec02-a970-4bd4-af12-8e1e80463717_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler 
+2024-07-13 21:32:46.311 [main] INFO  com.alibaba.nacos.common.remote.client - [e8d9ec02-a970-4bd4-af12-8e1e80463717_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$945/0x0000000801290d08 
+2024-07-13 21:32:46.313 [main] INFO  c.a.n.client.config.impl.LocalConfigInfoProcessor - LOCAL_SNAPSHOT_PATH:C:\Users\k1341\nacos\config 
+2024-07-13 21:32:46.348 [main] INFO  com.alibaba.nacos.client.config.impl.Limiter - limitTime:5.0 
+2024-07-13 21:32:46.372 [main] INFO  org.apache.dubbo.common.config.ConfigurationUtils -  [DUBBO] Config center was specified, but no config item found., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:46.372 [main] INFO  org.apache.dubbo.common.config.ConfigurationUtils -  [DUBBO] Config center was specified, but no config item found., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:46.390 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] The current configurations or effective configurations are as follows:, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:46.390 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] <dubbo:application enableFileCache="true" executorManagementMode="isolation" parameters="{}" name="tl-live-user-provider" qosEnable="false" protocol="dubbo" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:46.391 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] <dubbo:protocol preferSerialization="fastjson2,hessian2" port="-1" name="dubbo" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:46.391 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] <dubbo:registry port="8848" parameters="{namespace=tl-live}" id="nacos-registry" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:46.391 [main] INFO  org.apache.dubbo.config.context.ConfigManager -  [DUBBO] <dubbo:ssl />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:46.413 [main] INFO  o.apache.dubbo.config.deploy.DefaultModuleDeployer -  [DUBBO] Dubbo Module[1.1.0] has been initialized!, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:46.419 [main] INFO  o.apache.dubbo.config.deploy.DefaultModuleDeployer -  [DUBBO] Dubbo Module[1.1.1] has been initialized!, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:46.427 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] No value is configured in the registry, the MetadataReportFactory extension[name : nacos] supports as the metadata center, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:46.427 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] The registry[<dubbo:registry port="8848" parameters="{namespace=tl-live}" id="nacos-registry" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" />] will be used as the metadata center, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:46.432 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] use registry as metadata-center: <dubbo:metadata-report id="nacos-registry" address="nacos://127.0.0.1:8848?namespace=tl-live" protocol="nacos" port="8848" parameters="{namespace=tl-live, client=null}" />, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:46.521 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success. 
+2024-07-13 21:32:46.521 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success. 
+2024-07-13 21:32:46.522 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of 1a987c6d-a64d-4df7-a6a0-08a701a04af7_config-0 
+2024-07-13 21:32:46.522 [main] INFO  com.alibaba.nacos.common.remote.client - [1a987c6d-a64d-4df7-a6a0-08a701a04af7_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$922/0x000000080110d840 
+2024-07-13 21:32:46.522 [main] INFO  com.alibaba.nacos.common.remote.client - [1a987c6d-a64d-4df7-a6a0-08a701a04af7_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$923/0x000000080110dc60 
+2024-07-13 21:32:46.522 [main] INFO  com.alibaba.nacos.common.remote.client - [1a987c6d-a64d-4df7-a6a0-08a701a04af7_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1 
+2024-07-13 21:32:46.522 [main] INFO  com.alibaba.nacos.common.remote.client - [1a987c6d-a64d-4df7-a6a0-08a701a04af7_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2 
+2024-07-13 21:32:46.522 [main] INFO  com.alibaba.nacos.common.remote.client - [1a987c6d-a64d-4df7-a6a0-08a701a04af7_config-0] Try to connect to server on start up, server: {serverIp = '127.0.0.1', server main port = 8848} 
+2024-07-13 21:32:46.523 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:127.0.0.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false} 
+2024-07-13 21:32:46.655 [main] INFO  com.alibaba.nacos.common.remote.client - [1a987c6d-a64d-4df7-a6a0-08a701a04af7_config-0] Success to connect to server [127.0.0.1:8848] on start up, connectionId = 1720877566531_127.0.0.1_55747 
+2024-07-13 21:32:46.655 [main] INFO  com.alibaba.nacos.common.remote.client - [1a987c6d-a64d-4df7-a6a0-08a701a04af7_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler 
+2024-07-13 21:32:46.655 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client - [1a987c6d-a64d-4df7-a6a0-08a701a04af7_config-0] Notify connected event to listeners. 
+2024-07-13 21:32:46.655 [main] INFO  com.alibaba.nacos.common.remote.client - [1a987c6d-a64d-4df7-a6a0-08a701a04af7_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$945/0x0000000801290d08 
+2024-07-13 21:32:46.655 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [1a987c6d-a64d-4df7-a6a0-08a701a04af7_config-0] Connected,notify listen context... 
+2024-07-13 21:32:46.661 [main] INFO  o.a.dubbo.config.deploy.DefaultApplicationDeployer -  [DUBBO] Dubbo Application[1.1](tl-live-user-provider) has been initialized!, dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:47.330 [main] WARN  o.s.w.context.support.GenericWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginService': Injection of resource dependencies failed 
+2024-07-13 21:32:47.357 [main] INFO  o.s.b.a.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled. 
+2024-07-13 21:32:47.379 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'org.tl.live.id.inter.IGenerateIDRPCService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.tl.live.id.inter.IGenerateIDRPCService' in your configuration.
+ 
+2024-07-13 21:32:47.387 [main] ERROR o.springframework.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [org.tl.user.provider.mysql.MySqlTest@2dfab167] 
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@3d763ae5 testClass = org.tl.user.provider.mysql.MySqlTest, locations = [], classes = [org.tl.user.provider.UserProvideApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceLocations = [], propertySourceProperties = ["org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@661972b0, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2e005c4b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@6d763516, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@9da1, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@49139829, org.springframework.boot.test.context.SpringBootTestAnnotation@14676b26], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:142)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:241)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginService': Injection of resource dependencies failed
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:303)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1408)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:961)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:917)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:59)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:47)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1388)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:545)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:184)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:118)
+	... 36 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userService': Injection of resource dependencies failed
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:303)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1408)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.resolveBeanByName(AbstractAutowireCapableBeanFactory.java:458)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:496)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:467)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:618)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:242)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:133)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:300)
+	... 58 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.tl.live.id.inter.IGenerateIDRPCService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@jakarta.annotation.Resource(shareable=true, lookup="", name="", description="", authenticationType=CONTAINER, type=java.lang.Object.class, mappedName="")}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1812)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1371)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:490)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:467)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:618)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:242)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:133)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:300)
+	... 72 common frames omitted
+2024-07-13 21:32:47.403 [Thread-8] WARN  com.alibaba.nacos.common.notify.NotifyCenter - [NotifyCenter] Start destroying Publisher 
+2024-07-13 21:32:47.403 [DubboShutdownHook] INFO  org.apache.dubbo.config.DubboShutdownHook -  [DUBBO] Run shutdown hook now., dubbo version: 3.2.9, current host: 26.190.89.211 
+2024-07-13 21:32:47.403 [Thread-3] WARN  c.alibaba.nacos.common.http.HttpClientBeanHolder - [HttpClientBeanHolder] Start destroying common HttpClient 
+2024-07-13 21:32:47.403 [Thread-8] WARN  com.alibaba.nacos.common.notify.NotifyCenter - [NotifyCenter] Destruction of the end 
+2024-07-13 21:32:47.404 [Thread-3] WARN  c.alibaba.nacos.common.http.HttpClientBeanHolder - [HttpClientBeanHolder] Destruction of the end 
