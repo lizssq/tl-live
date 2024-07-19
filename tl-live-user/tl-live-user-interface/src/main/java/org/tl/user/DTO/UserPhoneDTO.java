@@ -68,4 +68,13 @@ public class UserPhoneDTO implements Serializable {
 
     public UserPhoneDTO() {
     }
+
+    public UserPhoneDTO(Long id, String phone, Long userId, Integer status, Date createTime, Date updateTime) {
+        this.id = id;
+        this.phone = phone;
+        this.userId = userId;
+        this.status = status;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
+    }
 }

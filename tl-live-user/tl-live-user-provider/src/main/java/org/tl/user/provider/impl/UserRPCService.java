@@ -27,6 +27,6 @@ public class UserRPCService implements IUserRPCService {
 
     @Override
     public String checkToken(String titk) {
-        return null;
+        return userService.checkToken(titk);
     }
 }

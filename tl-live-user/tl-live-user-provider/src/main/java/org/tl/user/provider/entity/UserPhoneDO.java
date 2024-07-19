@@ -74,4 +74,13 @@ public class UserPhoneDO {
 
     public UserPhoneDO() {
     }
+
+    public UserPhoneDO(Long id, String phone, Long userId, Integer status, Date createTime, Date updateTime) {
+        this.id = id;
+        this.phone = phone;
+        this.userId = userId;
+        this.status = status;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
+    }
 }

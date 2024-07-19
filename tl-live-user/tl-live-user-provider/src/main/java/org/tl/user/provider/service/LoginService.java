@@ -2,6 +2,8 @@ package org.tl.user.provider.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import jakarta.annotation.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.tl.common.redis.builder.UserCacheKeyBuilder;
@@ -25,6 +27,8 @@ public class LoginService {
     @Resource
     private UserPhoneMapper userPhoneMapper;
     private ConvertBeanUtil convertBeanUtil=new ConvertBeanUtil();
+
+    Logger logger = LoggerFactory.getLogger(SmsService.class);
     @Resource
     UserService userService;
     public LoginDTO loginByPhone(String phone) {
@@ -35,6 +39,7 @@ public class LoginService {
         //查看是否注册过
         LoginDTO loginDTO=this.queryByPhone(phone);
         if(loginDTO!=null){
+            logger.info("该手机号以注册,phone:{}", phone);
             return loginDTO;
         }
         return null;

@@ -59,4 +59,12 @@ public class SmsDO {
 
     public SmsDO() {
     }
+
+    public SmsDO(Long id, Integer code, String phone, Date sendTime, Date updateTime) {
+        this.id = id;
+        this.code = code;
+        this.phone = phone;
+        this.sendTime = sendTime;
+        this.updateTime = updateTime;
+    }
 }

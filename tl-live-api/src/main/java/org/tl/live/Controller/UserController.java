@@ -4,6 +4,7 @@ import com.alibaba.cloud.commons.lang.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.tl.live.enlity.WebResDTO;
 import org.tl.user.DTO.UserDTO;
@@ -14,7 +15,7 @@ import static org.tl.live.enlity.WebResDTO.ERROR_CODE;
 import static org.tl.live.enlity.WebResDTO.SUCCESS_CODE;
 
 
-@RestController
+@Controller
 @RequestMapping("/user")
 @CrossOrigin
 public class UserController {
@@ -25,12 +26,10 @@ public class UserController {
     private IUserRPCService userRPCService;
 
     @RequestMapping("/getUser")
-    public WebResDTO getUserById() {
-        String userId="102";
-
-        if(StringUtils.isEmpty(userId)){
-            return new WebResDTO(ERROR_CODE, "userId不能为空");
-        }
-        return new WebResDTO(SUCCESS_CODE, userRPCService.getUserById(Long.valueOf(userId)));
+    public WebResDTO getUserById(String userId) {
+            if (StringUtils.isEmpty(userId)) {
+                return new WebResDTO(ERROR_CODE, "userId不能为空");
+            }
+            return new WebResDTO(SUCCESS_CODE, userRPCService.getUserById(Long.valueOf(userId)));
     }
 }

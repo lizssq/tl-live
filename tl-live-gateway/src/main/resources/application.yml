@@ -18,12 +18,15 @@ spring:
           uri: lb://tl-live-user
           predicates:
             - Path=/user/**
+        - id: tl-live-sms
+          uri: lb://tl-live-user
+          predicates:
+            - Path=/sms/**
 tltk:
   gateway:
     whitelist:
       - /sms/loginPhone
       - /sms/sendLoginSms
-      - /user/getUser
 
 
 dubbo:

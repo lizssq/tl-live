@@ -41,25 +41,34 @@ public class UserService {
         if(userId==null){
             return null;
         }
-        userRedisKeyBuilder.getUserInfoKey(userId);
-        UserDTO userDTO;
-        userDTO= (UserDTO) redisTemplate.opsForValue().get(userRedisKeyBuilder.getUserInfoKey(userId));
-        if(userDTO!=null&&userDTO.getUserId()>0){
-            return userDTO;
-        }else if(userDTO!=null && userDTO.getUserId()<0){
-            return null;
+        String userRedisKey = userRedisKeyBuilder.getUserInfoKey(userId);
+        Object userObj = redisTemplate.opsForValue().get(userRedisKey);
+
+        if (userObj == null) {
+            // 处理缓存未命中的情况
+            // 可能需要从数据库加载数据并存储到Redis
+            UserDO userDO = userMapper.selectById(userId);
+            if(userDO!=null){
+                UserDTO userDTO = convertBeanUtil.convert(userDO, UserDTO.class);
+                redisTemplate.opsForValue().set(userRedisKeyBuilder.getUserInfoKey(userId),userDTO,30, TimeUnit.MINUTES);
+                return userDTO;
+            }else{
+                UserDTO noUserDTO=new UserDTO();
+                noUserDTO.setUserId(-1L);
+                redisTemplate.opsForValue().set(userRedisKeyBuilder.getUserInfoKey(userId),noUserDTO,30, TimeUnit.MINUTES);
+                return null;
+            }
+        } else {
+            UserDTO userDTO = (UserDTO) userObj;
+            // 使用userDTO进行后续操作
+            //userDTO= (UserDTO) redisTemplate.opsForValue().get(userRedisKeyBuilder.getUserInfoKey(userId));
+            if(userDTO!=null&&userDTO.getUserId()>0){
+                return userDTO;
+            }else if(userDTO!=null && userDTO.getUserId()<0){
+                return null;
+            }
         }
-        UserDO userDO = userMapper.selectById(userId);
-        if(userDO!=null){
-            redisTemplate.opsForValue().set(userRedisKeyBuilder.getUserInfoKey(userId),userDO);
-            userDTO=convertBeanUtil.convert(userDO, UserDTO.class);
-            return userDTO;
-        }else{
-            UserDTO noUserDTO=new UserDTO();
-            noUserDTO.setUserId(-1L);
-            redisTemplate.opsForValue().set(userRedisKeyBuilder.getUserInfoKey(userId),noUserDTO);
-            return null;
-        }
+        return null;
     }
 
     public LoginDTO  registerByPhone(String phone) {
@@ -82,12 +91,23 @@ public class UserService {
     }
 
     public String createToken(Long userId) {
-        String userCacheKey = userCacheKeyBuilder.getUserPhoneKey(userId.toString());
+
         //生成token，随机数
         String token = UUID.randomUUID().toString();
+
+        String userCacheKey = userCacheKeyBuilder.getUserPhoneKey(token);
         //存入redis
-        redisTemplate.opsForValue().set(userCacheKey, token,30, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set(userCacheKey, userId,30, TimeUnit.MINUTES);
         return token;
+    }
+
+    public String checkToken(String titk) {
+        String userCacheKey = userCacheKeyBuilder.getUserPhoneKey(titk);
+        Object userId = redisTemplate.opsForValue().get(userCacheKey);
+        if(userId!=null){
+            return userId.toString();
+        }
+        return null;
     }
 }
 

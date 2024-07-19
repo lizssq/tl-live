@@ -39,6 +39,7 @@ public class AuthorizationFilter implements Order, GlobalFilter {
         //判断是否需要拦截
         for(String whilteurl:gatewayAppProperties.getWhitelist()){
             if(url.startsWith(whilteurl)){
+                logger.info("不需要拦截");
                 return chain.filter(exchange);
             }
         }
@@ -61,6 +62,7 @@ public class AuthorizationFilter implements Order, GlobalFilter {
         }
         //将userId放入请求头
         ServerHttpRequest serverHttpRequest1 = exchange.getRequest().mutate().header(GatewayHeaderEnum.GATEWAY_UESR_NAME.getName(),userId).build();
+        logger.info("titk有效，userId："+userId);
         return chain.filter(exchange.mutate().request(serverHttpRequest1).build());
 
     }

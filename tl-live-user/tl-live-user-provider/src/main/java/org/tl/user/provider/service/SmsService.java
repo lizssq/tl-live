@@ -152,7 +152,7 @@ public class SmsService {
         //查看验证码是否正确
         int redisCode=(int)redisTemplate.opsForValue().get(mobileKey);
         if(redisCode==code){
-            logger.info("验证成功");
+            logger.info("验证成功,验证码正确");
             //删除redis中的验证码
             redisTemplate.delete(mobileKey);
             return new CodeCheckDTO(true,"验证成功");

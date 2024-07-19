@@ -78,4 +78,14 @@ public class UserDO {
 
     public UserDO() {
     }
+
+    public UserDO(Long userId, String nickName, String avatar, String trueName, Integer sex, Date createTime, Date updateTime) {
+        this.userId = userId;
+        this.nickName = nickName;
+        this.avatar = avatar;
+        this.trueName = trueName;
+        this.sex = sex;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
+    }
 }
