@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: tl-live-im-server
+  cloud:
+    nacos:
+      discovery:
+        namespace: tl-live
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: tl-live
+        file-extension: yml
+        import-check:
+          enabled: false

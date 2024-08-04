@@ -1,0 +1,35 @@
+#server:
+#  port: 8989
+#
+#tllive:
+#  im:
+#    heartbeat:
+#      timeout:
+#        seconds: 60
+#    thread:
+#      poor:
+#        corePoolSize: 10
+#        maxPoolSize: 20
+#        keepAliveSeconds: 60
+#        queueCapacity: 100
+#
+#
+#spring:
+#  application:
+#    name: tl-live-im-server
+#  cloud:
+#    nacos:
+#      discovery:
+#        namespace: tl-live
+#        server-addr: 127.0.0.1:8848
+#
+#dubbo:
+#  application:
+#    name: ${spring.application.name}
+#    qos-enable: false
+#  registry:
+#    address: nacos://127.0.0.1:8848?namespace=tl-live
+#    id: nacos-registry
+#  protocol:
+#    name: dubbo
+#    port: -1

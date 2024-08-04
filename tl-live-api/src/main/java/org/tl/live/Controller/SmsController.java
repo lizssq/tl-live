@@ -18,7 +18,6 @@ import org.tl.user.inter.IUserRPCService;
 
 @Controller
 @RequestMapping("/sms")
-@CrossOrigin
 public class SmsController {
     @DubboReference
     private ISmsRPCService smsRPCService;
@@ -46,7 +45,7 @@ public class SmsController {
         return new WebResDTO(WebResDTO.SUCCESS_CODE, "发送成功");
     }
     @PostMapping("/loginPhone")
-    public WebResDTO loginPhone(@RequestBody PhoneLoginParam phoneLoginParam,HttpServletResponse response){
+    public WebResDTO loginPhone(@RequestBody PhoneLoginParam phoneLoginParam, HttpServletResponse response){
         //检验数据
         if(phoneLoginParam.getPhone() == null || phoneLoginParam.getPhone().length() != 11){
             return new WebResDTO(WebResDTO.ERROR_CODE, "手机号格式不正确");
