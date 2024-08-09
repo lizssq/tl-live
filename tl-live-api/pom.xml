@@ -66,6 +66,26 @@
       <version>1.18.12</version>
       <scope>compile</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.tl.live</groupId>
+      <artifactId>tl-live-redis-starter</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.tl.live</groupId>
+      <artifactId>tl-live-redis-starter</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.tl.live</groupId>
+      <artifactId>tl-live-im-interface</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+
   </dependencies>
   <build>
     <plugins>

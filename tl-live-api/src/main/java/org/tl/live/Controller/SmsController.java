@@ -19,13 +19,13 @@ import org.tl.user.inter.IUserRPCService;
 @Controller
 @RequestMapping("/sms")
 public class SmsController {
-    @DubboReference
+    @DubboReference(check = false)
     private ISmsRPCService smsRPCService;
-    @DubboReference
+    @DubboReference(check = false)
     private IUserRPCService userRPCService;
-    @DubboReference
+    @DubboReference(check = false)
     private IUserPhoneLoginRPCService userPhoneLoginRPCService;
-    @DubboReference
+    @DubboReference(check = false)
     private IGenerateIDRPCService generateIDRPCService;
     Logger logger = LoggerFactory.getLogger(UserController.class);
 

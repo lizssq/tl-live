@@ -22,7 +22,7 @@ public class UserController {
 
     Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @DubboReference
+    @DubboReference(check = false)
     private IUserRPCService userRPCService;
 
     @RequestMapping("/getUser")

@@ -30,7 +30,7 @@
     <cosid.version>2.6.8</cosid.version>
     <java-sms-sdk>1.0.4</java-sms-sdk>
     <spring-cloud-starter-gateway.version>4.0.6</spring-cloud-starter-gateway.version>
-    <fastjson.version>2.0.19</fastjson.version>
+    <fastjson.version>2.0.42</fastjson.version>
     <spring-cloud-starter-loadbalancer.version>4.0.3</spring-cloud-starter-loadbalancer.version>
   </properties>
 

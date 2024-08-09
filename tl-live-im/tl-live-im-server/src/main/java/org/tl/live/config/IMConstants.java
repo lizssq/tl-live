@@ -1,4 +1,4 @@
-package org.tl.live.im.server.config;
+package org.tl.live.config;
 
 public class IMConstants {
     public static final String PROP_USER_ID = "userId";

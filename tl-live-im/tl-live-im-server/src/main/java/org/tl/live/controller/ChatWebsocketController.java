@@ -1,4 +1,4 @@
-package org.tl.live.im.server.controller;
+package org.tl.live.controller;
 
 import com.alibaba.fastjson.JSON;
 import jakarta.websocket.*;
@@ -8,12 +8,12 @@ import jakarta.websocket.server.ServerEndpoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.tl.live.im.server.config.IMConstants;
-import org.tl.live.im.server.manager.ChannelIdleStateManager;
-import org.tl.live.im.server.manager.ConnectionManager;
-import org.tl.live.im.server.manager.MessageTypeDispatchManager;
-import org.tl.live.im.server.protocal.GenericMessage;
-import org.tl.live.im.server.uti.SpringContextUtil;
+import org.tl.live.config.IMConstants;
+import org.tl.live.manager.ChannelIdleStateManager;
+import org.tl.live.manager.ConnectionManager;
+import org.tl.live.manager.MessageTypeDispatchManager;
+import org.tl.live.protocal.GenericMessage;
+import org.tl.live.uti.SpringContextUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,8 +51,6 @@ public class ChatWebsocketController {
             //心跳管理,开始连接
             channelIdleStateManager= SpringContextUtil.getBean(ChannelIdleStateManager.class);
             channelIdleStateManager.connect(userId,session);
-
-
             logger.info("用户id以缓存到session中");
         }catch (Exception e){
             logger.error("用户id不是数字,用户未登录");

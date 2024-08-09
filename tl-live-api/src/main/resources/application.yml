@@ -4,12 +4,21 @@ server:
 #nacos配置
 spring:
   application:
-    name: tl-live-user
+    name: tl-live-api
   cloud:
     nacos:
       discovery:
         namespace: tl-live
         server-addr: 127.0.0.1:8848
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      lettuce:
+        pool:
+          min-idle: 10
+          max-active: 100
+          max-idle: 10
 
 #dubbo配置
 dubbo:
@@ -22,3 +31,11 @@ dubbo:
   protocol:
     name: dubbo
     port: -1
+
+tllive:
+  im:
+    imInstance: tl-live-im-server
+
+
+
+

@@ -1,4 +1,4 @@
-package org.tl.live.im.server.config;
+package org.tl.live.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

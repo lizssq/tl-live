@@ -1,11 +1,10 @@
-package org.tl.live.im.server.manager;
+package org.tl.live.manager;
 
 import io.micrometer.common.util.StringUtils;
 import jakarta.websocket.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.socket.WebSocketSession;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -100,6 +99,15 @@ public class ConnectionManager {
             return Collections.emptyList();
         }
 
+        LinkedList<Session> resultList = new LinkedList<>();
+        userSet.forEach(u -> {
+            Optional<Session> optSession = getSession(u);
+            optSession.ifPresent(resultList::add);
+        });
+        return resultList;
+    }
+    public static List<Session> getRoomAllConnect(String roomId) {
+        Set<String> userSet = ROOM_CONTAINER.get(roomId);
         LinkedList<Session> resultList = new LinkedList<>();
         userSet.forEach(u -> {
             Optional<Session> optSession = getSession(u);

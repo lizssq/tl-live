@@ -1,4 +1,4 @@
-package org.tl.live.im.server.uti;
+package org.tl.live.uti;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

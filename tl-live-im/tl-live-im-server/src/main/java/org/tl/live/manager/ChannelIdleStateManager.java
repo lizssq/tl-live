@@ -1,4 +1,4 @@
-package org.tl.live.im.server.manager;
+package org.tl.live.manager;
 
 import jakarta.annotation.PreDestroy;
 import jakarta.websocket.CloseReason;

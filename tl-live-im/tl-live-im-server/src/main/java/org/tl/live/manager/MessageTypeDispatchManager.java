@@ -1,19 +1,16 @@
-package org.tl.live.im.server.manager;
+package org.tl.live.manager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
-import org.tl.live.im.server.config.IMConstants;
-import org.tl.live.im.server.protocal.GenericMessage;
-import org.tl.live.im.server.service.MessageHandlerService;
+import org.tl.live.config.IMConstants;
+import org.tl.live.protocal.GenericMessage;
+import org.tl.live.service.MessageHandlerService;
 
 import java.util.concurrent.Executor;
 
-/**
- * Author: roy
- * Description: 消息分发服务
- */
+
 @Component
 public class MessageTypeDispatchManager {
 

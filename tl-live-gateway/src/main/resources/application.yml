@@ -15,18 +15,16 @@ spring:
             enabled: true
       routes:
         - id: tl-live-user
-          uri: lb://tl-live-user
+          uri: lb://tl-live-api
           predicates:
-            - Path=/user/**
-        - id: tl-live-sms
-          uri: lb://tl-live-user
-          predicates:
-            - Path=/sms/**
+            - Path=/user/**,/sms/**,/im/**
 tltk:
   gateway:
     whitelist:
       - /sms/loginPhone
       - /sms/sendLoginSms
+      - /im/getIMServer
+      - /im/sendRoomNotice
 
 
 dubbo:

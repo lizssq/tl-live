@@ -1,4 +1,4 @@
-package org.tl.live.im.server.protocal;
+package org.tl.live.protocal;
 
 import java.io.Serializable;
 import java.util.List;

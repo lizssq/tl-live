@@ -1,10 +1,10 @@
-package org.tl.live.im.server.service;
+package org.tl.live.service;
 
 import jakarta.websocket.Session;
 import org.springframework.stereotype.Service;
-import org.tl.live.im.server.config.IMConstants;
-import org.tl.live.im.server.manager.ConnectionManager;
-import org.tl.live.im.server.protocal.GenericMessage;
+import org.tl.live.config.IMConstants;
+import org.tl.live.manager.ConnectionManager;
+import org.tl.live.protocal.GenericMessage;
 
 import java.io.IOException;
 import java.util.List;

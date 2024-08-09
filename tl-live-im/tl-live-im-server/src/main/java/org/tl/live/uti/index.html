@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Test Page</title>
+    <script>
+        // 您的WebSocket JavaScript代码
+        var socket;
+        if (!window.WebSocket) {
+            alert("浏览器不支持WebSocket");
+        }
+        function connect() {
+            var websocketUrl = "ws://26.190.89.211:8989/chat/123";
+            // var userId = document.getElementById("userId");
+            // if (userId.value) {
+            //     websocketUrl += "?userId=" + userId.value;
+            // }
+            socket = new WebSocket(websocketUrl,"KSAIldcE");
+            socket.onopen = function (event) {
+                console.log("WebSocket连接已建立");
+                var rt = document.getElementById("responseText");
+                rt.value = "建立WebSocket连接....\n";
+            }
+
+            socket.onmessage = function (event) {
+                console.log("收到消息：", event.data);
+                var rt = document.getElementById("responseText");
+                rt.value = rt.value + "\n" + event.data;
+            }
+
+            socket.onclose = function (event) {
+                console.log("WebSocket连接已关闭，代码：" + event.code + "，原因：" + event.reason);
+                var rt = document.getElementById("responseText");
+                rt.value = rt.value + "\n连接已关闭，代码：" + event.code + "，原因：" + event.reason;
+            }
+
+            socket.onerror = function (error) {
+                console.log("WebSocket错误：", error);
+                var rt = document.getElementById("responseText");
+                rt.value = rt.value + "\nWebSocket错误：" + error.message;
+            }
+        }
+        function send(message) {
+            if (!window.socket) {
+                alert("还没有建立连接。");
+                return;
+            }
+            if (socket.readyState == WebSocket.OPEN) {
+                socket.send(message);
+            } else {
+                alert("没有建立连接");
+            }
+        }
+        // function disconnect() {
+        //     if (window.socket) {
+        //         socket.close();
+        //         socket = null;
+        //     }
+        // }
+    </script>
+</head>
+<body>
+<h1>WebSocket测试页面</h1>
+<div>
+    <label for="userId">用户ID:</label>
+    <input type="text" id="userId" placeholder="输入您的用户ID">
+</div>
+<div>
+    <button onclick="connect()">连接</button>
+    <button onclick="disconnect()">断开连接</button>
+</div>
+<div>
+    <label for="message">消息:</label>
+    <input type="text" id="message" placeholder="输入要发送的消息">
+    <button onclick="send(document.getElementById('message').value)">发送消息</button>
+</div>
+<div>
+    <textarea id="responseText" rows="10" cols="50" readonly></textarea>
+</div>
+</body>
+</html>
