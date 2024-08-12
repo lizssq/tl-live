@@ -1,6 +1,8 @@
 package org.tl.live.enlity;
 
-public class PhoneLoginParam {
+import java.io.Serializable;
+
+public class PhoneLoginParam implements Serializable {
     private String phone;
     private int code;
 

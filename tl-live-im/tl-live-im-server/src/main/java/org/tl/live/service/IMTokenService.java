@@ -19,9 +19,9 @@ public class IMTokenService {
         //生产随机字符串
         String token = generateRandomString(8);
         //生成key
-        String imKey = imCacheKeyBuilder.getIMTokenKey(userId);
+        String imKey = imCacheKeyBuilder.getIMTokenKey(token);
         //存储到redis中
-        redisTemplate.opsForValue().set(imKey,token,60, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set(imKey,userId,60, TimeUnit.MINUTES);
         return token;
     }
 

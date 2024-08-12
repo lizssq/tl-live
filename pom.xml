@@ -32,6 +32,8 @@
     <spring-cloud-starter-gateway.version>4.0.6</spring-cloud-starter-gateway.version>
     <fastjson.version>2.0.42</fastjson.version>
     <spring-cloud-starter-loadbalancer.version>4.0.3</spring-cloud-starter-loadbalancer.version>
+    <rocketmq.springboot.version>2.3.0</rocketmq.springboot.version>
+    <rocketmq.version>5.2.0</rocketmq.version>
   </properties>
 
   <dependencyManagement>

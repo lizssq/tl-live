@@ -23,6 +23,8 @@ public class GenericMessage implements Serializable {
      */
     private List<MessageBody> body;
 
+    private String fromUserName;
+
     public GenericMessage(Integer type, Long roomId, Long fromUserId, List<MessageBody> body) {
         this.type = type;
         this.roomId = roomId;
@@ -73,5 +75,12 @@ public class GenericMessage implements Serializable {
 
     public void setBody(List<MessageBody> body) {
         this.body = body;
+    }
+
+    public String getFromUserName() {
+        return fromUserName;
+    }
+    public void setFromUserName(String fromUserName) {
+        this.fromUserName = fromUserName;
     }
 }

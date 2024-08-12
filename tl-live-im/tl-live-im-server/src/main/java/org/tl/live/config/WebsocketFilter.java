@@ -40,6 +40,7 @@ public class WebsocketFilter implements Filter {
         });
         if(tokenCache==null){
             httpServletResponse.sendError(401,"无效连接");
+            logger.info("无效连接");
             return;
         }
         if(StringUtils.hasText(token)){

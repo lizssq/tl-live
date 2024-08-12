@@ -1,6 +1,8 @@
 package org.tl.live.enlity;
 
-public class WebResDTO {
+import java.io.Serializable;
+
+public class WebResDTO implements Serializable {
     public static final int SUCCESS_CODE = 200;
     public static final int ERROR_CODE = 500;
     private int code;

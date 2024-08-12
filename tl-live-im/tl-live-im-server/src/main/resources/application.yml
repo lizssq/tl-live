@@ -33,3 +33,9 @@
 #  protocol:
 #    name: dubbo
 #    port: -1
+
+rocketmq:
+  name-server: 127.0.0.1:9876
+  #必须配置producer
+  producer:
+    group: tl-live-im-producer

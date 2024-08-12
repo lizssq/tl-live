@@ -4,7 +4,11 @@ import io.micrometer.common.util.StringUtils;
 import jakarta.websocket.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.util.CollectionUtils;
+import org.tl.common.redis.builder.IMCacheKeyBuilder;
+import org.tl.live.uti.SpringContextUtil;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -25,7 +29,7 @@ public class ConnectionManager {
     private static final Map<String, Session> CHANNEL_CONTAINER = new ConcurrentHashMap<>();
 
     //存放房间与⽤户关系key为RoomId, value为Set<UserId>
-    private static final Map<String, Set<String>> ROOM_CONTAINER = new ConcurrentHashMap<>();
+    //private static final Map<String, Set<String>> ROOM_CONTAINER = new ConcurrentHashMap<>();
 
     public static boolean register(String sessionId, Session session) {
         Session addedSession = CHANNEL_CONTAINER.putIfAbsent(sessionId, session);
@@ -64,7 +68,10 @@ public class ConnectionManager {
      * @param userId 用户ID
      */
     public static void joinRoom(String roomId, String userId) {
-        ROOM_CONTAINER.computeIfAbsent(roomId, k -> new ConcurrentSkipListSet<>()).add(userId);
+        StringRedisTemplate stringRedisTemplate= SpringContextUtil.getBean(StringRedisTemplate.class);
+        IMCacheKeyBuilder imCacheKeyBuilder = SpringContextUtil.getBean(IMCacheKeyBuilder.class);
+        stringRedisTemplate.opsForSet().add(imCacheKeyBuilder.getIMRoomUserKey(roomId),userId);
+        //ROOM_CONTAINER.computeIfAbsent(roomId, k -> new ConcurrentSkipListSet<>()).add(userId);
     }
 
     /**
@@ -74,10 +81,14 @@ public class ConnectionManager {
      * @param userId 用户ID
      */
     public static void exitRoom(String roomId, String userId) {
-        Set<String> roomUsers = ROOM_CONTAINER.get(roomId);
-        if (!CollectionUtils.isEmpty(roomUsers)) {
-            roomUsers.remove(userId);
-        }
+        StringRedisTemplate stringRedisTemplate= SpringContextUtil.getBean(StringRedisTemplate.class);
+        IMCacheKeyBuilder imCacheKeyBuilder = SpringContextUtil.getBean(IMCacheKeyBuilder.class);
+        stringRedisTemplate.opsForSet().remove(imCacheKeyBuilder.getIMRoomUserKey(roomId),userId);
+
+//        Set<String> roomUsers = ROOM_CONTAINER.get(roomId);
+//        if (!CollectionUtils.isEmpty(roomUsers)) {
+//            roomUsers.remove(userId);
+//        }
     }
 
     /**
@@ -89,7 +100,10 @@ public class ConnectionManager {
      * @return List<Session>
      */
     public static List<Session> getRoomAllUserConnect(String roomId, String userId) {
-        Set<String> userSet = ROOM_CONTAINER.get(roomId);
+        StringRedisTemplate stringRedisTemplate= SpringContextUtil.getBean(StringRedisTemplate.class);
+        IMCacheKeyBuilder imCacheKeyBuilder = SpringContextUtil.getBean(IMCacheKeyBuilder.class);
+        Set<String> userSet = stringRedisTemplate.opsForSet().members(imCacheKeyBuilder.getIMRoomUserKey(roomId));
+        //Set<String> userSet = ROOM_CONTAINER.get(roomId);
         // 房间没人，返回空
         if (userSet == null || userSet.isEmpty()) {
             return Collections.emptyList();
@@ -107,7 +121,11 @@ public class ConnectionManager {
         return resultList;
     }
     public static List<Session> getRoomAllConnect(String roomId) {
-        Set<String> userSet = ROOM_CONTAINER.get(roomId);
+        StringRedisTemplate stringRedisTemplate= SpringContextUtil.getBean(StringRedisTemplate.class);
+        IMCacheKeyBuilder imCacheKeyBuilder = SpringContextUtil.getBean(IMCacheKeyBuilder.class);
+        Set<String> userSet = stringRedisTemplate.opsForSet().members(imCacheKeyBuilder.getIMRoomUserKey(roomId));
+
+        //Set<String> userSet = ROOM_CONTAINER.get(roomId);
         LinkedList<Session> resultList = new LinkedList<>();
         userSet.forEach(u -> {
             Optional<Session> optSession = getSession(u);

@@ -5,13 +5,16 @@ import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.tl.live.enlity.WebResDTO;
 import org.tl.live.inter.IIMRPCService;
+import org.tl.live.protocal.GenericMessage;
 import org.tl.live.service.IMTokenService;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +22,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @RestController
 @RequestMapping("/im")
+@CrossOrigin(origins = "*")
 public class IMController {
 
     @Value("${tllive.im.imInstance}")
@@ -27,7 +31,7 @@ public class IMController {
     private DiscoveryClient discoveryClient;
     @Resource
     private IMTokenService imTokenService;
-    @DubboReference
+    @DubboReference(check = false)
     private IIMRPCService imRPCService;
 
     /**
@@ -37,11 +41,17 @@ public class IMController {
     @PostMapping("/getIMServer")
     public WebResDTO getIMServer(String userId) {
         List<ServiceInstance> instances = discoveryClient.getInstances(imServerName);
+        List<ServiceInstance> instanceList = new ArrayList<>();
         if (instances == null || instances.size() == 0) {
             return new WebResDTO(WebResDTO.ERROR_CODE, "IM服务器不存在");
         }else {
-            int random = ThreadLocalRandom.current().nextInt(0, instances.size());
-            ServiceInstance serviceInstance = instances.get(random);
+            for(ServiceInstance instance:instances){
+                if(instance.getPort()<10000){
+                    instanceList.add(instance);
+                }
+            }
+            int random = ThreadLocalRandom.current().nextInt(0, instanceList.size());
+            ServiceInstance serviceInstance = instanceList.get(random);
             var instanceUrl="ws://"+serviceInstance.getHost()+":"+serviceInstance.getPort()+"/chat/"+userId;
             var imToken = imTokenService.generateIMToken(userId);
             Map<String ,Object > res = new HashMap<>();
@@ -54,7 +64,7 @@ public class IMController {
      * 发送房间公告
      */
     @PostMapping("/sendRoomNotice")
-    public WebResDTO sendRoomNotice(String roomId, String message) {
+    public WebResDTO sendRoomNotice(String roomId, GenericMessage message) {
         if(imRPCService.publishNotice(roomId, message)){
             return new WebResDTO(WebResDTO.SUCCESS_CODE,"发送成功");
         }

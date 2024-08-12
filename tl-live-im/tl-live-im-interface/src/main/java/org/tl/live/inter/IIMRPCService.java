@@ -9,5 +9,7 @@ public interface IIMRPCService {
     public boolean checkIMToken(String userId,String token);
 
     //发布公告
-    public boolean publishNotice(String roomId, String message);
+    public boolean publishNotice(String roomId, GenericMessage message);
+
+    public boolean pushChatMessage(String roomId, GenericMessage message);
 }

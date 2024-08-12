@@ -17,6 +17,7 @@ import org.tl.user.inter.IUserPhoneLoginRPCService;
 import org.tl.user.inter.IUserRPCService;
 
 @Controller
+@CrossOrigin(origins = "*")
 @RequestMapping("/sms")
 public class SmsController {
     @DubboReference(check = false)

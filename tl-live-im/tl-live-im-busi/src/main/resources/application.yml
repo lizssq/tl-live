@@ -1,0 +1,24 @@
+#rocketmq:
+#  name-server: 127.0.0.1:9876
+#  #必须配置producer
+#  producer:
+#    group: tl-live-im-producer
+#  consumer:
+#    group: tl-live-im-busi
+#server:
+#  port: 8084
+#
+#spring:
+#  data:
+#    redis:
+#      host: localhost
+#      port: 6379
+#      lettuce:
+#        pool:
+#          min-idle: 10
+#          max-active: 100
+#          max-idle: 10
+#
+#tl-live:
+#  im-busi:
+#    chat-max: 5

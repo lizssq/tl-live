@@ -16,6 +16,7 @@
     <modules>
         <module>tl-live-im-interface</module>
         <module>tl-live-im-server</module>
+        <module>tl-live-im-busi</module>
     </modules>
 
     <properties>

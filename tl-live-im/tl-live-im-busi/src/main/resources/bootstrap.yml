@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: tl-live-im-busi
+  cloud:
+    nacos:
+      discovery:
+        namespace: tl-live
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        namespace: tl-live
+        file-extension: yml
+        import-check:
+          enabled: false
+        shared-configs:
+          - data-id: tl-live-common-db.yml
+            refresh: true
+          - data-id: tl-live-common-dubbo.yml
+            refresh: true

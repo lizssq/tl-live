@@ -1,6 +1,8 @@
 package org.tl.live.enlity;
 
-public class PhoneDTO {
+import java.io.Serializable;
+
+public class PhoneDTO implements Serializable {
     private String mobile;
 
     public String getMobile() {

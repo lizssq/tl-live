@@ -2,61 +2,90 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>WebSocket Test Page</title>
+    <title>WebSocket测试页面</title>
     <script>
-        // 您的WebSocket JavaScript代码
         var socket;
+
+        // 检查浏览器是否支持WebSocket
         if (!window.WebSocket) {
             alert("浏览器不支持WebSocket");
         }
+
+        // 连接WebSocket服务器
         function connect() {
-            var websocketUrl = "ws://26.190.89.211:8989/chat/123";
-            // var userId = document.getElementById("userId");
-            // if (userId.value) {
-            //     websocketUrl += "?userId=" + userId.value;
-            // }
-            socket = new WebSocket(websocketUrl,"ElbpqWRc");
+            var websocketUrl = "ws://localhost:8989/chat/102";
+            socket = new WebSocket(websocketUrl, "ctWQYQpX");
+
             socket.onopen = function (event) {
                 console.log("WebSocket连接已建立");
                 var rt = document.getElementById("responseText");
                 rt.value = "建立WebSocket连接....\n";
-            }
+
+                // 发送连接消息
+                var userId = document.getElementById("userId").value;
+                var message = {
+                    type: 1, // 连接消息类型
+                    roomId: 123, // 示例房间ID
+                    fromUserId: userId ? parseInt(userId) : null,
+                    body: [],
+                    fromUserName: "用户名"
+                };
+                socket.send(JSON.stringify(message));
+            };
 
             socket.onmessage = function (event) {
                 console.log("收到消息：", event.data);
                 var rt = document.getElementById("responseText");
                 rt.value = rt.value + "\n" + event.data;
-            }
+            };
 
             socket.onclose = function (event) {
                 console.log("WebSocket连接已关闭，代码：" + event.code + "，原因：" + event.reason);
                 var rt = document.getElementById("responseText");
                 rt.value = rt.value + "\n连接已关闭，代码：" + event.code + "，原因：" + event.reason;
-            }
+            };
 
             socket.onerror = function (error) {
                 console.log("WebSocket错误：", error);
                 var rt = document.getElementById("responseText");
                 rt.value = rt.value + "\nWebSocket错误：" + error.message;
-            }
+            };
         }
-        function send(message) {
-            if (!window.socket) {
-                alert("还没有建立连接。");
+
+        // 发送消息
+        function send(messageText) {
+            if (!socket || socket.readyState !== WebSocket.OPEN) {
+                alert("WebSocket连接未建立");
                 return;
             }
-            if (socket.readyState == WebSocket.OPEN) {
-                socket.send(message);
-            } else {
-                alert("没有建立连接");
+
+            var userId = document.getElementById("userId").value;
+            var message = {
+                type: 3, // 聊天消息类型
+                roomId: 123, // 示例房间ID
+                fromUserId: userId ? parseInt(userId) : null,
+                body: [{ content: messageText }],
+                fromUserName: "用户名"
+            };
+            socket.send(JSON.stringify(message));
+        }
+
+        // 断开连接
+        function disconnect() {
+            if (socket) {
+                var userId = document.getElementById("userId").value;
+                var message = {
+                    type: 2, // 断开连接消息类型
+                    roomId: 123, // 示例房间ID
+                    fromUserId: userId ? parseInt(userId) : null,
+                    body: [],
+                    fromUserName: "用户名"
+                };
+                socket.send(JSON.stringify(message));
+                socket.close();
+                socket = null;
             }
         }
-        // function disconnect() {
-        //     if (window.socket) {
-        //         socket.close();
-        //         socket = null;
-        //     }
-        // }
     </script>
 </head>
 <body>

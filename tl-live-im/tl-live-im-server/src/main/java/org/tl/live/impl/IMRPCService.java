@@ -25,7 +25,12 @@ public class IMRPCService implements IIMRPCService {
     }
 
     @Override
-    public boolean publishNotice(String roomId, String message) {
+    public boolean publishNotice(String roomId, GenericMessage message) {
         return messageSendService.publishNotice(roomId, message);
+    }
+
+    @Override
+    public boolean pushChatMessage(String roomId, GenericMessage message) {
+        return messageSendService.pushChatMessage(roomId, message);
     }
 }
