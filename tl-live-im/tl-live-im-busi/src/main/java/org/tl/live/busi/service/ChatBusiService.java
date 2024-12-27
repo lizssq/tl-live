@@ -15,6 +15,8 @@ import org.tl.live.id.inter.IGenerateIDRPCService;
 import org.tl.live.inter.IIMRPCService;
 import org.tl.live.protocal.GenericMessage;
 import org.tl.live.protocal.MessageBody;
+import org.tl.user.DTO.UserDTO;
+import org.tl.user.inter.IUserRPCService;
 
 import java.util.List;
 import java.util.Set;
@@ -34,6 +36,8 @@ public class ChatBusiService {
 
     @DubboReference(check = false)
     private IGenerateIDRPCService generateIDRPCService;
+    @DubboReference(check = false)
+    private IUserRPCService userRPCService;
 
 
     @Resource
@@ -56,8 +60,12 @@ public class ChatBusiService {
             //消息分发
             for(MessageBody body:message.getBody()){
                 body.setFromUserId(message.getFromUserId());
-                body.setFromUserName(message.getFromUserName());
+                logger.info("消息用户id{}",body.getFromUserId());
+                UserDTO userById = userRPCService.getUserById(body.getFromUserId());
+                logger.info("用户信息{}",userById.toString());
+                body.setFromUserName(userById.getNickName());
                 body.setMsgId(generateIDRPCService.getUnorderedID());
+                logger.info("消息体{}",body);
                 redisTemplate.opsForSet().add(imRoomChatKey,body);
             }
 

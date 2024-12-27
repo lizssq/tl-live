@@ -7,6 +7,7 @@ import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.http.cookie.Cookie;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpCookie;
 import org.springframework.http.server.reactive.ServerHttpRequest;
@@ -21,7 +22,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 @Component
-public class AuthorizationFilter implements Order, GlobalFilter {
+public class AuthorizationFilter implements Ordered, GlobalFilter {
     Logger logger = Logger.getLogger(AuthorizationFilter.class.getName());
 
     @DubboReference
@@ -64,16 +65,9 @@ public class AuthorizationFilter implements Order, GlobalFilter {
         ServerHttpRequest serverHttpRequest1 = exchange.getRequest().mutate().header(GatewayHeaderEnum.GATEWAY_UESR_NAME.getName(),userId).build();
         logger.info("titk有效，userId："+userId);
         return chain.filter(exchange.mutate().request(serverHttpRequest1).build());
-
     }
-
     @Override
-    public int value() {
+    public int getOrder() {
         return 0;
-    }
-
-    @Override
-    public Class<? extends Annotation> annotationType() {
-        return null;
     }
 }

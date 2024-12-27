@@ -19,3 +19,7 @@ spring:
               refresh: true
             - data-id: tl-live-common-dubbo.yml
               refresh: true
+#指定Mybatis的Mapper文件
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.tl.user.provider.entity

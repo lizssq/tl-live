@@ -114,5 +114,13 @@
             <scope>compile</scope>
         </dependency>
 
+        <!-- 4.引入User模块 -->
+        <dependency>
+            <groupId>org.tl</groupId>
+            <artifactId>tl-live-user-interface</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+
     </dependencies>
 </project>

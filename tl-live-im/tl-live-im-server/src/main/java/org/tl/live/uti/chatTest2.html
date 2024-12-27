@@ -19,7 +19,7 @@
                 return;
             }
             var websocketUrl = "ws://localhost:8989/chat/" + userId;
-            socket = new WebSocket(websocketUrl, "nmnISPhb");
+            socket = new WebSocket(websocketUrl, "zREzmmty");
 
             socket.onopen = function () {
                 console.log("WebSocket连接已建立");
@@ -44,7 +44,7 @@
                 var messageData = JSON.parse(event.data);
 
                 // 处理接收到的消息，将发送者姓名加到显示文本中
-                var displayMessage = messageData.body.map(body => body.fromUserName) + " : " + messageData.body.map(body => body.content).join("\n");
+                var displayMessage = messageData.fromUserName + " : " + messageData.body.map(body => body.content).join("\n");
                 rt.value += "\n" + displayMessage;
             };
 

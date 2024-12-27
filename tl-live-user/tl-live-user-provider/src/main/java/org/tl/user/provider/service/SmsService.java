@@ -57,14 +57,10 @@ public class SmsService {
         //生成1000-9999的随机数
         int smsCode=new Random().nextInt(9000)+1000;
         logger.info("生成验证码："+smsCode);
-        threadPoolManager.threadPoolManager.execute(()->{
-            //发送短信
-            for (int i = 0; i < 3; i++) {
-                if(sendSms(mobile,smsCode)){
-                    break;
-                }
-            }
-        });
+
+        //发送短信
+        sendSms(mobile,smsCode);
+
 
         //存入redis
         redisTemplate.opsForValue().set(mobileKey,smsCode,60, TimeUnit.MINUTES);
@@ -103,21 +99,19 @@ public class SmsService {
                 //正常返回输出data包体信息（map）
                 HashMap<String,Object> data = (HashMap<String, Object>) result.get("data");
                 Set<String> keySet = data.keySet();
-                for(String key:keySet){
+                for(String key:keySet) {
                     Object object = data.get(key);
-                    System.out.println(key +" = "+object);
+                    System.out.println(key + " = " + object);
                 }
             }else{
                 //异常返回输出错误码和错误信息
-                System.out.println("错误码=" + result.get("statusCode") +" 错误信息= "+result.get("statusMsg"));
-                return false;
+                logger.info("错误码=" + result.get("statusCode") +" 错误信息= "+result.get("statusMsg"));
+                return true;
             }
             return true;
         }catch (Exception e){
             logger.info("发送短信失败",e);
             throw new RuntimeException("发送短信失败");
-        }finally {
-            return false;
         }
     }
 

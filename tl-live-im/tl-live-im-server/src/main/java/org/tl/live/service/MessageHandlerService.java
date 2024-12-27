@@ -43,6 +43,8 @@ public class MessageHandlerService {
 //            msgSend(session, message);
 //            logger.info("发送消息");
 //        });
+        message.setRoomId(Long.parseLong(roomId));
+        message.setFromUserId(Long.parseLong(userId));
         rocketMQTemplate.convertAndSend(IMConstants.MESSAGE_CHAT, message);
     }
 

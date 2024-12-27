@@ -39,7 +39,7 @@ public class MessageTypeDispatchManager {
         switch (message.getType()) {
             case IMConstants.MESSAGE_TYPE_JOIN_ROOM: // 加入房间
                 ConnectionManager.joinRoom(roomId, userId);
-                logger.info("用户=>{},{}加入房间=>{}",
+                logger.info("用户=>{},加入房间=>{}",
                         userId, roomId);
                 executor.execute(() -> messageHandlerService.sendIndexMessage(userId, roomId));
                 break;
@@ -50,7 +50,7 @@ public class MessageTypeDispatchManager {
                 break;
             case IMConstants.MESSAGE_TYPE_CHAT: // 聊天
                 executor.execute(() -> messageHandlerService.sendRoomChatMessage(userId, roomId, message));
-                logger.info("用户=>{},{}房间=>{},{}发送消息=>{}", userId, roomId, message);
+                logger.info("用户=>{},房间=>{},{}发送消息=>{}", userId, roomId, message);
                 break;
             default:
                 logger.warn("消息类型异常, message =>{}", message);

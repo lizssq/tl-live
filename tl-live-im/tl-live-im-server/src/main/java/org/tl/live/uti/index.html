@@ -10,12 +10,12 @@
             alert("浏览器不支持WebSocket");
         }
         function connect() {
-            var websocketUrl = "ws://26.190.89.211:8989/chat/123";
+            var websocketUrl = "ws://localhost:8989/chat/102";
             // var userId = document.getElementById("userId");
             // if (userId.value) {
             //     websocketUrl += "?userId=" + userId.value;
             // }
-            socket = new WebSocket(websocketUrl,"ElbpqWRc");
+            socket = new WebSocket(websocketUrl,"nmnISPhb");
             socket.onopen = function (event) {
                 console.log("WebSocket连接已建立");
                 var rt = document.getElementById("responseText");

@@ -18,6 +18,8 @@ spring:
           uri: lb://tl-live-api
           predicates:
             - Path=/user/**,/sms/**,/im/**
+
+
 tltk:
   gateway:
     whitelist:
