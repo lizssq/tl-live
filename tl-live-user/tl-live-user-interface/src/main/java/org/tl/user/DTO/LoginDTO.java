@@ -5,10 +5,34 @@ import java.io.Serializable;
 public class LoginDTO implements Serializable {
     private boolean success;
     private String decs;
-
     private Long userId;
-
     private String nickName;
+    private String avatar;
+    private String tltk;
+
+    public String getTltk() {
+        return tltk;
+    }
+
+    public void setTltk(String tltk) {
+        this.tltk = tltk;
+    }
+
+    public LoginDTO(boolean success, String decs, Long userId, String nickName, String avatar) {
+        this.success = success;
+        this.decs = decs;
+        this.userId = userId;
+        this.nickName = nickName;
+        this.avatar = avatar;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
 
     public Long getUserId() {
         return userId;

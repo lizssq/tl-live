@@ -16,8 +16,7 @@ import org.tl.user.inter.ISmsRPCService;
 import org.tl.user.inter.IUserPhoneLoginRPCService;
 import org.tl.user.inter.IUserRPCService;
 
-@Controller
-@CrossOrigin(origins = "*")
+@RestController
 @RequestMapping("/sms")
 public class SmsController {
     @DubboReference(check = false)
@@ -26,8 +25,8 @@ public class SmsController {
     private IUserRPCService userRPCService;
     @DubboReference(check = false)
     private IUserPhoneLoginRPCService userPhoneLoginRPCService;
-    @DubboReference(check = false)
-    private IGenerateIDRPCService generateIDRPCService;
+//    @DubboReference(check = false)
+//    private IGenerateIDRPCService generateIDRPCService;
     Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @PostMapping("/sendLoginSms")
@@ -47,6 +46,9 @@ public class SmsController {
     }
     @PostMapping("/loginPhone")
     public WebResDTO loginPhone(@RequestBody PhoneLoginParam phoneLoginParam, HttpServletResponse response){
+//        phoneLoginParam.setPhone("15639777163");
+//        phoneLoginParam.setCode(7604);
+        logger.info("用户登录:{}", phoneLoginParam.getPhone());
         //检验数据
         if(phoneLoginParam.getPhone() == null || phoneLoginParam.getPhone().length() != 11){
             return new WebResDTO(WebResDTO.ERROR_CODE, "手机号格式不正确");
@@ -71,12 +73,19 @@ public class SmsController {
         String token = userRPCService.createToken(loginDTO.getUserId());
         logger.info("登陆成功,phone:{}", phoneLoginParam.getPhone());
 
+        logger.info("登陆成功,token:{}", token);
+
+
         Cookie cookie = new Cookie("tltk", token);
+        response.setHeader("tltk", token);
+        loginDTO.setTltk(token);
 
         cookie.setMaxAge(30*24*60*60);
 
+        cookie.setHttpOnly(false);
+
         response.addCookie(cookie);
 
-        return new WebResDTO(WebResDTO.SUCCESS_CODE, "登录成功");
+        return new WebResDTO(WebResDTO.SUCCESS_CODE, loginDTO);
     }
 }

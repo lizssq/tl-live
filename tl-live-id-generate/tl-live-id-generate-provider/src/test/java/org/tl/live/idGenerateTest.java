@@ -14,9 +14,12 @@ import org.tl.live.id.inter.IGenerateIDRPCService;
 public class idGenerateTest {
     @Resource
     private IGenerateIDRPCService generateIDRPCService;
+
+    @Resource
+    private IdGeneratorProvider idGeneratorProvider;
     @Test
     public void testGetSequentialID() {
-        System.out.println(generateIDRPCService.getSequentialID());
-        System.out.println(generateIDRPCService.getUnorderedID());
+        System.out.println(idGeneratorProvider.get("snowflakeID").get().generate());
+        System.out.println(idGeneratorProvider.get("segmentID").get().generate());
     }
 }

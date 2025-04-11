@@ -19,6 +19,6 @@
 #          max-active: 100
 #          max-idle: 10
 #
-#tl-live:
-#  im-busi:
-#    chat-max: 5
+tl-live:
+  im-busi:
+    chat-max: 1

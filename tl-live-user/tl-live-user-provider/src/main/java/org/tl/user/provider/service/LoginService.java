@@ -13,6 +13,7 @@ import org.tl.user.DTO.LoginDTO;
 import org.tl.user.DTO.UserDTO;
 import org.tl.user.DTO.UserPhoneDTO;
 import org.tl.user.provider.entity.UserPhoneDO;
+import org.tl.user.provider.mapper.UserMapper;
 import org.tl.user.provider.mapper.UserPhoneMapper;
 import org.tl.user.provider.util.MobileRedisKeyBuilder;
 
@@ -26,6 +27,8 @@ public class LoginService {
     private RedisTemplate redisTemplate;
     @Resource
     private UserPhoneMapper userPhoneMapper;
+    @Resource
+    private UserMapper userMapper;
     private ConvertBeanUtil convertBeanUtil=new ConvertBeanUtil();
 
     Logger logger = LoggerFactory.getLogger(SmsService.class);
@@ -75,7 +78,8 @@ public class LoginService {
         queryWrapper.last("limit 1");
         UserPhoneDO userPhoneDO = userPhoneMapper.selectOne(queryWrapper);
         if(userPhoneDO != null) {
-            return LoginDTO.success(userPhoneDO.getUserId());
+            UserDTO userDTO = userService.getUserById(userPhoneDO.getUserId());
+            return new LoginDTO(true, "登录成功", userDTO.getUserId(), userDTO.getNickName(), userDTO.getAvatar());
         }
         return null;
     }

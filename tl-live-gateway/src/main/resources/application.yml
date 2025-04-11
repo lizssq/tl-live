@@ -1,5 +1,5 @@
 server:
-  port: 80
+  port: 8888
 
 spring:
   application:
@@ -27,6 +27,7 @@ tltk:
       - /sms/sendLoginSms
       - /im/getIMServer
       - /im/sendRoomNotice
+      - /user/getUser
 
 
 dubbo:

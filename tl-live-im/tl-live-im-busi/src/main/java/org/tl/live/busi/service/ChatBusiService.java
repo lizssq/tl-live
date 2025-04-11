@@ -28,7 +28,7 @@ public class ChatBusiService {
     @Resource
     private RedisTemplate<String, MessageBody> redisTemplate;
 
-    @Value("${tl-live.im-busi.chat-max:5}")
+    @Value("${tl-live.im-busi.chat-max:1}")
     private int chatMax;
 
     @DubboReference(check = false,cluster = ClusterRules.BROADCAST)
@@ -70,7 +70,7 @@ public class ChatBusiService {
             }
 
             Set<MessageBody> messageBodies = redisTemplate.opsForSet().members(imRoomChatKey);
-            if(messageBodies.size()>chatMax){
+            if(messageBodies.size()>=chatMax){
                 //TODO 消息推送
                 GenericMessage genericMessage = new GenericMessage();
                 genericMessage.setRoomId(roomId);

@@ -8,6 +8,7 @@ public class WebResDTO implements Serializable {
     private int code;
     private Object data;
 
+
     public WebResDTO() {
     }
 

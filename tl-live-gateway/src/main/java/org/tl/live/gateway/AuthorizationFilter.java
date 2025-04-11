@@ -10,6 +10,7 @@ import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpCookie;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
@@ -44,26 +45,38 @@ public class AuthorizationFilter implements Ordered, GlobalFilter {
                 return chain.filter(exchange);
             }
         }
-        List<HttpCookie> cookies= serverHttpRequest.getCookies().get("titk");
+        List<HttpCookie> cookies= serverHttpRequest.getCookies().get("tltk");
         if(cookies == null || cookies.size() == 0){
-            logger.info("titk为空");
+            logger.info("tltk为空");
             return Mono.empty();
         }
-        //湖区第一噶cookie
-        String titk = cookies.get(0).getValue();
-        //是否为空
-        if(!StringUtils.hasText(titk)){
-            logger.info("titk为空");
+        /*//湖区第一噶cookie
+        String tltk = cookies.get(0).getValue();
+        //是否为空*/
+
+        // 从请求头中获取 tltk
+        HttpHeaders headers = serverHttpRequest.getHeaders();
+        List<String> tltkList = headers.get("tltk");
+        if (tltkList == null || tltkList.isEmpty()) {
+            logger.info("tltk 为空");
             return Mono.empty();
         }
-        String userId= userRPCService.checkToken(titk);
+
+        // 获取第一个 tltk 值
+        String tltk = tltkList.get(0);
+        if (!StringUtils.hasText(tltk)) {
+            logger.info("tltk 为空");
+            return Mono.empty();
+        }
+
+        String userId= userRPCService.checkToken(tltk);
         if(StringUtils.isEmpty(userId)){
-            logger.info("titk无效");
+            logger.info("tltk无效");
             return Mono.empty();
         }
         //将userId放入请求头
         ServerHttpRequest serverHttpRequest1 = exchange.getRequest().mutate().header(GatewayHeaderEnum.GATEWAY_UESR_NAME.getName(),userId).build();
-        logger.info("titk有效，userId："+userId);
+        logger.info("tltk有效，userId："+userId);
         return chain.filter(exchange.mutate().request(serverHttpRequest1).build());
     }
     @Override

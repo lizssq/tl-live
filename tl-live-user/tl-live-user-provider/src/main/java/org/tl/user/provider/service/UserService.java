@@ -98,6 +98,7 @@ public class UserService {
         String userCacheKey = userCacheKeyBuilder.getUserPhoneKey(token);
         //存入redis
         redisTemplate.opsForValue().set(userCacheKey, userId,30, TimeUnit.MINUTES);
+
         return token;
     }
 

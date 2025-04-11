@@ -15,9 +15,8 @@ import static org.tl.live.enlity.WebResDTO.ERROR_CODE;
 import static org.tl.live.enlity.WebResDTO.SUCCESS_CODE;
 
 
-@Controller
+@RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "*")
 public class UserController {
 
     Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -27,10 +26,10 @@ public class UserController {
 
     @RequestMapping("/getUser")
     public WebResDTO getUserById(String userId) {
-            if (StringUtils.isEmpty(userId)) {
-                return new WebResDTO(ERROR_CODE, "userId不能为空");
-            }
+        if (StringUtils.isEmpty(userId)) {
+            return new WebResDTO(ERROR_CODE, "userId不能为空");
+        }
         logger.info("userId:{}，nikeName:{}", userId, userRPCService.getUserById(Long.valueOf(userId)).getNickName());
-            return new WebResDTO(SUCCESS_CODE, userRPCService.getUserById(Long.valueOf(userId)));
+        return new WebResDTO(SUCCESS_CODE, userRPCService.getUserById(Long.valueOf(userId)));
     }
 }

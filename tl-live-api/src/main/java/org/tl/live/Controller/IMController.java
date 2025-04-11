@@ -2,6 +2,8 @@ package org.tl.live.Controller;
 
 import jakarta.annotation.Resource;
 import org.apache.dubbo.config.annotation.DubboReference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -22,7 +24,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @RestController
 @RequestMapping("/im")
-@CrossOrigin(origins = "*")
 public class IMController {
 
     @Value("${tllive.im.imInstance}")
@@ -34,12 +35,15 @@ public class IMController {
     @DubboReference(check = false)
     private IIMRPCService imRPCService;
 
+    Logger logger = LoggerFactory.getLogger(IMController.class);
+
     /**
      * 获取IM服务器
      * @return
      */
     @PostMapping("/getIMServer")
     public WebResDTO getIMServer(String userId) {
+        logger.info("getIMServer-userId-"+userId);
         List<ServiceInstance> instances = discoveryClient.getInstances(imServerName);
         List<ServiceInstance> instanceList = new ArrayList<>();
         if (instances == null || instances.size() == 0) {

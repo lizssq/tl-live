@@ -1,5 +1,6 @@
 package org.tl.live.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.Resource;
 import jakarta.websocket.Session;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
@@ -26,6 +27,8 @@ import static org.tl.live.manager.ConnectionManager.joinRoom;
 public class MessageSendService {
 
     Logger logger = LoggerFactory.getLogger(MessageSendService.class);
+
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Resource
     private RocketMQTemplate rocketMQTemplate;
@@ -58,7 +61,9 @@ public class MessageSendService {
             //TODO
             try {
                 message.setFromUserId(Long.parseLong(userId.toString()));
-                session.getBasicRemote().sendText(message.toString());
+                // 将对象转为JSON字符串
+                String jsonMessage = objectMapper.writeValueAsString(message);
+                session.getBasicRemote().sendText(jsonMessage);
             } catch (IOException e) {
                 logger.error("消息发送失败");
             }

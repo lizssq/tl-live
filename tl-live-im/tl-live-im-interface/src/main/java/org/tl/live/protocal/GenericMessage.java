@@ -9,9 +9,7 @@ public class GenericMessage implements Serializable {
      */
     private Integer type;
     /**
-     *房间
-     ID
-
+     *房间ID
      */
     private Long roomId;
     /**

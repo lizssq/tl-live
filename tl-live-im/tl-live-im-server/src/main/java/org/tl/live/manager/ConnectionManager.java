@@ -15,13 +15,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 
 /**
- * Author
- ：
- roy
- * Description
- ：
-
- 连接管理器  **/
+ * Author：roy
+ * Description：连接管理器
+ * **/
 public class ConnectionManager {
 
     private static final Logger logger = LoggerFactory.getLogger(ConnectionManager.class);

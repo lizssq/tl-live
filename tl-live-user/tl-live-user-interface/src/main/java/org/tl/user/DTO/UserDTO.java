@@ -9,6 +9,13 @@ public class UserDTO implements Serializable {
     private String avatar;
     private String trueName;
     private Integer sex;
+
+    public UserDTO(Long userId, String nickName, String avatar) {
+        this.userId = userId;
+        this.nickName = nickName;
+        this.avatar = avatar;
+    }
+
     private Date createTime;
     private Date updateTime;
 
