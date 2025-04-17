@@ -46,9 +46,11 @@ public class AuthorizationFilter implements Ordered, GlobalFilter {
             }
         }
         List<HttpCookie> cookies= serverHttpRequest.getCookies().get("tltk");
-        if(cookies == null || cookies.size() == 0){
+        if(cookies == null || cookies.isEmpty()){
             logger.info("tltk为空");
             return Mono.empty();
+        }else{
+            logger.info("!cookies == null || !cookies.size() == 0");
         }
         /*//湖区第一噶cookie
         String tltk = cookies.get(0).getValue();

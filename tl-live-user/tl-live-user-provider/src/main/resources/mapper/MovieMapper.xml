@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tl.user.provider.mapper.MovieMapper">
+
+    <resultMap id="BaseResultMap" type="org.tl.user.provider.entity.MovieDO">
+            <id property="movieId" column="movie_id" />
+            <result property="title" column="title" />
+            <result property="director" column="director" />
+            <result property="actors" column="actors" />
+            <result property="description" column="description" />
+            <result property="coverUrl" column="cover_url" />
+            <result property="duration" column="duration" />
+            <result property="releaseYear" column="release_year" />
+            <result property="region" column="region" />
+            <result property="language" column="language" />
+            <result property="rating" column="rating" />
+            <result property="createTime" column="create_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        movie_id,title,director,actors,description,cover_url,
+        duration,release_year,region,language,rating,
+        create_time
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from movie
+        where  movie_id = #{movieId} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from movie
+        where  movie_id = #{movieId} 
+    </delete>
+    <insert id="insert" keyColumn="movie_id" keyProperty="movieId" parameterType="org.tl.user.provider.entity.MovieDO" useGeneratedKeys="true">
+        insert into movie
+        ( movie_id,title,director,actors,description,cover_url,
+        duration,release_year,region,language,rating,
+        create_time)
+        values (#{movieId},#{title},#{director},#{actors},#{description},#{coverUrl},
+        #{duration},#{releaseYear},#{region},#{language},#{rating},
+        #{createTime})
+    </insert>
+    <insert id="insertSelective" keyColumn="movie_id" keyProperty="movieId" parameterType="org.tl.user.provider.entity.MovieDO" useGeneratedKeys="true">
+        insert into movie
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="movieId != null">movie_id,</if>
+                <if test="title != null">title,</if>
+                <if test="director != null">director,</if>
+                <if test="actors != null">actors,</if>
+                <if test="description != null">description,</if>
+                <if test="coverUrl != null">cover_url,</if>
+                <if test="duration != null">duration,</if>
+                <if test="releaseYear != null">release_year,</if>
+                <if test="region != null">region,</if>
+                <if test="language != null">language,</if>
+                <if test="rating != null">rating,</if>
+                <if test="createTime != null">create_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="movieId != null">#{movieId},</if>
+                <if test="title != null">#{title},</if>
+                <if test="director != null">#{director},</if>
+                <if test="actors != null">#{actors},</if>
+                <if test="description != null">#{description},</if>
+                <if test="coverUrl != null">#{coverUrl},</if>
+                <if test="duration != null">#{duration},</if>
+                <if test="releaseYear != null">#{releaseYear},</if>
+                <if test="region != null">#{region},</if>
+                <if test="language != null">#{language},</if>
+                <if test="rating != null">#{rating},</if>
+                <if test="createTime != null">#{createTime},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.tl.user.provider.entity.MovieDO">
+        update movie
+        <set>
+                <if test="title != null">
+                    title = #{title},
+                </if>
+                <if test="director != null">
+                    director = #{director},
+                </if>
+                <if test="actors != null">
+                    actors = #{actors},
+                </if>
+                <if test="description != null">
+                    description = #{description},
+                </if>
+                <if test="coverUrl != null">
+                    cover_url = #{coverUrl},
+                </if>
+                <if test="duration != null">
+                    duration = #{duration},
+                </if>
+                <if test="releaseYear != null">
+                    release_year = #{releaseYear},
+                </if>
+                <if test="region != null">
+                    region = #{region},
+                </if>
+                <if test="language != null">
+                    language = #{language},
+                </if>
+                <if test="rating != null">
+                    rating = #{rating},
+                </if>
+                <if test="createTime != null">
+                    create_time = #{createTime},
+                </if>
+        </set>
+        where   movie_id = #{movieId} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.tl.user.provider.entity.MovieDO">
+        update movie
+        set 
+            title =  #{title},
+            director =  #{director},
+            actors =  #{actors},
+            description =  #{description},
+            cover_url =  #{coverUrl},
+            duration =  #{duration},
+            release_year =  #{releaseYear},
+            region =  #{region},
+            language =  #{language},
+            rating =  #{rating},
+            create_time =  #{createTime}
+        where   movie_id = #{movieId} 
+    </update>
+</mapper>

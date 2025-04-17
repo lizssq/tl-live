@@ -27,9 +27,9 @@ public class LoginService {
     private RedisTemplate redisTemplate;
     @Resource
     private UserPhoneMapper userPhoneMapper;
-    @Resource
+/*    @Resource
     private UserMapper userMapper;
-    private ConvertBeanUtil convertBeanUtil=new ConvertBeanUtil();
+    private ConvertBeanUtil convertBeanUtil=new ConvertBeanUtil();*/
 
     Logger logger = LoggerFactory.getLogger(SmsService.class);
     @Resource

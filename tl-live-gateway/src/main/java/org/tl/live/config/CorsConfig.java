@@ -18,9 +18,9 @@ public class CorsConfig {
         config.addAllowedMethod("*");
         config.addAllowedHeader("*");
         config.setAllowCredentials(true);
-        config.addAllowedOriginPattern("http://localhost:5173"); // 明确列出允许的源
+        config.addAllowedOriginPattern("*"); // 明确列出允许的源
 
-        // 👇 添加暴露的响应头，允许前端访问名为 tltk 的 header
+        //添加暴露的响应头，允许前端访问名为 tltk 的 header
         config.addExposedHeader("tltk");
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource(new PathPatternParser());

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tl.user.provider.mapper.MoviecategoryrelationMapper">
+
+    <resultMap id="BaseResultMap" type="org.tl.user.provider.entity.Moviecategoryrelation">
+            <id property="movieId" column="movie_id" />
+            <id property="categoryId" column="category_id" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        movie_id,category_id
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from moviecategoryrelation
+        where  movie_id = #{movieId} AND category_id = #{categoryId} 
+    </select>
+    <select id="findCategoriesByMovieId" resultType="String">
+        SELECT
+            c.name
+        FROM
+            moviecategory c
+                JOIN
+            moviecategoryrelation r ON c.category_id = r.category_id
+        WHERE
+            r.movie_id = #{movieId}
+          AND NOT EXISTS (
+            SELECT 1
+            FROM moviecategory child
+                     JOIN moviecategoryrelation child_r ON child.category_id = child_r.category_id
+            WHERE
+                child.parent_id = c.category_id
+              AND child_r.movie_id = r.movie_id
+        )
+        ORDER BY
+            c.category_id
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from moviecategoryrelation
+        where  movie_id = #{movieId} AND category_id = #{categoryId} 
+    </delete>
+    <insert id="insert">
+        insert into moviecategoryrelation
+        ( movie_id,category_id)
+        values (#{movieId},#{categoryId})
+    </insert>
+    <insert id="insertSelective">
+        insert into moviecategoryrelation
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="movieId != null">movie_id,</if>
+                <if test="categoryId != null">category_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="movieId != null">#{movieId},</if>
+                <if test="categoryId != null">#{categoryId},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.tl.user.provider.entity.Moviecategoryrelation">
+        update moviecategoryrelation
+        <set>
+        </set>
+        where   movie_id = #{movieId} AND category_id = #{categoryId} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.tl.user.provider.entity.Moviecategoryrelation">
+        update moviecategoryrelation
+        set 
+        where   movie_id = #{movieId} AND category_id = #{categoryId} 
+    </update>
+</mapper>

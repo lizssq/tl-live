@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tl.user.provider.mapper.MoviecategoryMapper">
+
+    <resultMap id="BaseResultMap" type="org.tl.user.provider.entity.Moviecategory">
+            <id property="categoryId" column="category_id" />
+            <result property="name" column="name" />
+            <result property="parentId" column="parent_id" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        category_id,name,parent_id
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from moviecategory
+        where  category_id = #{categoryId} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from moviecategory
+        where  category_id = #{categoryId} 
+    </delete>
+    <insert id="insert" keyColumn="category_id" keyProperty="categoryId" parameterType="org.tl.user.provider.entity.Moviecategory" useGeneratedKeys="true">
+        insert into moviecategory
+        ( category_id,name,parent_id)
+        values (#{categoryId},#{name},#{parentId})
+    </insert>
+    <insert id="insertSelective" keyColumn="category_id" keyProperty="categoryId" parameterType="org.tl.user.provider.entity.Moviecategory" useGeneratedKeys="true">
+        insert into moviecategory
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="categoryId != null">category_id,</if>
+                <if test="name != null">name,</if>
+                <if test="parentId != null">parent_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="categoryId != null">#{categoryId},</if>
+                <if test="name != null">#{name},</if>
+                <if test="parentId != null">#{parentId},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.tl.user.provider.entity.Moviecategory">
+        update moviecategory
+        <set>
+                <if test="name != null">
+                    name = #{name},
+                </if>
+                <if test="parentId != null">
+                    parent_id = #{parentId},
+                </if>
+        </set>
+        where   category_id = #{categoryId} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.tl.user.provider.entity.Moviecategory">
+        update moviecategory
+        set 
+            name =  #{name},
+            parent_id =  #{parentId}
+        where   category_id = #{categoryId} 
+    </update>
+</mapper>
