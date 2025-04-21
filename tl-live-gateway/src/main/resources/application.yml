@@ -17,7 +17,7 @@ spring:
         - id: tl-live-user
           uri: lb://tl-live-api
           predicates:
-            - Path=/user/**,/sms/**,/im/**,/movie/**
+            - Path=/user/**,/sms/**,/im/**,/movie/**,/live/**
 
 
 
@@ -30,6 +30,7 @@ tltk:
       - /im/sendRoomNotice
       - /user/getUser
       - /movie
+      - /live
 
 
 dubbo:

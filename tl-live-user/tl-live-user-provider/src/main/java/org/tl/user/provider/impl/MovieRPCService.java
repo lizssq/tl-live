@@ -2,7 +2,9 @@ package org.tl.user.provider.impl;
 
 import jakarta.annotation.Resource;
 import org.apache.dubbo.config.annotation.DubboService;
+import org.tl.user.DTO.MovieCommentDTO;
 import org.tl.user.DTO.MovieDTO;
+import org.tl.user.DTO.MovieFavoriteDTO;
 import org.tl.user.DTO.MovieSourceDTO;
 import org.tl.user.inter.IMovieRPCService;
 import org.tl.user.provider.service.MovieService;
@@ -32,6 +34,32 @@ public class MovieRPCService implements IMovieRPCService {
 
     @Override
     public MovieSourceDTO movieSource(Long id) {
-        return movieService.MovieSource(id);
+        return movieService.movieSource(id);
     }
+
+    @Override
+    public List<MovieCommentDTO> movieComment(Long movieId) {
+        return movieService.movieComment(movieId);
+    }
+
+    @Override
+    public int addMovieComment(MovieCommentDTO comment) {
+        return movieService.addMovieComment(comment);
+    }
+
+    @Override
+    public List<MovieDTO> getMovieFavoriteByUserId(Long userId) {
+        return movieService.getMovieFavoriteByUserId(userId);
+    }
+
+    @Override
+    public int setMovieFavoriteByUserIdAndMovieId(MovieFavoriteDTO movieFavoriteDTO) {
+        return movieService.setMovieFavoriteByUserIdAndMovieId(movieFavoriteDTO);
+    }
+
+    @Override
+    public int deleteMovieFavoriteByUserIdAndMovieId(MovieFavoriteDTO movieFavoriteDTO) {
+        return movieService.deleteMovieFavoriteByUserIdAndMovieId(movieFavoriteDTO);
+    }
+
 }

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tl.user.provider.mapper.MovieFavoriteMapper">
+
+    <resultMap id="BaseResultMap" type="org.tl.user.provider.entity.MovieFavorite">
+            <id property="userId" column="user_id" />
+            <id property="movieId" column="movie_id" />
+            <result property="createTime" column="create_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        user_id,movie_id,create_time
+    </sql>
+
+    <!-- ResultMap for Movie -->
+    <resultMap id="MovieResultMap" type="org.tl.user.provider.entity.MovieDO">
+        <id property="movieId" column="movie_id"/>
+        <result property="title" column="title"/>
+        <result property="director" column="director"/>
+        <result property="actors" column="actors"/>
+        <result property="description" column="description"/>
+        <result property="coverUrl" column="cover_url"/>
+        <result property="duration" column="duration"/>
+        <result property="releaseYear" column="release_year"/>
+        <result property="region" column="region"/>
+        <result property="language" column="language"/>
+        <result property="rating" column="rating"/>
+        <result property="createTime" column="create_time"/>
+        <result property="favoriteTime" column="favorite_time"/>
+    </resultMap>
+
+    <!-- Query to get favorite movies by user_id -->
+    <select id="getFavoriteMoviesByUserId" resultMap="MovieResultMap">
+        SELECT
+            mf.movie_id,
+            m.title,
+            m.director,
+            m.actors,
+            m.description,
+            m.cover_url,
+            m.duration,
+            m.release_year,
+            m.region,
+            m.language,
+            m.rating,
+            mf.create_time AS favorite_time
+        FROM
+            Movie_Favorite mf
+                JOIN
+            Movie m ON mf.movie_id = m.movie_id
+        WHERE
+            mf.user_id = #{userId}
+        ORDER BY
+            mf.create_time DESC
+    </select>
+
+    <!-- Delete favorite movie by user_id and movie_id -->
+    <delete id="deleteFavoriteMovie" parameterType="org.tl.user.provider.entity.MovieFavorite">
+        DELETE FROM Movie_Favorite
+        WHERE user_id = #{userId} AND movie_id = #{movieId}
+    </delete>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from movie_favorite
+        where  user_id = #{userId} AND movie_id = #{movieId} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from movie_favorite
+        where  user_id = #{userId} AND movie_id = #{movieId} 
+    </delete>
+    <insert id="insert">
+        insert into movie_favorite
+        ( user_id,movie_id,create_time)
+        values (#{userId},#{movieId},#{createTime})
+    </insert>
+    <insert id="insertSelective">
+        insert into movie_favorite
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="userId != null">user_id,</if>
+                <if test="movieId != null">movie_id,</if>
+                <if test="createTime != null">create_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="userId != null">#{userId},</if>
+                <if test="movieId != null">#{movieId},</if>
+                <if test="createTime != null">#{createTime},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.tl.user.provider.entity.MovieFavorite">
+        update movie_favorite
+        <set>
+                <if test="createTime != null">
+                    create_time = #{createTime},
+                </if>
+        </set>
+        where   user_id = #{userId} AND movie_id = #{movieId} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.tl.user.provider.entity.MovieFavorite">
+        update movie_favorite
+        set 
+            create_time =  #{createTime}
+        where   user_id = #{userId} AND movie_id = #{movieId} 
+    </update>
+</mapper>

@@ -6,13 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
-import org.tl.user.DTO.MovieDTO;
-import org.tl.user.DTO.MovieSourceDTO;
+import org.tl.user.DTO.*;
+import org.tl.user.provider.entity.MovieComment;
 import org.tl.user.provider.entity.MovieDO;
+import org.tl.user.provider.entity.MovieFavorite;
 import org.tl.user.provider.entity.MovieSource;
-import org.tl.user.provider.mapper.MovieMapper;
-import org.tl.user.provider.mapper.MovieSourceMapper;
-import org.tl.user.provider.mapper.MoviecategoryrelationMapper;
+import org.tl.user.provider.mapper.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +28,12 @@ public class MovieService {
 
     @Resource
     private MoviecategoryrelationMapper movieCategoryRelationMapper;
+
+    @Resource
+    private MovieCommentMapper movieCommentMapper;
+
+    @Resource
+    private MovieFavoriteMapper movieFavoriteMapper;
 
     Logger logger = LoggerFactory.getLogger(MovieService.class);
 
@@ -97,10 +102,49 @@ public class MovieService {
         }
         return dtoList;
     }
-    public MovieSourceDTO MovieSource(Long movieId){
+    public MovieSourceDTO movieSource(Long movieId){
         MovieSource movieSource = movieSourceMapper.findByMovieIdMovieSource(movieId);
         MovieSourceDTO dto = new MovieSourceDTO();
         BeanUtils.copyProperties(movieSource, dto);
         return dto;
     }
+    //评论
+    public List<MovieCommentDTO> movieComment (Long movieId) {
+        List<MovieComment> movieComment = movieCommentMapper.getCommentWithUserInfo(movieId);
+        List<MovieCommentDTO> dtoList=new ArrayList<>();
+        for (MovieComment movie : movieComment) {
+            MovieCommentDTO dto = new MovieCommentDTO();
+            BeanUtils.copyProperties(movie, dto);  // 自动拷贝属性
+            dtoList.add(dto);
+        }
+        return dtoList;
+    }
+    public int addMovieComment (MovieCommentDTO comment){
+        MovieComment movieComment=new MovieComment();
+        BeanUtils.copyProperties(comment,movieComment);
+        return movieCommentMapper.insertSelective(movieComment);
+    }
+
+    //收藏
+    public List<MovieDTO> getMovieFavoriteByUserId(Long userId){
+        List<MovieDO> favoriteMovies = movieFavoriteMapper.getFavoriteMoviesByUserId(userId);
+        List<MovieDTO> dtoList=new ArrayList<>();
+        for (MovieDO movie : favoriteMovies) {
+            MovieDTO dto = new MovieDTO();
+            BeanUtils.copyProperties(movie, dto);  // 自动拷贝属性
+            dtoList.add(dto);
+        }
+        return dtoList;
+    }
+    public int setMovieFavoriteByUserIdAndMovieId(MovieFavoriteDTO movieFavoriteDTO){
+        MovieFavorite movieFavorite=new MovieFavorite();
+        BeanUtils.copyProperties(movieFavoriteDTO,movieFavorite);
+        return movieFavoriteMapper.insertSelective(movieFavorite);
+    }
+    public int deleteMovieFavoriteByUserIdAndMovieId(MovieFavoriteDTO movieFavoriteDTO){
+        MovieFavorite movieFavorite=new MovieFavorite();
+        BeanUtils.copyProperties(movieFavoriteDTO,movieFavorite);
+        return movieFavoriteMapper.deleteFavoriteMovie(movieFavorite);
+    }
+
 }

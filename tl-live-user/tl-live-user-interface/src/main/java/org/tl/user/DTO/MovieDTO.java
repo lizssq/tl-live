@@ -46,6 +46,6 @@ public class MovieDTO implements Serializable {
 
     private List<String> category;
 
-
+    private Date favoriteTime;
 
 }

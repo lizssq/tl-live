@@ -81,4 +81,7 @@ public class MovieDO {
 
     @TableField(exist = false)
     private List<String> category;
+
+    @TableField(exist = false)
+    private Date favoriteTime;
 }
