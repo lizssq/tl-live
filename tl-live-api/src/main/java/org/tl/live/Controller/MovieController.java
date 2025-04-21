@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.tl.live.enlity.SearchMovieDTO;
 import org.tl.live.enlity.WebResDTO;
 import org.tl.user.DTO.MovieDTO;
+import org.tl.user.DTO.MovieSourceDTO;
 import org.tl.user.inter.IMovieRPCService;
 
 import java.util.HashMap;
@@ -31,9 +32,9 @@ public class MovieController {
         return new WebResDTO(WebResDTO.ERROR_CODE,res);
     }
 
-    @PostMapping("/getMovieById")
-    public WebResDTO getMovieById(long id){
-        MovieDTO res = movieRPCService.getMovieById(id);
+    @GetMapping("/getMovieById")
+    public WebResDTO getMovieById(Long movieId){
+        MovieDTO res = movieRPCService.getMovieById(movieId);
         if(res!=null){
             return new WebResDTO(WebResDTO.SUCCESS_CODE,res);
         }
@@ -49,5 +50,14 @@ public class MovieController {
         searchMovie.put("releaseYear",searchMovieDTO.getReleaseYear());
         List<MovieDTO> movies = movieRPCService.searchMovies(searchMovie);
         return new WebResDTO(WebResDTO.SUCCESS_CODE, movies);
+    }
+    @GetMapping("/movieSource")
+    public WebResDTO movieSource(Long movieId ){
+        //redis 操作
+        MovieSourceDTO movieSourceDTO = movieRPCService.movieSource(movieId);
+        if(movieSourceDTO!=null){
+            return new WebResDTO(WebResDTO.SUCCESS_CODE, movieSourceDTO);
+        }
+        return new WebResDTO(WebResDTO.ERROR_CODE, "未查询到该电影的数据源");
     }
 }

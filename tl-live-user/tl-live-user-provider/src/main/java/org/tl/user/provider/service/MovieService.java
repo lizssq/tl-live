@@ -7,8 +7,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.tl.user.DTO.MovieDTO;
+import org.tl.user.DTO.MovieSourceDTO;
 import org.tl.user.provider.entity.MovieDO;
+import org.tl.user.provider.entity.MovieSource;
 import org.tl.user.provider.mapper.MovieMapper;
+import org.tl.user.provider.mapper.MovieSourceMapper;
 import org.tl.user.provider.mapper.MoviecategoryrelationMapper;
 
 import java.util.ArrayList;
@@ -20,6 +23,9 @@ public class MovieService {
 
     @Resource
     private MovieMapper movieMapper;
+
+    @Resource
+    private MovieSourceMapper movieSourceMapper;
 
     @Resource
     private MoviecategoryrelationMapper movieCategoryRelationMapper;
@@ -90,5 +96,11 @@ public class MovieService {
             dtoList.add(dto);
         }
         return dtoList;
+    }
+    public MovieSourceDTO MovieSource(Long movieId){
+        MovieSource movieSource = movieSourceMapper.findByMovieIdMovieSource(movieId);
+        MovieSourceDTO dto = new MovieSourceDTO();
+        BeanUtils.copyProperties(movieSource, dto);
+        return dto;
     }
 }

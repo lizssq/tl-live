@@ -3,6 +3,7 @@ package org.tl.user.provider.impl;
 import jakarta.annotation.Resource;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.tl.user.DTO.MovieDTO;
+import org.tl.user.DTO.MovieSourceDTO;
 import org.tl.user.inter.IMovieRPCService;
 import org.tl.user.provider.service.MovieService;
 
@@ -27,5 +28,10 @@ public class MovieRPCService implements IMovieRPCService {
     @Override
     public List<MovieDTO> searchMovies(Map<String,Object> searchMovie) {
         return movieService.searchMovies(searchMovie);
+    }
+
+    @Override
+    public MovieSourceDTO movieSource(Long id) {
+        return movieService.MovieSource(id);
     }
 }

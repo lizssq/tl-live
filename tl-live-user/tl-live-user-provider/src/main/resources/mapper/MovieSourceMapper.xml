@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tl.user.provider.mapper.MovieSourceMapper">
+
+    <resultMap id="BaseResultMap" type="org.tl.user.provider.entity.MovieSource">
+            <id property="sourceId" column="source_id" />
+            <result property="movieId" column="movie_id" />
+            <result property="playUrl" column="play_url" />
+            <result property="fileFormat" column="file_format" />
+            <result property="fileSize" column="file_size" />
+            <result property="isDefault" column="is_default" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        source_id,movie_id,play_url,file_format,file_size,is_default
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from movie_source
+        where  source_id = #{sourceId} 
+    </select>
+    <select id="findByMovieIdMovieSource" resultType="org.tl.user.provider.entity.MovieSource">
+        select
+        <include refid="Base_Column_List" />
+        from movie_source
+        where  movie_id = #{id}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from movie_source
+        where  source_id = #{sourceId} 
+    </delete>
+    <insert id="insert" keyColumn="source_id" keyProperty="sourceId" parameterType="org.tl.user.provider.entity.MovieSource" useGeneratedKeys="true">
+        insert into movie_source
+        ( source_id,movie_id,play_url,file_format,file_size,is_default)
+        values (#{sourceId},#{movieId},#{playUrl},#{fileFormat},#{fileSize},#{isDefault})
+    </insert>
+    <insert id="insertSelective" keyColumn="source_id" keyProperty="sourceId" parameterType="org.tl.user.provider.entity.MovieSource" useGeneratedKeys="true">
+        insert into movie_source
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="sourceId != null">source_id,</if>
+                <if test="movieId != null">movie_id,</if>
+                <if test="playUrl != null">play_url,</if>
+                <if test="fileFormat != null">file_format,</if>
+                <if test="fileSize != null">file_size,</if>
+                <if test="isDefault != null">is_default,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="sourceId != null">#{sourceId},</if>
+                <if test="movieId != null">#{movieId},</if>
+                <if test="playUrl != null">#{playUrl},</if>
+                <if test="fileFormat != null">#{fileFormat},</if>
+                <if test="fileSize != null">#{fileSize},</if>
+                <if test="isDefault != null">#{isDefault},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.tl.user.provider.entity.MovieSource">
+        update movie_source
+        <set>
+                <if test="movieId != null">
+                    movie_id = #{movieId},
+                </if>
+                <if test="playUrl != null">
+                    play_url = #{playUrl},
+                </if>
+                <if test="fileFormat != null">
+                    file_format = #{fileFormat},
+                </if>
+                <if test="fileSize != null">
+                    file_size = #{fileSize},
+                </if>
+                <if test="isDefault != null">
+                    is_default = #{isDefault},
+                </if>
+        </set>
+        where   source_id = #{sourceId} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.tl.user.provider.entity.MovieSource">
+        update movie_source
+        set 
+            movie_id =  #{movieId},
+            play_url =  #{playUrl},
+            file_format =  #{fileFormat},
+            file_size =  #{fileSize},
+            is_default =  #{isDefault}
+        where   source_id = #{sourceId} 
+    </update>
+</mapper>
