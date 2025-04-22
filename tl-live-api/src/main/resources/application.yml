@@ -3,6 +3,10 @@ server:
 
 #nacos配置
 spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
   application:
     name: tl-live-api
   cloud:

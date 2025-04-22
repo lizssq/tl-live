@@ -15,4 +15,14 @@ public class LiveRPCService implements ILiveRPCService {
     public List<LiveRoomDTO> getAllLiveRoom() {
         return liveService.LiveRoom();
     }
+
+    @Override
+    public int addLiveRoom(LiveRoomDTO liveRoomDTO) {
+        return liveService.initializeLiveRoom(liveRoomDTO);
+    }
+
+    @Override
+    public LiveRoomDTO getLiveRoomByUserId(Long userId) {
+        return liveService.getLiveRoomByUserId(userId);
+    }
 }

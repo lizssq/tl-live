@@ -48,8 +48,8 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="MovieFavorite" />
-                  <option name="tableName" value="movie_favorite" />
+                  <option name="className" value="LiveRoom" />
+                  <option name="tableName" value="live_room" />
                 </TableUIInfo>
               </list>
             </option>

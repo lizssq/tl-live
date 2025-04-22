@@ -8,15 +8,21 @@
             <id property="roomId" column="room_id" />
             <result property="userId" column="user_id" />
             <result property="title" column="title" />
+            <result property="description" column="description" />
             <result property="categoryId" column="category_id" />
             <result property="coverUrl" column="cover_url" />
             <result property="status" column="status" />
-            <result property="streamUrl" column="stream_url" />
+            <result property="streamCode" column="stream_code" />
+            <result property="pushUrl" column="push_url" />
+            <result property="pullUrlRtmp" column="pull_url_rtmp" />
+            <result property="createTime" column="create_time" />
+            <result property="updateTime" column="update_time" />
     </resultMap>
 
     <sql id="Base_Column_List">
-        room_id,user_id,title,category_id,cover_url,status,
-        stream_url
+        room_id,user_id,title,description,category_id,cover_url,
+        status,stream_code,push_url,pull_url_rtmp,create_time,
+        update_time
     </sql>
 
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
@@ -25,6 +31,12 @@
         from live_room
         where  room_id = #{roomId} 
     </select>
+    <select id="selectByUserId" resultType="org.tl.user.provider.entity.LiveRoom">
+        select
+        <include refid="Base_Column_List" />
+        from live_room
+        where  user_id = #{user_id}
+    </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete from live_room
@@ -32,10 +44,12 @@
     </delete>
     <insert id="insert" keyColumn="room_id" keyProperty="roomId" parameterType="org.tl.user.provider.entity.LiveRoom" useGeneratedKeys="true">
         insert into live_room
-        ( room_id,user_id,title,category_id,cover_url,status,
-        stream_url)
-        values (#{roomId},#{userId},#{title},#{categoryId},#{coverUrl},#{status},
-        #{streamUrl})
+        ( room_id,user_id,title,description,category_id,cover_url,
+        status,stream_code,push_url,pull_url_rtmp,create_time,
+        update_time)
+        values (#{roomId},#{userId},#{title},#{description},#{categoryId},#{coverUrl},
+        #{status},#{streamCode},#{pushUrl},#{pullUrlRtmp},#{createTime},
+        #{updateTime})
     </insert>
     <insert id="insertSelective" keyColumn="room_id" keyProperty="roomId" parameterType="org.tl.user.provider.entity.LiveRoom" useGeneratedKeys="true">
         insert into live_room
@@ -43,19 +57,29 @@
                 <if test="roomId != null">room_id,</if>
                 <if test="userId != null">user_id,</if>
                 <if test="title != null">title,</if>
+                <if test="description != null">description,</if>
                 <if test="categoryId != null">category_id,</if>
                 <if test="coverUrl != null">cover_url,</if>
                 <if test="status != null">status,</if>
-                <if test="streamUrl != null">stream_url,</if>
+                <if test="streamCode != null">stream_code,</if>
+                <if test="pushUrl != null">push_url,</if>
+                <if test="pullUrlRtmp != null">pull_url_rtmp,</if>
+                <if test="createTime != null">create_time,</if>
+                <if test="updateTime != null">update_time,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
                 <if test="roomId != null">#{roomId},</if>
                 <if test="userId != null">#{userId},</if>
                 <if test="title != null">#{title},</if>
+                <if test="description != null">#{description},</if>
                 <if test="categoryId != null">#{categoryId},</if>
                 <if test="coverUrl != null">#{coverUrl},</if>
                 <if test="status != null">#{status},</if>
-                <if test="streamUrl != null">#{streamUrl},</if>
+                <if test="streamCode != null">#{streamCode},</if>
+                <if test="pushUrl != null">#{pushUrl},</if>
+                <if test="pullUrlRtmp != null">#{pullUrlRtmp},</if>
+                <if test="createTime != null">#{createTime},</if>
+                <if test="updateTime != null">#{updateTime},</if>
         </trim>
     </insert>
     <update id="updateByPrimaryKeySelective" parameterType="org.tl.user.provider.entity.LiveRoom">
@@ -67,6 +91,9 @@
                 <if test="title != null">
                     title = #{title},
                 </if>
+                <if test="description != null">
+                    description = #{description},
+                </if>
                 <if test="categoryId != null">
                     category_id = #{categoryId},
                 </if>
@@ -76,8 +103,20 @@
                 <if test="status != null">
                     status = #{status},
                 </if>
-                <if test="streamUrl != null">
-                    stream_url = #{streamUrl},
+                <if test="streamCode != null">
+                    stream_code = #{streamCode},
+                </if>
+                <if test="pushUrl != null">
+                    push_url = #{pushUrl},
+                </if>
+                <if test="pullUrlRtmp != null">
+                    pull_url_rtmp = #{pullUrlRtmp},
+                </if>
+                <if test="createTime != null">
+                    create_time = #{createTime},
+                </if>
+                <if test="updateTime != null">
+                    update_time = #{updateTime},
                 </if>
         </set>
         where   room_id = #{roomId} 
@@ -87,10 +126,15 @@
         set 
             user_id =  #{userId},
             title =  #{title},
+            description =  #{description},
             category_id =  #{categoryId},
             cover_url =  #{coverUrl},
             status =  #{status},
-            stream_url =  #{streamUrl}
+            stream_code =  #{streamCode},
+            push_url =  #{pushUrl},
+            pull_url_rtmp =  #{pullUrlRtmp},
+            create_time =  #{createTime},
+            update_time =  #{updateTime}
         where   room_id = #{roomId} 
     </update>
 </mapper>

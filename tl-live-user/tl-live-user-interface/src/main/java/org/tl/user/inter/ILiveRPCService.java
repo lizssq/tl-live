@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface ILiveRPCService {
     List<LiveRoomDTO> getAllLiveRoom();
+
+    int addLiveRoom(LiveRoomDTO liveRoomDTO);
+
+    LiveRoomDTO getLiveRoomByUserId(Long userId);
 }
