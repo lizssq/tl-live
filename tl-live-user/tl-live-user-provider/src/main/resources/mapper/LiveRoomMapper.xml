@@ -37,6 +37,18 @@
         from live_room
         where  user_id = #{user_id}
     </select>
+    <select id="selectAvatarByRoomId" resultType="java.lang.String">
+        select
+        cover_url
+        from live_room
+        where  room_id = #{roomId}
+    </select>
+    <select id="getLiveRoomByCategoryId" resultType="org.tl.user.provider.entity.LiveRoom">
+        select
+        <include refid="Base_Column_List" />
+        from live_room
+        where  category_id = #{categoryId}
+    </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete from live_room

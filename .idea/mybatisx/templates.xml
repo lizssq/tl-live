@@ -48,8 +48,8 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="LiveRoom" />
-                  <option name="tableName" value="live_room" />
+                  <option name="className" value="LiveCategory" />
+                  <option name="tableName" value="live_category" />
                 </TableUIInfo>
               </list>
             </option>

@@ -2,10 +2,7 @@ package org.tl.user.provider.impl;
 
 import jakarta.annotation.Resource;
 import org.apache.dubbo.config.annotation.DubboService;
-import org.tl.user.DTO.MovieCommentDTO;
-import org.tl.user.DTO.MovieDTO;
-import org.tl.user.DTO.MovieFavoriteDTO;
-import org.tl.user.DTO.MovieSourceDTO;
+import org.tl.user.DTO.*;
 import org.tl.user.inter.IMovieRPCService;
 import org.tl.user.provider.service.MovieService;
 
@@ -60,6 +57,21 @@ public class MovieRPCService implements IMovieRPCService {
     @Override
     public int deleteMovieFavoriteByUserIdAndMovieId(MovieFavoriteDTO movieFavoriteDTO) {
         return movieService.deleteMovieFavoriteByUserIdAndMovieId(movieFavoriteDTO);
+    }
+
+    @Override
+    public List<RegionMovieCount> getCategoryRoomCount() {
+        return movieService.getTopLevelCategoryCounts();
+    }
+
+    @Override
+    public List<RegionMovieCount> getRegionMovieCounts() {
+        return movieService.getRegionMovieCounts();
+    }
+
+    @Override
+    public List<RegionMovieCount> getReleaseYearMovieCounts() {
+        return movieService.getReleaseYearMovieCounts();
     }
 
 }

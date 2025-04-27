@@ -78,7 +78,7 @@ public class MovieController {
         return new WebResDTO(WebResDTO.ERROR_CODE, "该电影的评论为空");
     }
 
-    @PutMapping("/movieComment")
+    @PostMapping("/movieComment")
     public WebResDTO movieComment(@RequestBody MovieCommentDTO comment){
         if(comment!=null&&comment.getMovieId()!=null&&comment.getUserId()!=null&&comment.getContent()!=null){
             //判断用户、电影是否存在，过滤器应检查用户是否登录
@@ -116,4 +116,19 @@ public class MovieController {
         int i = movieRPCService.deleteMovieFavoriteByUserIdAndMovieId(movieFavoriteDTO);
         return new WebResDTO(WebResDTO.SUCCESS_CODE,i);
     }
+
+    @GetMapping("/movieCategory")
+    public WebResDTO getMovieCategoryP(){
+        return new WebResDTO(WebResDTO.SUCCESS_CODE,movieRPCService.getCategoryRoomCount());
+    }
+    @GetMapping("/movieRegion")
+    public WebResDTO getMovieRegion(){
+        return new WebResDTO(WebResDTO.SUCCESS_CODE,movieRPCService.getRegionMovieCounts());
+    }
+
+    @GetMapping("/movieReleaseYear")
+    public WebResDTO getMovieReleaseYear(){
+        return new WebResDTO(WebResDTO.SUCCESS_CODE,movieRPCService.getReleaseYearMovieCounts());
+    }
+
 }

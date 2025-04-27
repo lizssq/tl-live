@@ -31,6 +31,39 @@
         from movie
         where  movie_id = #{movieId} 
     </select>
+    <select id="getReleaseYearMovieCounts" resultType="org.tl.user.DTO.RegionMovieCount">
+        SELECT
+            ROW_NUMBER() OVER (ORDER BY release_Year DESC) AS id,
+                release_Year AS name,
+            count
+        FROM (
+                 SELECT
+                     CASE
+                         WHEN release_Year >= 2025 THEN CAST(release_Year AS CHAR)
+                         WHEN release_Year >= 2024 THEN CAST(release_Year AS CHAR)
+                         WHEN release_Year >= 2023 THEN CAST(release_Year AS CHAR)
+                         WHEN release_Year >= 2022 THEN CAST(release_Year AS CHAR)
+                         WHEN release_Year >= 2021 THEN CAST(release_Year AS CHAR)
+                         WHEN release_Year >= 2020 THEN CAST(release_Year AS CHAR)
+                         ELSE '2020以前'
+                         END AS release_Year,
+                     COUNT(*) AS count
+                 FROM
+                     movie
+                 GROUP BY
+                     CASE
+                     WHEN release_Year >= 2025 THEN CAST(release_Year AS CHAR)
+                     WHEN release_Year >= 2024 THEN CAST(release_Year AS CHAR)
+                     WHEN release_Year >= 2023 THEN CAST(release_Year AS CHAR)
+                     WHEN release_Year >= 2022 THEN CAST(release_Year AS CHAR)
+                     WHEN release_Year >= 2021 THEN CAST(release_Year AS CHAR)
+                     WHEN release_Year >= 2020 THEN CAST(release_Year AS CHAR)
+                     ELSE '2020以前'
+                     END
+             ) AS subquery
+        ORDER BY
+            release_Year DESC
+    </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete from movie
@@ -76,6 +109,7 @@
                 <if test="createTime != null">#{createTime},</if>
         </trim>
     </insert>
+
     <update id="updateByPrimaryKeySelective" parameterType="org.tl.user.provider.entity.MovieDO">
         update movie
         <set>

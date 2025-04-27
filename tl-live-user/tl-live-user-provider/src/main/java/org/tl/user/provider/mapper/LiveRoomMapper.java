@@ -3,6 +3,8 @@ package org.tl.user.provider.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.tl.user.provider.entity.LiveRoom;
 
+import java.util.List;
+
 /**
 * @author k1341
 * @description 针对表【live_room】的数据库操作Mapper
@@ -24,5 +26,9 @@ public interface LiveRoomMapper extends BaseMapper<LiveRoom> {
     int updateByPrimaryKey(LiveRoom record);
 
     LiveRoom selectByUserId(Long userId);
+
+    String selectAvatarByRoomId(Long roomId);
+
+    List<LiveRoom> getLiveRoomByCategoryId (Integer categoryId);
 
 }

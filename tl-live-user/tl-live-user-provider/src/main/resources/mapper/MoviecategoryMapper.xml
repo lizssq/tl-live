@@ -14,6 +14,24 @@
         category_id,name,parent_id
     </sql>
 
+    <!-- 查询所有最高级的电影类型的数量 -->
+    <select id="getTopLevelCategoryCounts" resultType="org.tl.user.DTO.RegionMovieCount">
+        SELECT
+            mc.category_Id as id,
+            mc.name,
+            COUNT(mcr.movie_Id) AS count
+        FROM
+            moviecategory mc
+            LEFT JOIN
+            moviecategoryrelation mcr ON mc.category_Id = mcr.category_Id
+        WHERE
+            mc.parent_Id IS NULL OR mc.parent_Id = 0
+        GROUP BY
+            mc.category_Id, mc.name
+        ORDER BY
+            mc.category_Id
+    </select>
+
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />

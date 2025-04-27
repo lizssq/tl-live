@@ -28,4 +28,8 @@ public class Moviecategory {
      * 父分类ID（树形结构）
      */
     private Integer parentId;
+
+
+    @TableField(exist = false)
+    private Integer count;
 }

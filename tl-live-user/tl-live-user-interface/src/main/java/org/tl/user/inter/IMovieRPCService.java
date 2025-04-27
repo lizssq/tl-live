@@ -1,9 +1,6 @@
 package org.tl.user.inter;
 
-import org.tl.user.DTO.MovieCommentDTO;
-import org.tl.user.DTO.MovieDTO;
-import org.tl.user.DTO.MovieFavoriteDTO;
-import org.tl.user.DTO.MovieSourceDTO;
+import org.tl.user.DTO.*;
 
 import java.util.List;
 import java.util.Map;
@@ -25,5 +22,11 @@ public interface IMovieRPCService {
 
     int setMovieFavoriteByUserIdAndMovieId(MovieFavoriteDTO movieFavoriteDTO);
     int deleteMovieFavoriteByUserIdAndMovieId(MovieFavoriteDTO movieFavoriteDTO);
+
+    List<RegionMovieCount> getCategoryRoomCount();
+
+    List<RegionMovieCount> getRegionMovieCounts();
+
+    List<RegionMovieCount> getReleaseYearMovieCounts();
 
 }

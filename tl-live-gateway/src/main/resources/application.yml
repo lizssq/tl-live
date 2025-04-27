@@ -17,7 +17,7 @@ spring:
         - id: tl-live-user
           uri: lb://tl-live-api
           predicates:
-            - Path=/user/**,/sms/**,/im/**,/movie/**,/live/**
+            - Path=/user/**,/sms/**,/im/**,/movie/**,/live/**,/coverUrl
 
 
 
@@ -31,6 +31,7 @@ tltk:
       - /user/getUser
       - /movie
       - /live
+      - /coverUrl
 
 
 dubbo:

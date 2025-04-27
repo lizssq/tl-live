@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tl.user.provider.mapper.LiveCategoryMapper">
+
+    <resultMap id="BaseResultMap" type="org.tl.user.provider.entity.LiveCategory">
+            <id property="id" column="id" />
+            <result property="name" column="name" />
+            <result property="slug" column="slug" />
+            <result property="description" column="description" />
+            <result property="coverUrl" column="cover_url" />
+            <result property="icon" column="icon" />
+            <result property="sortOrder" column="sort_order" />
+            <result property="isVisible" column="is_visible" />
+            <result property="parentId" column="parent_id" />
+            <result property="createdAt" column="created_at" />
+            <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,slug,description,cover_url,icon,
+        sort_order,is_visible,parent_id,created_at,updated_at
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from live_category
+        where  id = #{id} 
+    </select>
+    <select id="getCategoryRoomCount" resultType="org.tl.user.provider.entity.LiveCategory">
+        SELECT
+            c.id,
+            c.name,
+            COUNT(lr.room_id) AS `count`
+        FROM
+            live_category c
+                LEFT JOIN
+            live_room lr ON c.id = lr.category_id
+        GROUP BY
+            c.id, c.name
+        ORDER BY
+            c.id
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from live_category
+        where  id = #{id} 
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.tl.user.provider.entity.LiveCategory" useGeneratedKeys="true">
+        insert into live_category
+        ( id,name,slug,description,cover_url,icon,
+        sort_order,is_visible,parent_id,created_at,updated_at)
+        values (#{id},#{name},#{slug},#{description},#{coverUrl},#{icon},
+        #{sortOrder},#{isVisible},#{parentId},#{createdAt},#{updatedAt})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.tl.user.provider.entity.LiveCategory" useGeneratedKeys="true">
+        insert into live_category
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="name != null">name,</if>
+                <if test="slug != null">slug,</if>
+                <if test="description != null">description,</if>
+                <if test="coverUrl != null">cover_url,</if>
+                <if test="icon != null">icon,</if>
+                <if test="sortOrder != null">sort_order,</if>
+                <if test="isVisible != null">is_visible,</if>
+                <if test="parentId != null">parent_id,</if>
+                <if test="createdAt != null">created_at,</if>
+                <if test="updatedAt != null">updated_at,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id},</if>
+                <if test="name != null">#{name},</if>
+                <if test="slug != null">#{slug},</if>
+                <if test="description != null">#{description},</if>
+                <if test="coverUrl != null">#{coverUrl},</if>
+                <if test="icon != null">#{icon},</if>
+                <if test="sortOrder != null">#{sortOrder},</if>
+                <if test="isVisible != null">#{isVisible},</if>
+                <if test="parentId != null">#{parentId},</if>
+                <if test="createdAt != null">#{createdAt},</if>
+                <if test="updatedAt != null">#{updatedAt},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.tl.user.provider.entity.LiveCategory">
+        update live_category
+        <set>
+                <if test="name != null">
+                    name = #{name},
+                </if>
+                <if test="slug != null">
+                    slug = #{slug},
+                </if>
+                <if test="description != null">
+                    description = #{description},
+                </if>
+                <if test="coverUrl != null">
+                    cover_url = #{coverUrl},
+                </if>
+                <if test="icon != null">
+                    icon = #{icon},
+                </if>
+                <if test="sortOrder != null">
+                    sort_order = #{sortOrder},
+                </if>
+                <if test="isVisible != null">
+                    is_visible = #{isVisible},
+                </if>
+                <if test="parentId != null">
+                    parent_id = #{parentId},
+                </if>
+                <if test="createdAt != null">
+                    created_at = #{createdAt},
+                </if>
+                <if test="updatedAt != null">
+                    updated_at = #{updatedAt},
+                </if>
+        </set>
+        where   id = #{id} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.tl.user.provider.entity.LiveCategory">
+        update live_category
+        set 
+            name =  #{name},
+            slug =  #{slug},
+            description =  #{description},
+            cover_url =  #{coverUrl},
+            icon =  #{icon},
+            sort_order =  #{sortOrder},
+            is_visible =  #{isVisible},
+            parent_id =  #{parentId},
+            created_at =  #{createdAt},
+            updated_at =  #{updatedAt}
+        where   id = #{id} 
+    </update>
+</mapper>

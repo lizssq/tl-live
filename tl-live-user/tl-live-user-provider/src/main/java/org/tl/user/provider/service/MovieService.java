@@ -7,15 +7,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.tl.user.DTO.*;
-import org.tl.user.provider.entity.MovieComment;
-import org.tl.user.provider.entity.MovieDO;
-import org.tl.user.provider.entity.MovieFavorite;
-import org.tl.user.provider.entity.MovieSource;
+import org.tl.user.provider.entity.*;
 import org.tl.user.provider.mapper.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Service
 public class MovieService {
@@ -34,6 +33,9 @@ public class MovieService {
 
     @Resource
     private MovieFavoriteMapper movieFavoriteMapper;
+
+    @Resource
+    private MoviecategoryMapper moviecategoryMapper;
 
     Logger logger = LoggerFactory.getLogger(MovieService.class);
 
@@ -145,6 +147,35 @@ public class MovieService {
         MovieFavorite movieFavorite=new MovieFavorite();
         BeanUtils.copyProperties(movieFavoriteDTO,movieFavorite);
         return movieFavoriteMapper.deleteFavoriteMovie(movieFavorite);
+    }
+
+    public List<RegionMovieCount>  getTopLevelCategoryCounts(){
+        return moviecategoryMapper.getTopLevelCategoryCounts();
+    }
+
+    public List<RegionMovieCount> getRegionMovieCounts() {
+        List<Map<String, Object>> results = movieMapper.getRegionMovieCounts();
+
+        // 为每个地区分配一个自增的 id
+        return IntStream.range(1, results.size() + 1)
+                .mapToObj(id -> {
+                    Map<String, Object> result = results.get(id - 1);
+                    return new RegionMovieCount(
+                            id,
+                            (String) result.get("name"),
+                            ((Number) result.get("count")).intValue()
+                    );
+                })
+                .collect(Collectors.toList());
+    }
+
+    public List<RegionMovieCount> getReleaseYearMovieCounts() {
+        List<RegionMovieCount> releaseYearMovieCounts = movieMapper.getReleaseYearMovieCounts();
+        // 为每个年份分配一个自增的 id
+        for (int i = 0; i < releaseYearMovieCounts.size(); i++) {
+            releaseYearMovieCounts.get(i).setId(i + 1);
+        }
+        return movieMapper.getReleaseYearMovieCounts();
     }
 
 }

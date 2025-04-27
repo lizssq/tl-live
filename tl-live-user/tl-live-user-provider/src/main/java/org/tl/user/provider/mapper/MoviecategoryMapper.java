@@ -1,6 +1,9 @@
 package org.tl.user.provider.mapper;
 
+import org.tl.user.DTO.RegionMovieCount;
 import org.tl.user.provider.entity.Moviecategory;
+
+import java.util.List;
 
 /**
 * @author k1341
@@ -21,5 +24,7 @@ public interface MoviecategoryMapper {
     int updateByPrimaryKeySelective(Moviecategory record);
 
     int updateByPrimaryKey(Moviecategory record);
+
+    List<RegionMovieCount> getTopLevelCategoryCounts();
 
 }

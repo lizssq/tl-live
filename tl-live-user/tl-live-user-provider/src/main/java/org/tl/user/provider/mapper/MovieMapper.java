@@ -2,8 +2,13 @@ package org.tl.user.provider.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
+import org.tl.user.DTO.RegionMovieCount;
 import org.tl.user.provider.entity.MovieDO;
+
+import java.util.List;
+import java.util.Map;
 
 /**
 * @author k1341
@@ -26,5 +31,11 @@ public interface MovieMapper extends BaseMapper<MovieDO> {
     int updateByPrimaryKeySelective(MovieDO record);
 
     int updateByPrimaryKey(MovieDO record);
+
+    @Select("SELECT region AS `name`, COUNT(*) AS count FROM movie GROUP BY region ORDER BY region")
+    List<Map<String, Object>> getRegionMovieCounts();
+
+    List<RegionMovieCount> getReleaseYearMovieCounts();
+
 
 }
