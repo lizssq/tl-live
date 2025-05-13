@@ -1,7 +1,9 @@
 package org.tl.user.provider.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 import org.tl.user.DTO.RegionMovieCount;
@@ -36,6 +38,19 @@ public interface MovieMapper extends BaseMapper<MovieDO> {
     List<Map<String, Object>> getRegionMovieCounts();
 
     List<RegionMovieCount> getReleaseYearMovieCounts();
+
+    // 获取同类电影
+    @Select("SELECT m.* FROM movie m " +
+            "WHERE EXISTS (" +
+            "  SELECT 1 FROM moviecategoryrelation mr " +
+            "  WHERE mr.movie_id = m.movie_id " +
+            "  AND mr.category_id IN (" +
+            "    SELECT category_id FROM moviecategoryrelation WHERE movie_id = #{movieId}" +
+            "  )" +
+            ") " +
+            "AND m.movie_id != #{movieId}")
+    List<MovieDO> selectSimilarMoviesPage( @Param("movieId") Long movieId);
+
 
 
 }

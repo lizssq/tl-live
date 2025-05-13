@@ -34,6 +34,9 @@
     <spring-cloud-starter-loadbalancer.version>4.0.3</spring-cloud-starter-loadbalancer.version>
     <rocketmq.springboot.version>2.3.0</rocketmq.springboot.version>
     <rocketmq.version>5.2.0</rocketmq.version>
+    <alipay-easysdk.version>2.2.3</alipay-easysdk.version>
+    <core.version>3.3.3</core.version>
+    <hutool-all.version>5.8.26</hutool-all.version>
   </properties>
 
   <dependencyManagement>

@@ -1,7 +1,9 @@
 package org.tl.user.DTO;
 
-import java.io.Serializable;
+import lombok.Data;
 
+import java.io.Serializable;
+@Data
 public class CodeCheckDTO implements Serializable {
     private boolean success;
     private String decs;

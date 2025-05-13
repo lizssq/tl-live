@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tl.user.provider.mapper.MovieWatchHistoryMapper">
+
+    <resultMap id="BaseResultMap" type="org.tl.user.provider.entity.MovieWatchHistory">
+            <id property="userId" column="user_id" />
+            <id property="movieId" column="movie_id" />
+            <result property="lastWatchedAt" column="last_watched_at" />
+            <result property="progressSeconds" column="progress_seconds" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        user_id,movie_id,last_watched_at,progress_seconds
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from movie_watch_history
+        where  user_id = #{userId} AND movie_id = #{movieId} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from movie_watch_history
+        where  user_id = #{userId} AND movie_id = #{movieId} 
+    </delete>
+    <insert id="insert">
+        insert into movie_watch_history
+        ( user_id,movie_id,last_watched_at,progress_seconds)
+        values (#{userId},#{movieId},#{lastWatchedAt},#{progressSeconds})
+    </insert>
+    <insert id="insertSelective">
+        insert into movie_watch_history
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="userId != null">user_id,</if>
+                <if test="movieId != null">movie_id,</if>
+                <if test="lastWatchedAt != null">last_watched_at,</if>
+                <if test="progressSeconds != null">progress_seconds,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="userId != null">#{userId},</if>
+                <if test="movieId != null">#{movieId},</if>
+                <if test="lastWatchedAt != null">#{lastWatchedAt},</if>
+                <if test="progressSeconds != null">#{progressSeconds},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.tl.user.provider.entity.MovieWatchHistory">
+        update movie_watch_history
+        <set>
+                <if test="lastWatchedAt != null">
+                    last_watched_at = #{lastWatchedAt},
+                </if>
+                <if test="progressSeconds != null">
+                    progress_seconds = #{progressSeconds},
+                </if>
+        </set>
+        where   user_id = #{userId} AND movie_id = #{movieId} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.tl.user.provider.entity.MovieWatchHistory">
+        update movie_watch_history
+        set 
+            last_watched_at =  #{lastWatchedAt},
+            progress_seconds =  #{progressSeconds}
+        where   user_id = #{userId} AND movie_id = #{movieId} 
+    </update>
+</mapper>

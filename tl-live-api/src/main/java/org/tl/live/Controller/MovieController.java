@@ -100,6 +100,17 @@ public class MovieController {
         List<MovieDTO> movieFavoriteByUserId = movieRPCService.getMovieFavoriteByUserId(userId);
         return new WebResDTO(WebResDTO.SUCCESS_CODE,movieFavoriteByUserId);
     }
+    @GetMapping("/movieFavorite/{userId}/{movieId}")
+    public WebResDTO getMovieFavoriteByUserIdAndMovieId(@PathVariable Long userId,@PathVariable Long movieId){
+        if(userId==null||movieId==null){
+            return new WebResDTO(WebResDTO.ERROR_CODE,"userId或movieId为空");
+        }
+        MovieFavoriteDTO movieFavoriteByUserIdAndMovieId = movieRPCService.getMovieFavoriteByUserIdAndMovieId(userId, movieId);
+        if(movieFavoriteByUserIdAndMovieId!=null){
+            return new WebResDTO(WebResDTO.SUCCESS_CODE,movieFavoriteByUserIdAndMovieId);
+        }
+        return new WebResDTO(WebResDTO.ERROR_CODE,"该电影的收藏信息为空");
+    }
     @PutMapping("/movieFavorite")
     public WebResDTO putMovieFavorite(@RequestBody MovieFavoriteDTO movieFavoriteDTO){
         if(movieFavoriteDTO==null){
@@ -129,6 +140,18 @@ public class MovieController {
     @GetMapping("/movieReleaseYear")
     public WebResDTO getMovieReleaseYear(){
         return new WebResDTO(WebResDTO.SUCCESS_CODE,movieRPCService.getReleaseYearMovieCounts());
+    }
+
+    @GetMapping("/getSimilarMovies")
+    public WebResDTO getSimilarMovies(Long movieId) {
+        if(movieId==null){
+            return new WebResDTO(WebResDTO.ERROR_CODE,"movieId为空");
+        }
+        List<MovieDTO> similarMovies = movieRPCService.getSimilarMovies(movieId);
+        if(similarMovies!=null){
+            return new WebResDTO(WebResDTO.SUCCESS_CODE,similarMovies);
+        }
+        return new WebResDTO(WebResDTO.ERROR_CODE,"该电影的相似电影为空");
     }
 
 }

@@ -25,6 +25,42 @@
         create_time
     </sql>
 
+    <resultMap id="MovieWithCategoriesMap" type="org.tl.user.provider.entity.MovieDO">
+        <!-- 基础字段映射 -->
+        <id property="movieId" column="movie_id" />
+        <result property="title" column="title" />
+        <result property="director" column="director" />
+        <result property="actors" column="actors" />
+        <result property="description" column="description" />
+        <result property="coverUrl" column="cover_url" />
+        <result property="duration" column="duration" />
+        <result property="releaseYear" column="release_year" />
+        <result property="region" column="region" />
+        <result property="language" column="language" />
+        <result property="rating" column="rating" />
+        <result property="createTime" column="create_time" />
+        <result column="parentCategoryName" property="parentCategoryName"/>
+
+        <!-- 分类集合映射 -->
+        <collection
+                property="category"
+                ofType="string"
+                javaType="java.util.ArrayList">
+            <result column="parentCategoryName"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectMoviesWithParentCategories" resultMap="MovieWithCategoriesMap">
+        SELECT
+            m.*,
+            COALESCE(c.name) AS parentCategoryName
+        FROM
+            movie m
+                LEFT JOIN moviecategoryrelation mr ON m.movieId = mr.movieId
+                LEFT JOIN moviecategory c ON mr.categoryId = c.categoryId
+        where c.parentId IS NULL
+    </select>
+
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List" />

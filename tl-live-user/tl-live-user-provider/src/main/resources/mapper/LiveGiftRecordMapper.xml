@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tl.user.provider.mapper.LiveGiftRecordMapper">
+
+    <resultMap id="BaseResultMap" type="org.tl.user.provider.entity.LiveGiftRecord">
+            <id property="id" column="id" />
+            <result property="senderId" column="sender_id" />
+            <result property="anchorId" column="anchor_id" />
+            <result property="liveId" column="live_id" />
+            <result property="giftId" column="gift_id" />
+            <result property="coinAmount" column="coin_amount" />
+            <result property="giftCount" column="gift_count" />
+            <result property="totalCoins" column="total_coins" />
+            <result property="message" column="message" />
+            <result property="createdAt" column="created_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,sender_id,anchor_id,live_id,gift_id,coin_amount,
+        gift_count,total_coins,message,created_at
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from live_gift_record
+        where  id = #{id} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from live_gift_record
+        where  id = #{id} 
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.tl.user.provider.entity.LiveGiftRecord" useGeneratedKeys="true">
+        insert into live_gift_record
+        ( id,sender_id,anchor_id,live_id,gift_id,coin_amount,
+        gift_count,total_coins,message,created_at)
+        values (#{id},#{senderId},#{anchorId},#{liveId},#{giftId},#{coinAmount},
+        #{giftCount},#{totalCoins},#{message},#{createdAt})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.tl.user.provider.entity.LiveGiftRecord" useGeneratedKeys="true">
+        insert into live_gift_record
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="senderId != null">sender_id,</if>
+                <if test="anchorId != null">anchor_id,</if>
+                <if test="liveId != null">live_id,</if>
+                <if test="giftId != null">gift_id,</if>
+                <if test="coinAmount != null">coin_amount,</if>
+                <if test="giftCount != null">gift_count,</if>
+                <if test="totalCoins != null">total_coins,</if>
+                <if test="message != null">message,</if>
+                <if test="createdAt != null">created_at,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id},</if>
+                <if test="senderId != null">#{senderId},</if>
+                <if test="anchorId != null">#{anchorId},</if>
+                <if test="liveId != null">#{liveId},</if>
+                <if test="giftId != null">#{giftId},</if>
+                <if test="coinAmount != null">#{coinAmount},</if>
+                <if test="giftCount != null">#{giftCount},</if>
+                <if test="totalCoins != null">#{totalCoins},</if>
+                <if test="message != null">#{message},</if>
+                <if test="createdAt != null">#{createdAt},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.tl.user.provider.entity.LiveGiftRecord">
+        update live_gift_record
+        <set>
+                <if test="senderId != null">
+                    sender_id = #{senderId},
+                </if>
+                <if test="anchorId != null">
+                    anchor_id = #{anchorId},
+                </if>
+                <if test="liveId != null">
+                    live_id = #{liveId},
+                </if>
+                <if test="giftId != null">
+                    gift_id = #{giftId},
+                </if>
+                <if test="coinAmount != null">
+                    coin_amount = #{coinAmount},
+                </if>
+                <if test="giftCount != null">
+                    gift_count = #{giftCount},
+                </if>
+                <if test="totalCoins != null">
+                    total_coins = #{totalCoins},
+                </if>
+                <if test="message != null">
+                    message = #{message},
+                </if>
+                <if test="createdAt != null">
+                    created_at = #{createdAt},
+                </if>
+        </set>
+        where   id = #{id} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.tl.user.provider.entity.LiveGiftRecord">
+        update live_gift_record
+        set 
+            sender_id =  #{senderId},
+            anchor_id =  #{anchorId},
+            live_id =  #{liveId},
+            gift_id =  #{giftId},
+            coin_amount =  #{coinAmount},
+            gift_count =  #{giftCount},
+            total_coins =  #{totalCoins},
+            message =  #{message},
+            created_at =  #{createdAt}
+        where   id = #{id} 
+    </update>
+</mapper>

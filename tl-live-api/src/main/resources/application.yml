@@ -3,6 +3,9 @@ server:
 
 #nacos配置
 spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
   servlet:
     multipart:
       max-file-size: 10MB
@@ -41,6 +44,17 @@ dubbo:
 tllive:
   im:
     imInstance: tl-live-im-server
+
+alipay:
+  protocol: https
+  gateway-host: openapi-sandbox.dl.alipaydev.com
+  sign-type: RSA2
+  app-id: 2021000148661015
+  notify-url:  http://a8e64b69.natappfree.cc/payment/alipay/notify
+  merchant-private-key: |
+    MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCpSP+8Cud2GNyNmT9o+aVAw1XFhCjESNQoHDi7vbmyKoywdeoL8PmhCi9p+C/DjtQm+DhgdYE+s3zuVVGV6a+EXfUj3HoQT5z9pvqQzGwjlLWOIpY7VGdlGZ92W8HmUnNRE9rIdcNasL0w+kaPYewv67xsoiJy9tG5yqFT02KWLkA6sGrAmDjIIAZDlfNwndElWN/r78nrK4g4/ply22+vWUBUBl/JzFlcw69V+NgZ7chY7Dy0UJi4k4YUx9lDeLaoJ30RbBiwskZRx3yuuO6Hd8yGyv6wQpfGMjpLjn6HGB7ibV93K21dbnoi/O1cA6Kvb55LTKAKSXV08jzbfEcvAgMBAAECggEANndUQM5JVof9PlnWOxJHhyTSDfDNpQnBqP4bitwqSRbDmWr22My5pITAaJn/1C26OKeYjACCiwf45D3zOAauACqy2szvQRw8aKg26iu7h18rYwXhzEkF01OBKPWw10gj7iwzMlgheKZw2LdNyIg7E9gHEfTAnLipFdwKOAxFJghJZiXCsJAb3rilMm7TVwiwpa+ZgGjA6vJba2W5ROkHMgsCJ+BeGcrpfgZ9kkmXJrFyDuFb6EAB6KAGCvJXMVKUlSptw/HgzzQD38dD6kUE9JHECOgz1OM0KNjMVV9dU6xZ2AOwHWLImm0fnimLiqqs7/GGUdgRBhdJZufrIgT1gQKBgQDaxonYLEIH/WZsUDdg3/fSLEmd5deZ5IQYt7BwfrzHimoziP+S2+BaHoF0CvYA7Jl6cm3WC5LndT6GOw8xX3i8grswyFEeaR02qCEt5OckFvXQ281P1SEUVcyBG8sa6ZqW4umjSt15gPP9fYHxxK8TW5+uCYxDsaLIN9vRlQaLjwKBgQDGFr/5F5GNu0BdYSVX/+4j5oehmIJIHeyul2lxvet4WGJDam2oQyl2VSgJaMpYIfuL1qtWJwe5j0LaX1BElVSfpu2omW7WO5PC3N6rO9WKH2xK137/VgHQN3IRfxIBEXZ4n5u5Pwn25/FR8aMsGmAAU3d6Tg605ij0BFNde+06YQKBgQCqLLlYn8SVNnUPV65b+ptoru5sljaJDIn8OBZUyyDJDk/h2nUCpWn0b7o+q7ADtAcGijAJyWLyC+8gtpvwydS+veoh3g/LWfRRaaK1clKhbgKz/eXMbXqXuM2kuBvayU9ogwU98aQpOTeRPKlxiI6uvhyNYfvrRCfdGiYw9nzq3QJ/ewemNA9vV5f1Ygn0J7PNNH75vmP6htAPMGDaHMrYdOZwIW74rIkKN3SsaSusgRCaK0ApKlkTcyyHWRnZwL7+0CndcdnZ/TUDkQOdSLzg4+igWdt+BRhmB+xn7HX/uKof6ss27Nc6WR+1wi9SKRI4jftJOa1BdRl+VhBZtrZBoQKBgQCH1bjHa0eREeh4bvJarRn1IR4/mvxx0hdXAsoqnXP6sYFXdTK8amDtzs3zd2UAnO6iaNg1SmhXNC9QCTMqZQ5+CpunRnwkpwMY2tkz7H/baKziJrx3FsRoDy5YZ9LvDEQfpBVo33Q3tep2+2Es7mPnBMvYeLH2kNAsfMZ7pccC4g==
+  alipay-public-key: |
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjAID6lledS80Ommkc7Yl2vRza0xKsmS1gJ4qGKZoMhOB//25S+grw3n6xda7lH/lvbFdF/wsPV71WHzYKm4zTe/I7NrLdO4gwzgqdHo52CZIoPQxyJWVTqmk0znnXFh8PB+6I18JlL/PvXow2X3GP9TB3UVLXH5AJYPPvIMrLRTRGLEPhUY9ZLnSeIQQ0BjB1g1wxvEZvJTchM/P5b4QB0MGzKnCgADZHXd+blSL0hT02Qc/YTSjUv3OgL+lEkIYkzjhc62ZF1bbtEuliGtyr+RdrCl1ADkuKQ9m0s4lH5hbdw06JnBjZa3NYN7Z0r40l3EXYFS5kogdBxk+dQVD/QIDAQAB
 
 
 

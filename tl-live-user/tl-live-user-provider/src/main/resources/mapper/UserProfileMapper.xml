@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tl.user.provider.mapper.UserProfileMapper">
+
+    <resultMap id="BaseResultMap" type="org.tl.user.provider.entity.UserProfile">
+            <id property="id" column="id" />
+            <result property="userId" column="user_id" />
+            <result property="gender" column="gender" />
+            <result property="birthday" column="birthday" />
+            <result property="bio" column="bio" />
+            <result property="avatar" column="avatar" />
+            <result property="balance" column="balance" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,gender,birthday,bio,avatar,
+        balance
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from user_profile
+        where  id = #{id} 
+    </select>
+    <select id="selectByUserId" resultType="org.tl.user.provider.entity.UserProfile">
+        select
+            up.* ,tu.nick_name as nickname
+        from user_profile up
+        left join t_user tu on up.user_id = tu.user_id
+        where  tu.user_id = #{userId}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from user_profile
+        where  id = #{id} 
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.tl.user.provider.entity.UserProfile" useGeneratedKeys="true">
+        insert into user_profile
+        ( id,user_id,gender,birthday,bio,avatar,
+        balance)
+        values (#{id},#{userId},#{gender},#{birthday},#{bio},#{avatar},
+        #{balance})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.tl.user.provider.entity.UserProfile" useGeneratedKeys="true">
+        insert into user_profile
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="userId != null">user_id,</if>
+                <if test="gender != null">gender,</if>
+                <if test="birthday != null">birthday,</if>
+                <if test="bio != null">bio,</if>
+                <if test="avatar != null">avatar,</if>
+                <if test="balance != null">balance,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id},</if>
+                <if test="userId != null">#{userId},</if>
+                <if test="gender != null">#{gender},</if>
+                <if test="birthday != null">#{birthday},</if>
+                <if test="bio != null">#{bio},</if>
+                <if test="avatar != null">#{avatar},</if>
+                <if test="balance != null">#{balance},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.tl.user.provider.entity.UserProfile">
+        update user_profile
+        <set>
+                <if test="userId != null">
+                    user_id = #{userId},
+                </if>
+                <if test="gender != null">
+                    gender = #{gender},
+                </if>
+                <if test="birthday != null">
+                    birthday = #{birthday},
+                </if>
+                <if test="bio != null">
+                    bio = #{bio},
+                </if>
+                <if test="avatar != null">
+                    avatar = #{avatar},
+                </if>
+                <if test="balance != null">
+                    balance = #{balance},
+                </if>
+        </set>
+        where   id = #{id} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.tl.user.provider.entity.UserProfile">
+        update user_profile
+        set 
+            user_id =  #{userId},
+            gender =  #{gender},
+            birthday =  #{birthday},
+            bio =  #{bio},
+            avatar =  #{avatar},
+            balance =  #{balance}
+        where   id = #{id} 
+    </update>
+</mapper>

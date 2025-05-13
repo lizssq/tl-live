@@ -1,6 +1,7 @@
 package org.tl.user.provider.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.github.pagehelper.PageHelper;
 import jakarta.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +12,7 @@ import org.tl.user.provider.entity.*;
 import org.tl.user.provider.mapper.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -58,7 +60,6 @@ public class MovieService {
 
         List<String> categoriesByMovieId = movieCategoryRelationMapper.findCategoriesByMovieId(id);
         movie.setCategory(categoriesByMovieId);
-
 
         MovieDTO movieDTO = new MovieDTO();
         BeanUtils.copyProperties(movie, movieDTO);  // 自动拷贝属性
@@ -178,4 +179,28 @@ public class MovieService {
         return movieMapper.getReleaseYearMovieCounts();
     }
 
+    //获取同类电影
+    public List<MovieDTO> getSimilarMovies(Long movieId) {
+        // 1. 获取所有相关分类ID
+        PageHelper.startPage(1, 10);
+        List<MovieDO> moviesByCategoryIds = movieMapper.selectSimilarMoviesPage(movieId);
+        List<MovieDTO> dtoList=new ArrayList<>();
+        for (MovieDO movie : moviesByCategoryIds) {
+            MovieDTO dto = new MovieDTO();
+            BeanUtils.copyProperties(movie, dto);  // 自动拷贝属性
+            dtoList.add(dto);
+        }
+        // 2. 查询同类电影
+        return dtoList;
+    }
+
+    public MovieFavoriteDTO getMovieFavoriteByUserIdAndMovieId(Long userId, Long movieId) {
+        MovieFavorite movieFavoriteByUserIdAndMovieId = movieFavoriteMapper.getMovieFavoriteByUserIdAndMovieId(userId, movieId);
+        if (movieFavoriteByUserIdAndMovieId != null) {
+            MovieFavoriteDTO movieFavoriteDTO = new MovieFavoriteDTO();
+            BeanUtils.copyProperties(movieFavoriteByUserIdAndMovieId, movieFavoriteDTO);
+            return movieFavoriteDTO;
+        }
+        return null;
+    }
 }

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tl.user.provider.mapper.PaymentRecordMapper">
+
+    <resultMap id="BaseResultMap" type="org.tl.user.provider.entity.PaymentRecord">
+            <id property="id" column="id" />
+            <result property="userId" column="user_id" />
+            <result property="planId" column="plan_id" />
+            <result property="methodId" column="method_id" />
+            <result property="transactionId" column="transaction_id" />
+            <result property="amountPaid" column="amount_paid" />
+            <result property="coinsReceived" column="coins_received" />
+            <result property="paymentStatus" column="payment_status" />
+            <result property="createdAt" column="created_at" />
+            <result property="completedAt" column="completed_at" />
+            <result property="nickname" column="nickname" />
+            <result property="planDesc" column="plan_desc" />
+            <result property="methodName" column="method_name" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,plan_id,method_id,transaction_id,amount_paid,
+        coins_received,payment_status,created_at,completed_at
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from payment_record
+        where  id = #{id} 
+    </select>
+    <select id="selectByUserId" resultType="org.tl.user.provider.entity.PaymentRecord">
+        select
+            pr.* ,tu.nick_name as nickname,
+            rp.description as plan_desc,pm.method_name as method_name
+        from payment_record pr
+        left join t_user tu on pr.user_id = tu.user_id
+        left join recharge_plan rp on pr.plan_id = rp.id
+        left join payment_method pm on pr.method_id = pm.id
+        where  tu.user_id = #{userId}
+    </select>
+    <select id="selectList" resultType="org.tl.user.provider.entity.PaymentRecord">
+        select
+            pr.* ,tu.nick_name as nickname,
+            rp.description as plan_desc,pm.method_name as method_name
+        from payment_record pr
+        left join t_user tu on pr.user_id = tu.user_id
+        left join recharge_plan rp on pr.plan_id = rp.id
+        left join payment_method pm on pr.method_id = pm.id
+    </select>
+    <select id="selectById" resultType="org.tl.user.provider.entity.PaymentRecord">
+        select
+            pr.* ,tu.nick_name as nickname,
+            rp.description as plan_desc,pm.method_name as method_name
+        from payment_record pr
+                 left join t_user tu on pr.user_id = tu.user_id
+                 left join recharge_plan rp on pr.plan_id = rp.id
+                 left join payment_method pm on pr.method_id = pm.id
+        where  pr.id = #{id}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from payment_record
+        where  id = #{id} 
+    </delete>
+    <update id="deleteById">
+        update payment_record
+        set is_deleted = 0
+        where id = #{id}
+    </update>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.tl.user.provider.entity.PaymentRecord" useGeneratedKeys="true">
+        insert into payment_record
+        ( id,user_id,plan_id,method_id,transaction_id,amount_paid,
+        coins_received,payment_status,created_at,completed_at)
+        values (#{id},#{userId},#{planId},#{methodId},#{transactionId},#{amountPaid},
+        #{coinsReceived},#{paymentStatus.status},#{createdAt},#{completedAt})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.tl.user.provider.entity.PaymentRecord" useGeneratedKeys="true">
+        insert into payment_record
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="userId != null">user_id,</if>
+                <if test="planId != null">plan_id,</if>
+                <if test="methodId != null">method_id,</if>
+                <if test="transactionId != null">transaction_id,</if>
+                <if test="amountPaid != null">amount_paid,</if>
+                <if test="coinsReceived != null">coins_received,</if>
+                <if test="paymentStatus != null">payment_status,</if>
+                <if test="createdAt != null">created_at,</if>
+                <if test="completedAt != null">completed_at,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id},</if>
+                <if test="userId != null">#{userId},</if>
+                <if test="planId != null">#{planId},</if>
+                <if test="methodId != null">#{methodId},</if>
+                <if test="transactionId != null">#{transactionId},</if>
+                <if test="amountPaid != null">#{amountPaid},</if>
+                <if test="coinsReceived != null">#{coinsReceived},</if>
+                <if test="paymentStatus != null">#{paymentStatus.status},</if>
+                <if test="createdAt != null">#{createdAt},</if>
+                <if test="completedAt != null">#{completedAt},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.tl.user.provider.entity.PaymentRecord">
+        update payment_record
+        <set>
+                <if test="userId != null">
+                    user_id = #{userId},
+                </if>
+                <if test="planId != null">
+                    plan_id = #{planId},
+                </if>
+                <if test="methodId != null">
+                    method_id = #{methodId},
+                </if>
+                <if test="transactionId != null">
+                    transaction_id = #{transactionId},
+                </if>
+                <if test="amountPaid != null">
+                    amount_paid = #{amountPaid},
+                </if>
+                <if test="coinsReceived != null">
+                    coins_received = #{coinsReceived},
+                </if>
+                <if test="paymentStatus != null">
+                    payment_status = #{paymentStatus.status},
+                </if>
+                <if test="createdAt != null">
+                    created_at = #{createdAt},
+                </if>
+                <if test="completedAt != null">
+                    completed_at = #{completedAt},
+                </if>
+        </set>
+        where   id = #{id} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.tl.user.provider.entity.PaymentRecord">
+        update payment_record
+        set 
+            user_id =  #{userId},
+            plan_id =  #{planId},
+            method_id =  #{methodId},
+            transaction_id =  #{transactionId},
+            amount_paid =  #{amountPaid},
+            coins_received =  #{coinsReceived},
+            payment_status =  #{paymentStatus.status},
+            created_at =  #{createdAt},
+            completed_at =  #{completedAt}
+        where   id = #{id} 
+    </update>
+</mapper>

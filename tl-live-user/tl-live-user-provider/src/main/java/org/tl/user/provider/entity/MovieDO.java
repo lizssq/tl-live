@@ -78,6 +78,7 @@ public class MovieDO {
      */
     private Date createTime;
 
+    private String parentCategoryName;
 
     @TableField(exist = false)
     private List<String> category;

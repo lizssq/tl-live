@@ -29,4 +29,7 @@ public interface IMovieRPCService {
 
     List<RegionMovieCount> getReleaseYearMovieCounts();
 
+    List<MovieDTO> getSimilarMovies(Long movieId);
+
+    MovieFavoriteDTO getMovieFavoriteByUserIdAndMovieId(Long userId, Long movieId);
 }

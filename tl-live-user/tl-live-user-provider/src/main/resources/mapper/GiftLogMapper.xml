@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tl.user.provider.mapper.GiftLogMapper">
+
+    <resultMap id="BaseResultMap" type="org.tl.user.provider.entity.GiftLog">
+            <id property="logId" column="log_id" />
+            <result property="senderId" column="sender_id" />
+            <result property="roomId" column="room_id" />
+            <result property="receiverId" column="receiver_id" />
+            <result property="giftId" column="gift_id" />
+            <result property="amount" column="amount" />
+            <result property="totalCost" column="total_cost" />
+            <result property="time" column="time" />
+            <result property="senderName" column="sender_name" />
+            <result property="receiverName" column="receiver_name" />
+            <result property="giftName" column="gift_name" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        log_id,sender_id,room_id,receiver_id,gift_id,amount,
+        total_cost,time
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from gift_log
+        where  log_id = #{logId} 
+    </select>
+    <select id="selectBySenderId" resultType="org.tl.user.provider.entity.GiftLog">
+        select
+        <include refid="Base_Column_List" />
+        ,u1.nick_name as sender_name,u2.nick_name as receiver_name,gt.gift_name
+        from gift_log g
+        left join t_user u1 on g.sender_id = u1.user_id
+        left join t_user u2 on g.receiver_id = u2.user_id
+        left join gift_type gt on gt.id = g.gift_id
+        where  g.sender_id = #{senderId}
+    </select>
+    <select id="selectByReceiverId" resultType="org.tl.user.provider.entity.GiftLog">
+        select
+        <include refid="Base_Column_List" />
+        ,u1.nick_name as sender_name,u2.nick_name as receiver_name,gt.gift_name
+        from gift_log g
+        left join t_user u1 on g.sender_id = u1.user_id
+        left join t_user u2 on g.receiver_id = u2.user_id
+        left join gift_type gt on gt.id = g.gift_id
+        where  g.receiver_id = #{receiverId}
+    </select>
+    <select id="selectAll" resultType="org.tl.user.provider.entity.GiftLog">
+        select
+        <include refid="Base_Column_List" />
+        ,u1.nick_name as sender_name,u2.nick_name as receiver_name,gt.gift_name
+        from gift_log g
+        left join t_user u1 on g.sender_id = u1.user_id
+        left join t_user u2 on g.receiver_id = u2.user_id
+        left join gift_type gt on gt.id = g.gift_id
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from gift_log
+        where  log_id = #{logId} 
+    </delete>
+    <insert id="insert" keyColumn="log_id" keyProperty="logId" parameterType="org.tl.user.provider.entity.GiftLog" useGeneratedKeys="true">
+        insert into gift_log
+        ( log_id,sender_id,room_id,receiver_id,gift_id,amount,
+        total_cost,time)
+        values (#{logId},#{senderId},#{roomId},#{receiverId},#{giftId},#{amount},
+        #{totalCost},#{time})
+    </insert>
+    <insert id="insertSelective" keyColumn="log_id" keyProperty="logId" parameterType="org.tl.user.provider.entity.GiftLog" useGeneratedKeys="true">
+        insert into gift_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="logId != null">log_id,</if>
+                <if test="senderId != null">sender_id,</if>
+                <if test="roomId != null">room_id,</if>
+                <if test="receiverId != null">receiver_id,</if>
+                <if test="giftId != null">gift_id,</if>
+                <if test="amount != null">amount,</if>
+                <if test="totalCost != null">total_cost,</if>
+                <if test="time != null">time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="logId != null">#{logId},</if>
+                <if test="senderId != null">#{senderId},</if>
+                <if test="roomId != null">#{roomId},</if>
+                <if test="receiverId != null">#{receiverId},</if>
+                <if test="giftId != null">#{giftId},</if>
+                <if test="amount != null">#{amount},</if>
+                <if test="totalCost != null">#{totalCost},</if>
+                <if test="time != null">#{time},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.tl.user.provider.entity.GiftLog">
+        update gift_log
+        <set>
+                <if test="senderId != null">
+                    sender_id = #{senderId},
+                </if>
+                <if test="roomId != null">
+                    room_id = #{roomId},
+                </if>
+                <if test="receiverId != null">
+                    receiver_id = #{receiverId},
+                </if>
+                <if test="giftId != null">
+                    gift_id = #{giftId},
+                </if>
+                <if test="amount != null">
+                    amount = #{amount},
+                </if>
+                <if test="totalCost != null">
+                    total_cost = #{totalCost},
+                </if>
+                <if test="time != null">
+                    time = #{time},
+                </if>
+        </set>
+        where   log_id = #{logId} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.tl.user.provider.entity.GiftLog">
+        update gift_log
+        set 
+            sender_id =  #{senderId},
+            room_id =  #{roomId},
+            receiver_id =  #{receiverId},
+            gift_id =  #{giftId},
+            amount =  #{amount},
+            total_cost =  #{totalCost},
+            time =  #{time}
+        where   log_id = #{logId} 
+    </update>
+</mapper>

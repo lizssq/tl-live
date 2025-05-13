@@ -68,6 +68,12 @@
         from movie_favorite
         where  user_id = #{userId} AND movie_id = #{movieId} 
     </select>
+    <select id="getMovieFavoriteByUserIdAndMovieId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from movie_favorite
+        where  user_id = #{userId} AND movie_id = #{movieId}
+    </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete from movie_favorite

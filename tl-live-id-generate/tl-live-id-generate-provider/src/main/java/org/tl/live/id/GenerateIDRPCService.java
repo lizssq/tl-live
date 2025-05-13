@@ -1,4 +1,4 @@
-package org.tl.live.id.provider;
+package org.tl.live.id;
 
 import jakarta.annotation.Resource;
 import me.ahoo.cosid.provider.IdGeneratorProvider;

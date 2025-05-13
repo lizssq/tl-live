@@ -6,15 +6,7 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 /**
- 开启
- WebSocket
- ⽀持
- * Author
- ：
- roy
-
- * Description
- ：
+ * 开启WebSocket⽀持
  **/
 @Configuration
 @EnableWebSocket

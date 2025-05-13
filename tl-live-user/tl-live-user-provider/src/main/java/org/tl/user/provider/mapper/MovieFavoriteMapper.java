@@ -1,5 +1,7 @@
 package org.tl.user.provider.mapper;
 
+import org.apache.ibatis.annotations.Param;
+import org.tl.user.DTO.MovieFavoriteDTO;
 import org.tl.user.provider.entity.MovieDO;
 import org.tl.user.provider.entity.MovieFavorite;
 
@@ -29,4 +31,5 @@ public interface MovieFavoriteMapper {
 
     int deleteFavoriteMovie(MovieFavorite movieFavorite);
 
+    MovieFavorite getMovieFavoriteByUserIdAndMovieId(@Param("userId")Long userId, @Param("movieId")Long movieId);
 }

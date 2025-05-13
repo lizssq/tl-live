@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tl.user.provider.mapper.PaymentMethodMapper">
+
+    <resultMap id="BaseResultMap" type="org.tl.user.provider.entity.PaymentMethod">
+            <id property="id" column="id" />
+            <result property="methodName" column="method_name" />
+            <result property="iconName" column="icon_name" />
+            <result property="isAvailable" column="is_available" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,method_name,icon_name,is_available
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from payment_method
+        where  id = #{id} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from payment_method
+        where  id = #{id} 
+    </delete>
+    <update id="deleteById">
+        update payment_method
+        set is_available = 0
+        where id = #{id}
+    </update>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.tl.user.provider.entity.PaymentMethod" useGeneratedKeys="true">
+        insert into payment_method
+        ( id,method_name,icon_name,is_available)
+        values (#{id},#{methodName},#{iconName},#{isAvailable})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.tl.user.provider.entity.PaymentMethod" useGeneratedKeys="true">
+        insert into payment_method
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="methodName != null">method_name,</if>
+                <if test="iconName != null">icon_name,</if>
+                <if test="isAvailable != null">is_available,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id},</if>
+                <if test="methodName != null">#{methodName},</if>
+                <if test="iconName != null">#{iconName},</if>
+                <if test="isAvailable != null">#{isAvailable},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.tl.user.provider.entity.PaymentMethod">
+        update payment_method
+        <set>
+                <if test="methodName != null">
+                    method_name = #{methodName},
+                </if>
+                <if test="iconName != null">
+                    icon_name = #{iconName},
+                </if>
+                <if test="isAvailable != null">
+                    is_available = #{isAvailable},
+                </if>
+        </set>
+        where   id = #{id} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.tl.user.provider.entity.PaymentMethod">
+        update payment_method
+        set 
+            method_name =  #{methodName},
+            icon_name =  #{iconName},
+            is_available =  #{isAvailable}
+        where   id = #{id} 
+    </update>
+</mapper>

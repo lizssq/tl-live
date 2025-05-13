@@ -74,4 +74,14 @@ public class MovieRPCService implements IMovieRPCService {
         return movieService.getReleaseYearMovieCounts();
     }
 
+    @Override
+    public List<MovieDTO> getSimilarMovies(Long movieId) {
+        return movieService.getSimilarMovies(movieId);
+    }
+
+    @Override
+    public MovieFavoriteDTO getMovieFavoriteByUserIdAndMovieId(Long userId, Long movieId) {
+        return movieService.getMovieFavoriteByUserIdAndMovieId(userId, movieId);
+    }
+
 }

@@ -52,6 +52,10 @@ public class MessageTypeDispatchManager {
                 executor.execute(() -> messageHandlerService.sendRoomChatMessage(userId, roomId, message));
                 logger.info("用户=>{},房间=>{},{}发送消息=>{}", userId, roomId, message);
                 break;
+            case IMConstants.MESSAGE_TYPE_GIFT: // 礼物
+                executor.execute(() -> messageHandlerService.sendRoomChatMessage(userId, roomId, message));
+                logger.info("用户=>{},房间=>{},{}发送礼物=>{}", userId, roomId, message);
+                break;
             default:
                 logger.warn("消息类型异常, message =>{}", message);
         }

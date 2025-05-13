@@ -2,7 +2,11 @@ package org.tl.user.provider.service;
 
 import jakarta.annotation.Resource;
 import org.apache.dubbo.config.annotation.DubboReference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.tl.common.redis.builder.UserCacheKeyBuilder;
 import org.tl.live.commonStatusEunm.commonStatusEnum;
 import org.tl.live.id.inter.IGenerateIDRPCService;
@@ -10,13 +14,18 @@ import org.tl.live.util.ConvertBeanUtil;
 import org.tl.user.DTO.LoginDTO;
 import org.tl.user.DTO.UserDTO;
 import org.tl.user.DTO.UserPhoneDTO;
+import org.tl.user.DTO.UserProfileDTO;
 import org.tl.user.provider.entity.UserDO;
 import org.tl.user.provider.entity.UserPhoneDO;
+import org.tl.user.provider.entity.UserProfile;
 import org.tl.user.provider.mapper.UserMapper;
 import org.tl.user.provider.mapper.UserPhoneMapper;
+import org.tl.user.provider.mapper.UserProfileMapper;
 import org.tl.user.provider.util.UserRedisKeyBuilder;
 import org.springframework.data.redis.core.RedisTemplate;
 
+import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -32,8 +41,15 @@ public class UserService {
     UserPhoneMapper userPhoneMapper;
     @Resource
     UserCacheKeyBuilder userCacheKeyBuilder;
+    @Resource
+    private
     @DubboReference
     private IGenerateIDRPCService generateIDRPCService;
+
+    @Resource
+    private UserProfileMapper userProfileMapper;
+
+    Logger logger = LoggerFactory.getLogger(UserService.class);
 
     ConvertBeanUtil convertBeanUtil=new ConvertBeanUtil();
 
@@ -108,6 +124,103 @@ public class UserService {
         if(userId!=null){
             return userId.toString();
         }
+        return null;
+    }
+
+    //转账
+    @Transactional
+    public boolean transfer(Long fromId,Long toId, BigDecimal totalCost) {
+        // 1. 获取用户信息
+        UserProfile fromUserProfile = userProfileMapper.selectByPrimaryKey(fromId);
+        UserProfile toUserProfile = userProfileMapper.selectByPrimaryKey(toId);
+        if (fromUserProfile == null || toUserProfile == null) {
+            return false; // 用户不存在
+        }
+
+        // 2. 检查余额是否足够
+        if (fromUserProfile.getBalance().compareTo(totalCost) < 0) {
+            return false; // 余额不足
+        }
+
+        // 3. 扣除余额
+        fromUserProfile.setBalance(fromUserProfile.getBalance().subtract(totalCost));
+        userProfileMapper.updateByPrimaryKeySelective(fromUserProfile);
+        // 4. 增加余额
+        toUserProfile.setBalance(toUserProfile.getBalance().add(totalCost));
+        userProfileMapper.updateByPrimaryKeySelective(toUserProfile);
+
+        return true;
+    }
+
+    //充值
+    @Transactional
+    public boolean recharge(Long userId, BigDecimal addMoney) {
+        // 1. 获取用户信息
+        UserProfile userProfile = userProfileMapper.selectByUserId(userId);
+        if (userProfile == null) {
+            logger.info("用户不存在");
+            return false; // 用户不存在
+        }
+
+        // 2. 增加余额
+        userProfile.setBalance(userProfile.getBalance().add(addMoney));
+        userProfileMapper.updateByPrimaryKeySelective(userProfile);
+
+        return true;
+    }
+    //获取用户个人信息
+    public UserProfileDTO getUserProfile(Long userId) {
+        // 1. 获取用户信息
+        UserProfile userProfile = userProfileMapper.selectByUserId(userId);
+        if (userProfile == null) {
+            return null; // 用户不存在
+        }
+
+        // 2. 转换为 DTO
+        UserProfileDTO userProfileDTO = new UserProfileDTO();
+        BeanUtils.copyProperties(userProfile, userProfileDTO);  // 自动拷贝属性
+
+        return userProfileDTO;
+    }
+
+    //扣除余额
+    @Transactional
+    public boolean deductBalance(Long userId, BigDecimal amount) {
+        // 1. 获取用户信息
+        UserProfile userProfile = userProfileMapper.selectByUserId(userId);
+        if (userProfile == null) {
+            return false; // 用户不存在
+        }
+
+        // 2. 检查余额是否足够
+        if (userProfile.getBalance().compareTo(amount) < 0) {
+            return false; // 余额不足
+        }
+
+        // 3. 扣除余额
+        userProfile.setBalance(userProfile.getBalance().subtract(amount));
+        userProfileMapper.updateByPrimaryKeySelective(userProfile);
+
+        return true;
+    }
+
+    public boolean follow(Long userId, Long followUserId) {
+        return false;
+    }
+
+    public boolean unfollow(Long userId, Long followUserId) {
+        return false;
+    }
+
+    public List<UserDTO> getFollowList(Long userId) {
+        return null;
+    }
+
+    public List<UserDTO> getFollowerList(Long userId) {
+        return null;
+    }
+
+    public List<UserDTO> getMutualFollowerList(Long userId) {
         return null;
     }
 }

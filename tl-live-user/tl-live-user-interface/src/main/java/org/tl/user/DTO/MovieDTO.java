@@ -48,4 +48,6 @@ public class MovieDTO implements Serializable {
 
     private Date favoriteTime;
 
+    private String parentCategoryName;
+
 }

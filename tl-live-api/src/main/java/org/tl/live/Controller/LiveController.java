@@ -18,7 +18,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/live")
 public class LiveController {
-    @DubboReference
+    @DubboReference(check = false)
     private ILiveRPCService liveRPCService;
 
     @GetMapping("/liveRoom")
