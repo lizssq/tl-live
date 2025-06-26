@@ -43,6 +43,19 @@
         ORDER BY
             c.id
     </select>
+    <select id="getCategoryDetail" resultType="org.tl.user.provider.entity.LiveCategory">
+        SELECT
+            lc.id ,
+            lc.name ,
+            lc.cover_url,
+            COUNT(lr.room_id) AS room_count
+        FROM
+            live_category lc
+                LEFT JOIN
+            live_room lr ON lc.id = lr.category_id
+        GROUP BY
+            lc.id, lc.name, lc.cover_url;
+    </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete from live_category

@@ -9,13 +9,13 @@ import org.tl.live.manager.ConnectionManager;
 import org.tl.live.protocal.GenericMessage;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
 
 @Service
 public class MessageHandlerService {
     Logger logger = Logger.getLogger(MessageHandlerService.class.getName());
+
 
     @Resource
     private RocketMQTemplate rocketMQTemplate;
@@ -59,6 +59,19 @@ public class MessageHandlerService {
                 logger.warning("消息发送失败");
             }
         }
+
+    }
+
+    public void sendPrivateChatMessage(String userId, GenericMessage message) {
+        Optional<Session> conQpt = ConnectionManager.getSession(userId);
+        if(conQpt.isEmpty()){
+            return;
+        }
+
+        message.setFromUserId(Long.parseLong(userId));
+        message.setRoomId(null);
+
+        rocketMQTemplate.convertAndSend(IMConstants.MESSAGE_CHAT, message);
 
     }
 }

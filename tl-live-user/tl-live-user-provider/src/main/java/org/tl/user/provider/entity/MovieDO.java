@@ -85,4 +85,19 @@ public class MovieDO {
 
     @TableField(exist = false)
     private Date favoriteTime;
+
+    /**
+     * 观看进度（秒）
+     */
+    @TableField(exist = false)
+    private Integer progressSeconds;
+
+    /**
+     * 最后观看时间
+     */
+    @TableField(exist = false)
+    private Date lastWatchedAt;
+
+    @TableField(exist = false)
+    private String playUrl; // 视频地址，可能用于播放或下载链接
 }

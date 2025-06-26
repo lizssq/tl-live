@@ -73,4 +73,10 @@ public class LiveCategory {
      * 更新时间
      */
     private Date updatedAt;
+
+    /**
+     * 直播间数量
+     */
+    @TableField(exist = false)
+    private int roomCount;
 }

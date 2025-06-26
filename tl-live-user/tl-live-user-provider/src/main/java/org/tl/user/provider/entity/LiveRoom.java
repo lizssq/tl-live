@@ -74,4 +74,15 @@ public class LiveRoom {
      * 更新时间
      */
     private Date updateTime;
+
+    @TableField(exist = false)
+    private String nickname;
+
+    @TableField(exist = false)
+    private String avatar;
+
+    @TableField(exist = false)
+    private String categoryName;
+
+
 }

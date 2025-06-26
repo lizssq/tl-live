@@ -33,4 +33,9 @@ public class IMRPCService implements IIMRPCService {
     public boolean pushChatMessage(String roomId, GenericMessage message) {
         return messageSendService.pushChatMessage(roomId, message);
     }
+
+    @Override
+    public boolean pushPrivateChatMessage(String userId, GenericMessage message) {
+        return messageSendService.pushPrivateChatMessage(userId, message);
+    }
 }

@@ -50,4 +50,15 @@ public class MovieDTO implements Serializable {
 
     private String parentCategoryName;
 
+    /**
+     * 观看进度（秒）
+     */
+    private Integer progressSeconds;
+    /**
+     * 最后观看时间
+     */
+    private Date lastWatchedAt;
+
+    private String playUrl; // 视频地址，可能用于播放或下载链接
+
 }

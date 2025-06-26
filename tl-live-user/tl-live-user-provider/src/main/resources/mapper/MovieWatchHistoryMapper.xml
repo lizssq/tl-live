@@ -21,10 +21,40 @@
         from movie_watch_history
         where  user_id = #{userId} AND movie_id = #{movieId} 
     </select>
+    <select id="selectMovieWatchHistoryByUserId" resultType="org.tl.user.provider.entity.MovieDO">
+        SELECT
+            m.movie_id,
+            m.title,
+            m.director,
+            m.actors,
+            m.description,
+            m.cover_url,
+            m.duration,
+            m.release_year,
+            m.region,
+            m.language,
+            m.rating,
+            mw.last_watched_at AS last_watched_at,
+            mw.progress_seconds AS progress_seconds
+        FROM
+            movie_watch_history mw
+                JOIN
+            movie m ON mw.movie_id = m.movie_id
+        WHERE
+            mw.user_id = #{userId}
+        ORDER BY
+            mw.last_watched_at DESC
+    </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete from movie_watch_history
         where  user_id = #{userId} AND movie_id = #{movieId} 
+    </delete>
+    <delete id="deleteMovieWatchHistoryByUserIdAndMovieId">
+        DELETE FROM movie_watch_history
+        WHERE
+            user_id = #{userId}
+          AND movie_id = #{movieId}
     </delete>
     <insert id="insert">
         insert into movie_watch_history

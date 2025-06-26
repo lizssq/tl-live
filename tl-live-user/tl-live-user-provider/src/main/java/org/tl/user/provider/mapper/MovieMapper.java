@@ -52,5 +52,7 @@ public interface MovieMapper extends BaseMapper<MovieDO> {
     List<MovieDO> selectSimilarMoviesPage( @Param("movieId") Long movieId);
 
 
+    List<MovieDO> searchMovies(String keyword);
 
+    List<MovieDO> getTopRatedMovies();
 }

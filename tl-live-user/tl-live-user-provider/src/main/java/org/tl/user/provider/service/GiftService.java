@@ -1,11 +1,14 @@
 package org.tl.user.provider.service;
 
 import jakarta.annotation.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.tl.user.DTO.GiftLogDTO;
 import org.tl.user.DTO.GiftTypeDTO;
+import org.tl.user.DTO.UserDTO;
 import org.tl.user.provider.entity.GiftLog;
 import org.tl.user.provider.entity.GiftType;
 import org.tl.user.provider.mapper.GiftLogMapper;
@@ -23,6 +26,8 @@ public class GiftService {
     private GiftLogMapper giftLogMapper;
     @Resource
     private UserService userService;
+
+    Logger logger = LoggerFactory.getLogger(UserService.class);
 
     // 其他服务和方法
     // 获取礼物列表
@@ -55,6 +60,16 @@ public class GiftService {
         BigDecimal totalMoney = BigDecimal.valueOf(giftTypeDetail.getPrice() *amount); // 获取礼物价格
         giftLog.setTotalCost(totalMoney);
         int i = giftLogMapper.insertSelective(giftLog);// 插入打赏记录
+        if(i == 0) {
+            return 0; // 插入失败
+        }
+        // 更新用户的金币数量
+        UserDTO sender = userService.getUserById(senderId);
+        UserDTO receiver = userService.getUserById(receiverId);
+        if(sender != null && receiver != null) {
+            boolean transfer = userService.transfer(senderId, receiverId, totalMoney);
+            logger.info("转账成功: " + transfer);
+        }
         return i;
     }
 

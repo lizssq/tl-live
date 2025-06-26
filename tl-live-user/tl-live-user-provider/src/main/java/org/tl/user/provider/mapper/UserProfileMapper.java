@@ -1,6 +1,9 @@
 package org.tl.user.provider.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.tl.user.provider.entity.UserProfile;
+
+import java.util.List;
 
 /**
 * @author k1341
@@ -24,4 +27,6 @@ public interface UserProfileMapper {
 
 
     UserProfile selectByUserId(Long userId);
+
+    List<UserProfile> search(@Param("keyword")String keyword, @Param("userId")Long userId);
 }

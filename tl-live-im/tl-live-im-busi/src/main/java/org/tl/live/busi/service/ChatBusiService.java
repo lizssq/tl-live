@@ -15,9 +15,11 @@ import org.tl.live.id.inter.IGenerateIDRPCService;
 import org.tl.live.inter.IIMRPCService;
 import org.tl.live.protocal.GenericMessage;
 import org.tl.live.protocal.MessageBody;
+import org.tl.user.DTO.ConversationsDTO;
 import org.tl.user.DTO.UserDTO;
 import org.tl.user.inter.IUserRPCService;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -44,17 +46,15 @@ public class ChatBusiService {
     private IMCacheKeyBuilder imCacheKeyBuilder;
 
     public void handleChatMessage(GenericMessage message){
-        String imRoomChatKey = imCacheKeyBuilder.buildIMRoomChatKey(message.getRoomId().toString());
         logger.info("处理聊天消息");
-        Long roomId= message.getRoomId();
         if(message.getType().equals(IMConstants.MESSAGE_TYPE_GIFT)) {
-            //私聊
             //消息持久化
             //消息分发
             //TODO 消息推送
             imrpcService.pushChatMessage(String.valueOf(message.getRoomId()),message);
         }else if(message.getType()==IMConstants.MESSAGE_TYPE_CHAT){
-
+            String imRoomChatKey = imCacheKeyBuilder.buildIMRoomChatKey(message.getRoomId().toString());
+            Long roomId= message.getRoomId();
             //群聊
             //消息持久化
             //消息分发
@@ -85,6 +85,29 @@ public class ChatBusiService {
                 //清理redis缓存
                 redisTemplate.opsForSet().remove(imRoomChatKey,messageBodies.toArray());
             }
+        }else if(message.getType()==IMConstants.MESSAGE_TYPE_PRIVATE_CHAT) {
+            //私聊
+            //判断fromUserId，toUserId是否正确
+            //消息持久化
+            UserDTO fromUser = userRPCService.getUserById(message.getFromUserId());
+            ConversationsDTO conversationById = userRPCService.getConversationById(Long.valueOf(message.getBody().get(0).getConversationId()));
+            Long ToUserId= Long.valueOf(conversationById.getUser1Id().intValue()==message.getFromUserId()?conversationById.getUser2Id():conversationById.getUser1Id());
+
+
+            UserDTO toUser= userRPCService.getUserById(ToUserId);
+            if(fromUser==null || toUser==null){
+                logger.error("用户不存在");
+                return;
+            }
+            logger.info("fromUser.getUserId():{}",fromUser.getUserId());
+            logger.info("toUser.getUserId():{}",toUser.getUserId());
+            logger.info("message.getBody().get(0).getContent():{}",message.getBody().get(0).getContent());
+            userRPCService.saveUserChatMessage(fromUser.getUserId(), Long.valueOf(message.getBody().get(0).getConversationId()),message.getBody().get(0).getContent());
+            message.getBody().get(0).setToUserId(toUser.getUserId());
+
+            //消息分发
+            //TODO 消息推送
+            imrpcService.pushPrivateChatMessage(String.valueOf(ToUserId), message);
         }
     }
 }

@@ -49,6 +49,35 @@
         from live_room
         where  category_id = #{categoryId}
     </select>
+    <select id="search" resultType="org.tl.user.provider.entity.LiveRoom">
+
+        select
+            lr.*,tu.avatar as avatar,tu.nick_name as nickname,lc.name as categoryName
+        from live_room lr
+        left join t_user tu on lr.user_id = tu.user_id
+        left join live_category lc on lr.category_id = lc.id
+        where  lr.title like CONCAT('%', #{keyword}, '%')
+        or lr.description like CONCAT('%', #{keyword}, '%')
+    </select>
+    <select id="selectLiveRoomList" resultType="org.tl.user.provider.entity.LiveRoom">
+        select
+            lr.*,tu.avatar as avatar,tu.nick_name as nickname
+        from live_room lr
+        left join t_user tu on lr.user_id = tu.user_id
+        where 1=1
+    </select>
+    <select id="getRecommendLiveRoom" resultType="org.tl.user.provider.entity.LiveRoom">
+        SELECT lr.*, tu.avatar AS avatar, tu.nick_name AS nickname, lc.name AS categoryName
+        FROM live_room lr
+                 LEFT JOIN t_user tu ON lr.user_id = tu.user_id
+                 LEFT JOIN live_category lc ON lr.category_id = lc.id
+        WHERE lr.status = 0 -- 假设开播状态字段为status，且开播状态值为'ONLINE'
+        ORDER BY RAND()
+            LIMIT 4
+    </select>
+    <select id="getCategoryDetail" resultType="org.tl.user.provider.entity.LiveRoom">
+
+    </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete from live_room

@@ -76,15 +76,15 @@ public class SmsController {
         logger.info("登陆成功,token:{}", token);
 
 
-        Cookie cookie = new Cookie("tltk", token);
+        //Cookie cookie = new Cookie("tltk", token);
         response.setHeader("tltk", token);
         loginDTO.setTltk(token);
 
-        cookie.setMaxAge(30*24*60*60);
+        //cookie.setMaxAge(30*24*60*60);
 
-        cookie.setHttpOnly(false);
+        //cookie.setHttpOnly(false);
 
-        response.addCookie(cookie);
+        //response.addCookie(cookie);
 
         return new WebResDTO(WebResDTO.SUCCESS_CODE, loginDTO);
     }

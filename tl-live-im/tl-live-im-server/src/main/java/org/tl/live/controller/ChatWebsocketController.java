@@ -80,9 +80,9 @@ public class ChatWebsocketController {
             channelIdleStateManager= SpringContextUtil.getBean(ChannelIdleStateManager.class);
         }
         channelIdleStateManager.read(session);
-
         if(session.getUserProperties().containsKey(IMConstants.PROP_USER_ID)){
             Object userId = session.getUserProperties().get(IMConstants.PROP_USER_ID);
+
             //按JOSN格式解析消息
             GenericMessage genericMessage= JSON.parseObject(message, GenericMessage.class);
             //GenericMessage genericMessage = new GenericMessage();

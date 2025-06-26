@@ -1,7 +1,9 @@
 package org.tl.user.provider.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.tl.user.DTO.LiveCategoryDTO;
 import org.tl.user.provider.entity.LiveCategory;
+import org.tl.user.provider.entity.LiveRoom;
 
 import java.util.List;
 
@@ -27,4 +29,5 @@ public interface LiveCategoryMapper extends BaseMapper<LiveCategory> {
 
     List<LiveCategory> getCategoryRoomCount();
 
+    List<LiveCategory> getCategoryDetail();
 }

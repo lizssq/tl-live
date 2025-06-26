@@ -1,20 +1,21 @@
 package org.tl.live.Controller;
 
+import com.alibaba.cloud.commons.lang.StringUtils;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import org.tl.live.enlity.SearchMovieDTO;
 import org.tl.live.enlity.WebResDTO;
-import org.tl.user.DTO.MovieCommentDTO;
-import org.tl.user.DTO.MovieDTO;
-import org.tl.user.DTO.MovieFavoriteDTO;
-import org.tl.user.DTO.MovieSourceDTO;
+import org.tl.user.DTO.*;
 import org.tl.user.inter.IMovieRPCService;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.tl.live.enlity.WebResDTO.ERROR_CODE;
+import static org.tl.live.enlity.WebResDTO.SUCCESS_CODE;
 
 @RestController
 @RequestMapping("/movie")
@@ -93,11 +94,13 @@ public class MovieController {
     }
 
     @GetMapping("/movieFavorite")
-    public WebResDTO getMovieFavorite(Long userId){
+    public WebResDTO getMovieFavorite(Long userId,
+                                      @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                                      @RequestParam(value = "pageSize", defaultValue = "4") Integer pageSize){
         if(userId==null){
             return new WebResDTO(WebResDTO.ERROR_CODE,"userId为空");
         }
-        List<MovieDTO> movieFavoriteByUserId = movieRPCService.getMovieFavoriteByUserId(userId);
+        PageResult<MovieDTO> movieFavoriteByUserId = movieRPCService.getMovieFavoriteByUserId(userId, pageNum, pageSize);
         return new WebResDTO(WebResDTO.SUCCESS_CODE,movieFavoriteByUserId);
     }
     @GetMapping("/movieFavorite/{userId}/{movieId}")
@@ -152,6 +155,65 @@ public class MovieController {
             return new WebResDTO(WebResDTO.SUCCESS_CODE,similarMovies);
         }
         return new WebResDTO(WebResDTO.ERROR_CODE,"该电影的相似电影为空");
+    }
+
+    @PostMapping("/history")
+    public WebResDTO addHistory(@RequestBody MovieWatchHistoryDTO movieWatchHistoryDTO){
+        if(movieWatchHistoryDTO==null){
+            return new WebResDTO(WebResDTO.ERROR_CODE,"movieHistoryDTO为空");
+        }
+        //todo
+        //判断用户、电影是否存在，过滤器应检查用户是否登录
+        if(movieWatchHistoryDTO.getUserId()==null||movieWatchHistoryDTO.getMovieId()==null){
+            return new WebResDTO(WebResDTO.ERROR_CODE,"userId或movieId为空");
+        }
+        movieRPCService.addHistory(movieWatchHistoryDTO);
+        return new WebResDTO(WebResDTO.SUCCESS_CODE,"添加成功");
+    }
+
+    @GetMapping("/history")
+    public WebResDTO getHistory(@RequestParam Long userId,
+                                 @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                                 @RequestParam(value = "pageSize", defaultValue = "4") Integer pageSize){
+        if(userId==null){
+            return new WebResDTO(WebResDTO.ERROR_CODE,"userId为空");
+        }
+        PageResult<MovieDTO> movieWatchHistoryByUserId = movieRPCService.getMovieWatchHistoryByUserId(userId, pageNum, pageSize);
+        return new WebResDTO(WebResDTO.SUCCESS_CODE,movieWatchHistoryByUserId);
+    }
+
+    @DeleteMapping("/history")
+    public WebResDTO deleteHistory(@RequestBody MovieWatchHistoryDTO movieWatchHistoryDTO){
+        if(movieWatchHistoryDTO==null){
+            return new WebResDTO(WebResDTO.ERROR_CODE,"movieWatchHistoryDTO为空");
+        }
+        int i = movieRPCService.deleteMovieWatchHistoryByUserIdAndMovieId(movieWatchHistoryDTO);
+        return new WebResDTO(WebResDTO.SUCCESS_CODE,"删除成功,删除条数："+i);
+    }
+    //动态模糊查询
+    @GetMapping("/search")
+    public WebResDTO search(@RequestParam("keyword") String keyword,
+                            @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                            @RequestParam(value = "pageSize", defaultValue = "15") Integer pageSize) {
+        if (StringUtils.isEmpty(keyword)) {
+            return new WebResDTO(ERROR_CODE, "搜索关键字不能为空");
+        }
+        PageResult<MovieDTO> searchResults = movieRPCService.search(keyword, pageNum, pageSize);
+        if (searchResults != null) {
+            return new WebResDTO(SUCCESS_CODE, searchResults);
+        } else {
+            return new WebResDTO(ERROR_CODE, "没有搜索结果");
+        }
+    }
+    //获取最高评分的六部电影
+    @GetMapping("/getTopRatedMovies")
+    public WebResDTO getTopRatedMovies() {
+        List<MovieDTO> topRatedMovies = movieRPCService.getTopRatedMovies();
+        if (topRatedMovies != null && !topRatedMovies.isEmpty()) {
+            return new WebResDTO(SUCCESS_CODE, topRatedMovies);
+        } else {
+            return new WebResDTO(ERROR_CODE, "没有找到评分最高的电影");
+        }
     }
 
 }

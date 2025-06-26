@@ -45,8 +45,8 @@ public class MovieRPCService implements IMovieRPCService {
     }
 
     @Override
-    public List<MovieDTO> getMovieFavoriteByUserId(Long userId) {
-        return movieService.getMovieFavoriteByUserId(userId);
+    public PageResult<MovieDTO> getMovieFavoriteByUserId(Long userId, int pageNum, int pageSize) {
+        return movieService.getMovieFavoriteByUserId(userId, pageNum, pageSize);
     }
 
     @Override
@@ -82,6 +82,31 @@ public class MovieRPCService implements IMovieRPCService {
     @Override
     public MovieFavoriteDTO getMovieFavoriteByUserIdAndMovieId(Long userId, Long movieId) {
         return movieService.getMovieFavoriteByUserIdAndMovieId(userId, movieId);
+    }
+
+    @Override
+    public int addHistory(MovieWatchHistoryDTO movieWatchHistoryDTO) {
+        return movieService.addHistory(movieWatchHistoryDTO);
+    }
+
+    @Override
+    public PageResult<MovieDTO> getMovieWatchHistoryByUserId(Long userId, Integer pageNum, Integer pageSize) {
+        return movieService.getMovieWatchHistoryByUserId(userId, pageNum, pageSize);
+    }
+
+    @Override
+    public int deleteMovieWatchHistoryByUserIdAndMovieId(MovieWatchHistoryDTO movieWatchHistoryDTO) {
+        return movieService.deleteMovieWatchHistoryByUserIdAndMovieId(movieWatchHistoryDTO);
+    }
+
+    @Override
+    public PageResult<MovieDTO> search(String keyword, Integer pageNum, Integer pageSize) {
+        return movieService.search(keyword, pageNum, pageSize);
+    }
+
+    @Override
+    public List<MovieDTO> getTopRatedMovies() {
+        return movieService.getTopRatedMovies();
     }
 
 }

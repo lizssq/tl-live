@@ -18,7 +18,7 @@ public interface IMovieRPCService {
 
     int addMovieComment(MovieCommentDTO comment);
 
-    List<MovieDTO> getMovieFavoriteByUserId(Long userId);
+    PageResult<MovieDTO> getMovieFavoriteByUserId(Long userId, int pageNum, int pageSize);
 
     int setMovieFavoriteByUserIdAndMovieId(MovieFavoriteDTO movieFavoriteDTO);
     int deleteMovieFavoriteByUserIdAndMovieId(MovieFavoriteDTO movieFavoriteDTO);
@@ -32,4 +32,14 @@ public interface IMovieRPCService {
     List<MovieDTO> getSimilarMovies(Long movieId);
 
     MovieFavoriteDTO getMovieFavoriteByUserIdAndMovieId(Long userId, Long movieId);
+
+    int addHistory(MovieWatchHistoryDTO movieWatchHistoryDTO);
+
+    PageResult<MovieDTO> getMovieWatchHistoryByUserId(Long userId, Integer pageNum, Integer pageSize);
+
+    int deleteMovieWatchHistoryByUserIdAndMovieId(MovieWatchHistoryDTO movieWatchHistoryDTO);
+
+    PageResult<MovieDTO> search(String keyword, Integer pageNum, Integer pageSize);
+
+    List<MovieDTO> getTopRatedMovies();
 }

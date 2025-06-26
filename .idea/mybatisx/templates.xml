@@ -48,8 +48,16 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="RechargePlan" />
-                  <option name="tableName" value="recharge_plan" />
+                  <option name="className" value="ConversationStatus" />
+                  <option name="tableName" value="conversation_status" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Conversations" />
+                  <option name="tableName" value="conversations" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Messages" />
+                  <option name="tableName" value="messages" />
                 </TableUIInfo>
               </list>
             </option>

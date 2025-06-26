@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tl.user.provider.mapper.ConversationStatusMapper">
+
+    <resultMap id="BaseResultMap" type="org.tl.user.provider.entity.ConversationStatus">
+            <id property="userId" column="user_id" />
+            <id property="conversationId" column="conversation_id" />
+            <result property="unreadCount" column="unread_count" />
+            <result property="lastReadTime" column="last_read_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        user_id,conversation_id,unread_count,last_read_time
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from conversation_status
+        where  user_id = #{userId} AND conversation_id = #{conversationId} 
+    </select>
+    <select id="countByUserAndConversation" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM conversation_status
+        WHERE user_id = #{userId}
+          AND conversation_id = #{conversationId}
+    </select>
+    <select id="selectByUserId" resultType="org.tl.user.provider.entity.ConversationStatus">
+        SELECT cs.*, c.conversation_type
+        FROM conversation_status cs
+                 JOIN conversations c ON cs.conversation_id = c.id
+        WHERE cs.user_id = #{userId}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from conversation_status
+        where  user_id = #{userId} AND conversation_id = #{conversationId} 
+    </delete>
+    <insert id="insert">
+        insert into conversation_status
+        ( user_id,conversation_id,unread_count,last_read_time)
+        values (#{userId},#{conversationId},#{unreadCount},#{lastReadTime})
+    </insert>
+    <insert id="insertSelective">
+        insert into conversation_status
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="userId != null">user_id,</if>
+                <if test="conversationId != null">conversation_id,</if>
+                <if test="unreadCount != null">unread_count,</if>
+                <if test="lastReadTime != null">last_read_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="userId != null">#{userId},</if>
+                <if test="conversationId != null">#{conversationId},</if>
+                <if test="unreadCount != null">#{unreadCount},</if>
+                <if test="lastReadTime != null">#{lastReadTime},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.tl.user.provider.entity.ConversationStatus">
+        update conversation_status
+        <set>
+                <if test="hasUnread != null">
+                    unread_count = #{unreadCount},
+                </if>
+                <if test="lastReadTime != null">
+                    last_read_time = #{lastReadTime},
+                </if>
+        </set>
+        where   user_id = #{userId} AND conversation_id = #{conversationId} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.tl.user.provider.entity.ConversationStatus">
+        update conversation_status
+        set
+            unread_count =  #{unreadCount},
+            last_read_time =  #{lastReadTime}
+        where   user_id = #{userId} AND conversation_id = #{conversationId} 
+    </update>
+    <update id="updateUnreadStatus">
+        UPDATE conversation_status
+        SET unread_count = #{unreadCount},
+            last_read_time = #{readTime}
+        WHERE user_id = #{userId}
+          AND conversation_id = #{conversationId}
+    </update>
+    <update id="incrementUnreadCount">
+        UPDATE conversation_status
+        SET unread_count = unread_count + #{increment}
+        WHERE conversation_id = #{conversationId}
+          AND user_id = #{userId}
+    </update>
+</mapper>

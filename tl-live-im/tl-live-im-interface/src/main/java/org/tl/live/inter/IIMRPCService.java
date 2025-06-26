@@ -12,4 +12,6 @@ public interface IIMRPCService {
     public boolean publishNotice(String roomId, GenericMessage message);
 
     public boolean pushChatMessage(String roomId, GenericMessage message);
+
+    public boolean pushPrivateChatMessage(String userId, GenericMessage message);
 }

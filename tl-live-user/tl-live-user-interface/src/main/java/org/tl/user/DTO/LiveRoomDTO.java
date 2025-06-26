@@ -63,4 +63,10 @@ public class LiveRoomDTO implements Serializable {
      * 更新时间
      */
     private Date updateTime;
+
+    private String nickname;
+
+    private String avatar;
+
+    private String categoryName;
 }

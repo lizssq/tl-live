@@ -34,4 +34,35 @@ public class UserFollow {
      * 关注时间
      */
     private Date createdAt;
+
+    /**
+     * 关注昵称
+     */
+    @TableField(exist = false)
+    private String userName;
+
+    /**
+     * 被关注昵称
+     */
+    @TableField(exist = false)
+    private String targetName;
+
+    /**
+     * 关注用户头像
+     */
+    @TableField(exist = false)
+    private String userAvatar;
+
+    /**
+     * 被关注用户头像
+     */
+    @TableField(exist = false)
+    private String targetAvatar;
+
+    /**
+     * 简介
+     */
+    @TableField(exist = false)
+    private String bio;
+
 }

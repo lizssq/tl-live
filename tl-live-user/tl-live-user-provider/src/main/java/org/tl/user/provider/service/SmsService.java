@@ -48,7 +48,7 @@ public class SmsService {
         }
         //生成手机号key
 
-        if(mobile.equals("16650363352")){
+        if(!mobile.equals("15639777163")){
             int smsCode=1111;
 
             String mobileKey=mobileRedisKeyBuilder.getMobileCodeKey(mobile);

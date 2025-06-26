@@ -1,5 +1,6 @@
 package org.tl.user.DTO;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -24,6 +25,7 @@ public class UserProfileDTO implements java.io.Serializable {
     /**
      * 生日
      */
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date birthday;
 
     /**
@@ -42,4 +44,14 @@ public class UserProfileDTO implements java.io.Serializable {
     private BigDecimal balance;
 
     private String nickname;
+
+    //手机号
+    private String phone;
+
+    //粉丝数
+    private Integer followerCount;
+    //关注数
+    private Integer followCount;
+    //是否关注
+    private int isFollow;
 }

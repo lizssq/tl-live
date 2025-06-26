@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tl.user.provider.mapper.BillMapper">
+    <!-- 分页查询 -->
+    <!-- 查询账单列表 -->
+    <select id="selectBillPage" resultType="org.tl.user.provider.entity.Bill">
+        SELECT *
+        FROM (
+        <!-- ========= 充值 ========= -->
+        SELECT
+        DATE_FORMAT(pr.completed_at, '%Y-%m-%d') AS date,
+        DATE_FORMAT(pr.completed_at, '%H:%i:%s') AS time,
+        '充值' COLLATE utf8mb4_general_ci AS type,
+        CONCAT(
+        '充值方案: ',
+        COALESCE(rp.description, '自定义充值'),
+        ' (获得 ', pr.coins_received, ' 金币)'
+        ) COLLATE utf8mb4_general_ci AS description,
+        pr.amount_paid AS amount,
+        COALESCE(rp.description, '自定义充值') AS detail_info,  -- 充值方案详情
+        pm.method_name AS payment_method  -- 支付方式
+        FROM payment_record pr
+        LEFT JOIN recharge_plan rp ON pr.plan_id = rp.id
+        LEFT JOIN payment_method pm ON pr.method_id = pm.id
+        WHERE pr.user_id = #{userId}
+        AND pr.payment_status = 'success'
+        <if test="start != null and end != null">
+            AND pr.`completed_at` &gt;= #{start}
+            AND pr.`completed_at` &lt; DATE_ADD(#{end}, INTERVAL 1 DAY)
+        </if>
+
+        UNION ALL
+
+        <!-- ========= 支出（打赏） ========= -->
+        SELECT
+        DATE_FORMAT(gl.`time`, '%Y-%m-%d') AS date,
+        DATE_FORMAT(gl.`time`, '%H:%i:%s') AS time,
+        '消费' COLLATE utf8mb4_general_ci AS type,
+        CONCAT(
+        '打赏房间「',
+        COALESCE(CONVERT(lr.title USING utf8mb4) COLLATE utf8mb4_general_ci, gl.room_id),
+        '」 礼物:',
+        COALESCE(CONVERT(gt.gift_name USING utf8mb4) COLLATE utf8mb4_general_ci, gl.gift_id),
+        ' x', gl.amount
+        ) COLLATE utf8mb4_general_ci AS description,
+        -gl.total_cost AS amount,
+        CONCAT('礼物ID:', gl.gift_id, ' 数量:', gl.amount) AS detail_info,
+        NULL AS payment_method
+        FROM gift_log gl
+        LEFT JOIN gift_type gt ON gl.gift_id = gt.id
+        LEFT JOIN live_room lr ON gl.room_id = lr.room_id
+        WHERE gl.sender_id = #{userId}
+        <if test="start != null and end != null">
+            AND gl.`time` &gt;= #{start}
+            AND gl.`time` &lt; DATE_ADD(#{end}, INTERVAL 1 DAY)
+        </if>
+
+        UNION ALL
+
+        <!-- ========= 收入（被打赏） ========= -->
+        SELECT
+        DATE_FORMAT(gl.`time`, '%Y-%m-%d') AS date,
+        DATE_FORMAT(gl.`time`, '%H:%i:%s') AS time,
+        '收入' COLLATE utf8mb4_general_ci AS type,
+        CONCAT(
+        '收到用户「',
+        COALESCE(CONVERT(u.nick_name USING utf8mb4) COLLATE utf8mb4_general_ci, gl.sender_id),
+        '」 的礼物:',
+        COALESCE(CONVERT(gt.gift_name USING utf8mb4) COLLATE utf8mb4_general_ci, gl.gift_id),
+        ' x', gl.amount
+        ) COLLATE utf8mb4_general_ci AS description,
+        gl.total_cost AS amount,
+        CONCAT('来自用户ID:', gl.sender_id, ' 礼物ID:', gl.gift_id) AS detail_info,
+        NULL AS payment_method
+        FROM gift_log gl
+        LEFT JOIN gift_type gt ON gl.gift_id = gt.id
+        LEFT JOIN t_user u ON gl.sender_id = u.user_id
+        WHERE gl.receiver_id = #{userId}
+        <if test="start != null and end != null">
+            AND gl.`time` &gt;= #{start}
+            AND gl.`time` &lt; DATE_ADD(#{end}, INTERVAL 1 DAY)
+        </if>
+        ) AS t
+        ORDER BY t.date DESC, t.time DESC
+        <if test="offset != null and limit != null">
+            LIMIT #{offset}, #{limit}
+        </if>
+    </select>
+
+    <!-- 查询总数 -->
+    <select id="selectBillCount" resultType="int">
+        SELECT COUNT(*) FROM (
+        <!-- ========= 充值 ========= -->
+        SELECT
+        pr.id
+        FROM payment_record pr
+        WHERE pr.user_id = #{userId}
+        AND pr.payment_status = 'success'
+        <if test="start != null and end != null">
+            AND pr.completed_at BETWEEN #{start} AND #{end}
+        </if>
+
+        UNION ALL
+
+        <!-- ========= 支出（打赏） ========= -->
+        SELECT
+        gl.log_id
+        FROM gift_log gl
+        WHERE gl.sender_id = #{userId}
+        <if test="start != null and end != null">
+            AND gl.`time` BETWEEN #{start} AND #{end}
+        </if>
+
+        UNION ALL
+
+        <!-- ========= 收入（被打赏） ========= -->
+        SELECT
+        gl.log_id
+        FROM gift_log gl
+        WHERE gl.receiver_id = #{userId}
+        <if test="start != null and end != null">
+            AND gl.`time` BETWEEN #{start} AND #{end}
+        </if>
+        ) AS t
+    </select>
+
+</mapper>

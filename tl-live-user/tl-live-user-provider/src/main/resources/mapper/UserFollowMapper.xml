@@ -21,10 +21,101 @@
         from user_follow
         where  id = #{id} 
     </select>
+    <select id="selectByUserId" resultType="org.tl.user.provider.entity.UserProfile">
+        SELECT
+            up.*,  -- 被关注用户的个人信息
+            (
+                SELECT COUNT(*)
+                FROM user_follow uf2
+                WHERE uf2.target_id = up.user_id
+            ) AS follower_count,  -- 被关注用户的粉丝数量
+            (
+                SELECT COUNT(*)
+                FROM user_follow uf3
+                WHERE uf3.user_id = up.user_id
+            ) AS follow_count , -- 被关注用户的关注数量
+            tu.nick_name as nickname
+        FROM
+            user_follow uf1  -- 用户关注关系表
+                JOIN
+            user_profile up ON uf1.target_id = up.user_id  -- 关联用户个人信息表
+                left join t_user tu on up.user_id=tu.user_id
+        WHERE
+            uf1.user_id = #{userId}  -- 参数: 要查询的用户ID
+        GROUP BY
+            up.id  -- 按用户ID分组
+    </select>
+    <select id="selectByTargetId" resultType="org.tl.user.provider.entity.UserProfile">
+        SELECT
+            up.*,  -- 粉丝用户的个人信息
+            (
+                SELECT COUNT(*)
+                FROM user_follow uf2
+                WHERE uf2.target_id = up.user_id
+            ) AS follower_count,  -- 粉丝用户的粉丝数量
+            (
+                SELECT COUNT(*)
+                FROM user_follow uf3
+                WHERE uf3.user_id = up.user_id
+            ) AS follow_count,
+            tu.nick_name as nickname-- 粉丝用户的关注数量
+        FROM
+            user_follow uf1  -- 用户关注关系表
+                JOIN
+            user_profile up ON uf1.user_id = up.user_id  -- 关联用户个人信息表
+        left join t_user tu on up.user_id=tu.user_id
+        WHERE
+            uf1.target_id = #{targetId}  -- 参数: 要查询的用户ID
+        GROUP BY
+            up.id  -- 按用户ID分组
+    </select>
+    <select id="selectMutualFollowerByUserId" resultType="org.tl.user.provider.entity.UserProfile">
+        SELECT
+            up.*,  -- 互相关注用户的个人信息
+            (
+                SELECT COUNT(*)
+                FROM user_follow uf2
+                WHERE uf2.target_id = up.user_id
+            ) AS follower_count,  -- 互相关注用户的粉丝数量
+            (
+                SELECT COUNT(*)
+                FROM user_follow uf3
+                WHERE uf3.user_id = up.user_id
+            ) AS follow_count , -- 互相关注用户的关注数量
+            tu.nick_name as nickname
+        FROM
+            user_follow uf1  -- 用户关注关系表
+                JOIN
+            user_profile up ON uf1.user_id = up.user_id  -- 关联用户个人信息表
+                left join t_user tu on up.user_id=tu.user_id
+        WHERE
+            uf1.target_id = #{userId}  -- 该用户关注了当前用户
+          AND EXISTS (
+            SELECT 1
+            FROM user_follow uf4
+            WHERE uf4.user_id = #{userId}  -- 当前用户ID
+              AND uf4.target_id = up.user_id
+        )
+        GROUP BY
+            up.id  -- 按用户ID分组
+    </select>
+    <select id="isFollow" resultType="org.tl.user.provider.entity.UserFollow">
+        SELECT
+            *
+        FROM
+            user_follow uf1
+        WHERE
+            uf1.user_id = #{userId}  -- 当前用户ID
+          AND uf1.target_id = #{targetId}  -- 被关注用户ID
+    </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete from user_follow
         where  id = #{id} 
+    </delete>
+    <delete id="deleteByUserIdAndTargetId" parameterType="org.tl.user.provider.entity.UserFollow">
+        delete from user_follow
+        where  user_id = #{userId} and target_id = #{targetId}
     </delete>
     <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.tl.user.provider.entity.UserFollow" useGeneratedKeys="true">
         insert into user_follow

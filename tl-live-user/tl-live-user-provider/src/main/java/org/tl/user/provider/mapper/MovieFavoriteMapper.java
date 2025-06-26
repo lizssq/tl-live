@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Param;
 import org.tl.user.DTO.MovieFavoriteDTO;
 import org.tl.user.provider.entity.MovieDO;
 import org.tl.user.provider.entity.MovieFavorite;
+import org.tl.user.provider.entity.MovieWatchHistory;
 
 import java.util.List;
 
@@ -32,4 +33,6 @@ public interface MovieFavoriteMapper {
     int deleteFavoriteMovie(MovieFavorite movieFavorite);
 
     MovieFavorite getMovieFavoriteByUserIdAndMovieId(@Param("userId")Long userId, @Param("movieId")Long movieId);
+
+    int insertHistory(MovieWatchHistory movieWatchHistory);
 }

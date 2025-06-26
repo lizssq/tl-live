@@ -53,4 +53,18 @@ public class UserProfile {
 
     private String nickname;
 
+    @TableField(exist = false)
+    private String phone;
+
+    //粉丝数
+    @TableField(exist = false)
+    private Integer followerCount;
+    //关注数
+    @TableField(exist = false)
+    private Integer followCount;
+
+    //是否关注
+    @TableField(exist = false)
+    private int isFollow;
+
 }

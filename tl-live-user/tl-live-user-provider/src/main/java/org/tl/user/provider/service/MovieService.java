@@ -1,6 +1,7 @@
 package org.tl.user.provider.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import jakarta.annotation.Resource;
 import org.slf4j.Logger;
@@ -37,6 +38,9 @@ public class MovieService {
     private MovieFavoriteMapper movieFavoriteMapper;
 
     @Resource
+    private MovieWatchHistoryMapper movieWatchHistoryMapper;
+
+    @Resource
     private MoviecategoryMapper moviecategoryMapper;
 
     Logger logger = LoggerFactory.getLogger(MovieService.class);
@@ -55,7 +59,7 @@ public class MovieService {
         //todo
         //从redis中查询
 
-        MovieDO movie= movieMapper.selectById(id);
+        MovieDO movie= movieMapper.selectByPrimaryKey(id);
         //保存到redis数据库
 
         List<String> categoriesByMovieId = movieCategoryRelationMapper.findCategoriesByMovieId(id);
@@ -129,15 +133,28 @@ public class MovieService {
     }
 
     //收藏
-    public List<MovieDTO> getMovieFavoriteByUserId(Long userId){
+    public PageResult<MovieDTO> getMovieFavoriteByUserId(Long userId, int pageNum, int pageSize) {
+        // 分页查询
+        PageHelper.startPage(pageNum, pageSize);
         List<MovieDO> favoriteMovies = movieFavoriteMapper.getFavoriteMoviesByUserId(userId);
-        List<MovieDTO> dtoList=new ArrayList<>();
-        for (MovieDO movie : favoriteMovies) {
-            MovieDTO dto = new MovieDTO();
-            BeanUtils.copyProperties(movie, dto);  // 自动拷贝属性
-            dtoList.add(dto);
-        }
-        return dtoList;
+        Page<MovieDO> pageInfo = (Page<MovieDO>) favoriteMovies;
+        // 转换DTO列表
+        List<MovieDTO> dtos = favoriteMovies.stream()
+                .map(favoriteMovie -> {
+                    MovieDTO dto = new MovieDTO();
+                    BeanUtils.copyProperties(favoriteMovie, dto);
+                    return dto;
+                })
+                .collect(Collectors.toList());
+
+        // 构建分页结果
+        PageResult<MovieDTO> result = new PageResult<>();
+        result.setPageNum(pageInfo.getPageNum());
+        result.setPageSize(pageInfo.getPageSize());
+        result.setTotal(pageInfo.getTotal());
+        result.setPages(pageInfo.getPages());
+        result.setList(dtos);
+        return result;
     }
     public int setMovieFavoriteByUserIdAndMovieId(MovieFavoriteDTO movieFavoriteDTO){
         MovieFavorite movieFavorite=new MovieFavorite();
@@ -202,5 +219,74 @@ public class MovieService {
             return movieFavoriteDTO;
         }
         return null;
+    }
+
+    public int addHistory(MovieWatchHistoryDTO movieWatchHistoryDTO) {
+        MovieWatchHistory movieWatchHistory = new MovieWatchHistory();
+        BeanUtils.copyProperties(movieWatchHistoryDTO, movieWatchHistory);
+        return movieFavoriteMapper.insertHistory(movieWatchHistory);
+    }
+
+    public int deleteMovieWatchHistoryByUserIdAndMovieId(MovieWatchHistoryDTO movieWatchHistoryDTO) {
+        MovieWatchHistory movieWatchHistory = new MovieWatchHistory();
+        BeanUtils.copyProperties(movieWatchHistoryDTO, movieWatchHistory);
+        return movieWatchHistoryMapper.deleteMovieWatchHistoryByUserIdAndMovieId(movieWatchHistory);
+    }
+
+    public PageResult<MovieDTO> getMovieWatchHistoryByUserId(Long userId, Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<MovieDO> movieDOList = movieWatchHistoryMapper.selectMovieWatchHistoryByUserId(userId);
+        Page<MovieDO> pageInfo = (Page<MovieDO>) movieDOList;
+        // 转换DTO列表
+        List<MovieDTO> dtos = movieDOList.stream()
+                .map(movie -> {
+                    MovieDTO dto = new MovieDTO();
+                    BeanUtils.copyProperties(movie, dto);
+                    return dto;
+                })
+                .collect(Collectors.toList());
+        // 构建分页结果
+        PageResult<MovieDTO> result = new PageResult<>();
+        result.setPageNum(pageInfo.getPageNum());
+        result.setPageSize(pageInfo.getPageSize());
+        result.setTotal(pageInfo.getTotal());
+        result.setPages(pageInfo.getPages());
+        result.setList(dtos);
+        return result;
+    }
+
+    public PageResult<MovieDTO> search(String keyword, Integer pageNum, Integer pageSize) {
+        // 分页查询
+        PageHelper.startPage(pageNum, pageSize);
+        List<MovieDO> movies = movieMapper.searchMovies(keyword);
+        Page<MovieDO> pageInfo = (Page<MovieDO>) movies;
+        // 转换DTO列表
+        List<MovieDTO> dtos = movies.stream()
+                .map(movie -> {
+                    MovieDTO dto = new MovieDTO();
+                    BeanUtils.copyProperties(movie, dto);
+                    return dto;
+                })
+                .collect(Collectors.toList());
+        // 构建分页结果
+        PageResult<MovieDTO> result = new PageResult<>();
+        result.setPageNum(pageInfo.getPageNum());
+        result.setPageSize(pageInfo.getPageSize());
+        result.setTotal(pageInfo.getTotal());
+        result.setPages(pageInfo.getPages());
+        result.setList(dtos);
+        return result;
+    }
+
+    public List<MovieDTO> getTopRatedMovies() {
+        // 1. 获取所有相关分类ID
+        List<MovieDO> moviesByCategoryIds = movieMapper.getTopRatedMovies();
+        List<MovieDTO> dtoList=new ArrayList<>();
+        for (MovieDO movie : moviesByCategoryIds) {
+            MovieDTO dto = new MovieDTO();
+            BeanUtils.copyProperties(movie, dto);  // 自动拷贝属性
+            dtoList.add(dto);
+        }
+        return dtoList;
     }
 }

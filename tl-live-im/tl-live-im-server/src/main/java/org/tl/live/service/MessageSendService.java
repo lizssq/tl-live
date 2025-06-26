@@ -99,4 +99,19 @@ public class MessageSendService {
         });
         return true;
     }
+
+    public boolean pushPrivateChatMessage(String userId, GenericMessage message) {
+        //获取用户连接
+        Optional<Session> session = ConnectionManager.getSession(userId);
+        if(session.isEmpty()){
+            logger.error("用户{}未连接", userId);
+            return false;
+        }
+
+        msgSend(session.get(), message);
+        logger.info("发送私信给用户{}成功", userId);
+
+
+        return true;
+    }
 }

@@ -64,4 +64,6 @@ public class LiveCategoryDTO implements Serializable {
      * 更新时间
      */
     private Date updatedAt;
+
+    private int roomCount;
 }

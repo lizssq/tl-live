@@ -1,6 +1,9 @@
 package org.tl.user.provider.mapper;
 
+import org.tl.user.provider.entity.MovieDO;
 import org.tl.user.provider.entity.MovieWatchHistory;
+
+import java.util.List;
 
 /**
 * @author k1341
@@ -22,4 +25,7 @@ public interface MovieWatchHistoryMapper {
 
     int updateByPrimaryKey(MovieWatchHistory record);
 
+    int deleteMovieWatchHistoryByUserIdAndMovieId(MovieWatchHistory movieWatchHistory);
+
+    List<MovieDO> selectMovieWatchHistoryByUserId(Long userId);
 }

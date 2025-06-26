@@ -56,6 +56,11 @@ public class MessageTypeDispatchManager {
                 executor.execute(() -> messageHandlerService.sendRoomChatMessage(userId, roomId, message));
                 logger.info("用户=>{},房间=>{},{}发送礼物=>{}", userId, roomId, message);
                 break;
+            case IMConstants.MESSAGE_TYPE_PRIVATE_CHAT: // 私信
+                //String toUserId = message.getBody().get(0).getToUserId().toString();
+                executor.execute(() -> messageHandlerService.sendPrivateChatMessage(userId, message));
+                logger.info("用户=>{},私信=>{},{}发送消息=>{}", userId, message.getFromUserId(), message);
+                break;
             default:
                 logger.warn("消息类型异常, message =>{}", message);
         }

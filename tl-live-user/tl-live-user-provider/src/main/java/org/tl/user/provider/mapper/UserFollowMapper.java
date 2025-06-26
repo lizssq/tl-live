@@ -1,6 +1,10 @@
 package org.tl.user.provider.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.tl.user.provider.entity.UserFollow;
+import org.tl.user.provider.entity.UserProfile;
+
+import java.util.List;
 
 /**
 * @author k1341
@@ -22,4 +26,13 @@ public interface UserFollowMapper {
 
     int updateByPrimaryKey(UserFollow record);
 
+    int deleteByUserIdAndTargetId(UserFollow userFollow);
+
+    List<UserProfile> selectByUserId(int userId);
+
+    List<UserProfile> selectByTargetId(int targetId);
+
+    List<UserProfile> selectMutualFollowerByUserId(int userId);
+
+    UserFollow isFollow(@Param("userId") Long userId,@Param("targetId") Long followUserId);
 }

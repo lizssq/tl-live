@@ -13,6 +13,8 @@ import java.util.List;
 */
 public interface LiveRoomMapper extends BaseMapper<LiveRoom> {
 
+    List<LiveRoom> search(String keyword) ;
+
     int deleteByPrimaryKey(Long id);
 
     int insert(LiveRoom record);
@@ -31,4 +33,9 @@ public interface LiveRoomMapper extends BaseMapper<LiveRoom> {
 
     List<LiveRoom> getLiveRoomByCategoryId (Integer categoryId);
 
+    List<LiveRoom> selectLiveRoomList();
+
+    List<LiveRoom> getRecommendLiveRoom();
+
+    List<LiveRoom> getCategoryDetail();
 }

@@ -35,3 +35,10 @@ tllive:
     room:
       push_url: rtmp://localhost/hls
       pull_url: http://localhost:/hls/
+
+aliyun:
+  idcert:
+    host: https://idcert.market.alicloudapi.com
+    path: /idcard
+    appcode: abb17336bd1a4edf9c547defa30a576a
+

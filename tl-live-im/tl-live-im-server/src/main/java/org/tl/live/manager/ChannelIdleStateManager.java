@@ -23,7 +23,7 @@ public class ChannelIdleStateManager {
     private static final Logger logger = LoggerFactory.getLogger(ChannelIdleStateManager.class);
     private static final Map<String, Long> USER_LAST_READ_TIMESTAMP = new ConcurrentHashMap<>();
 
-    @Value("${tllive.im.heartbeat.timeout.seconds:300}")
+    @Value("${tllive.im.heartbeat.timeout.seconds:3000}")
     private long READ_TIMEOUT_SECONDS;
 
     private final ScheduledThreadPoolExecutor scheduledExecutor;

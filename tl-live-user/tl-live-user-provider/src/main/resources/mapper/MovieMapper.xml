@@ -53,19 +53,21 @@
     <select id="selectMoviesWithParentCategories" resultMap="MovieWithCategoriesMap">
         SELECT
             m.*,
-            COALESCE(c.name) AS parentCategoryName
+            COALESCE(c.name) AS parentCategoryName,ms.play_url
         FROM
             movie m
                 LEFT JOIN moviecategoryrelation mr ON m.movieId = mr.movieId
                 LEFT JOIN moviecategory c ON mr.categoryId = c.categoryId
-        where c.parentId IS NULL
+                left join movie_source ms on m.movie_id = ms.movie_id
+        where c.parentId IS NULL and m.movie_id = #{movieId}
     </select>
 
-    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultType="org.tl.user.provider.entity.MovieDO">
         select
-        <include refid="Base_Column_List" />
-        from movie
-        where  movie_id = #{movieId} 
+        m.*,ms.play_url as play_url
+        from movie m
+        left join movie_source ms on m.movie_id = ms.movie_id
+        where  m.movie_id = #{movieId}
     </select>
     <select id="getReleaseYearMovieCounts" resultType="org.tl.user.DTO.RegionMovieCount">
         SELECT
@@ -99,6 +101,45 @@
              ) AS subquery
         ORDER BY
             release_Year DESC
+    </select>
+    <select id="searchMovies" resultType="org.tl.user.provider.entity.MovieDO">
+        SELECT
+            m.*,
+            COALESCE(GROUP_CONCAT(DISTINCT c.name SEPARATOR ', '), '未分类') AS categories
+        FROM movie m
+                 LEFT JOIN (
+            SELECT DISTINCT movie_Id, category_Id
+            FROM moviecategoryrelation
+        ) mr ON m.movie_Id = mr.movie_Id
+                 LEFT JOIN moviecategory c ON mr.category_Id = c.category_Id
+        WHERE
+            m.title LIKE CONCAT('%', #{keywords}, '%')
+           OR m.director LIKE CONCAT('%', #{keywords}, '%')
+           OR m.actors LIKE CONCAT('%', #{keywords}, '%')
+           OR m.description LIKE CONCAT('%', #{keywords}, '%')
+        GROUP BY m.movie_Id  -- 按电影ID分组
+        ORDER BY m.release_year DESC
+    </select>
+    <select id="getTopRatedMovies" resultType="org.tl.user.provider.entity.MovieDO">
+        SELECT
+            movie_id,
+            title,
+            director,
+            actors,
+            description,
+            cover_url,
+            duration,
+            release_year,
+            region,
+            language,
+            rating,
+            create_time,
+            parent_Category_Name
+        FROM
+            movie
+        ORDER BY
+            rating DESC
+            LIMIT 6;
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">

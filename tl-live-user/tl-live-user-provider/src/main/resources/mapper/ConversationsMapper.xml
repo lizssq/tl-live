@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tl.user.provider.mapper.ConversationsMapper">
+
+    <resultMap id="BaseResultMap" type="org.tl.user.provider.entity.Conversations">
+            <id property="id" column="id" />
+            <result property="conversationType" column="conversation_type" />
+            <result property="user1Id" column="user1_id" />
+            <result property="user2Id" column="user2_id" />
+            <result property="receiverId" column="receiver_id" />
+            <result property="preview" column="preview" />
+            <result property="lastMessageTime" column="last_message_time" />
+            <result property="createdAt" column="created_at" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,conversation_type,user1_id,user2_id,receiver_id,preview,
+        last_message_time,created_at
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from conversations
+        where  id = #{id} 
+    </select>
+    <select id="selectByUserId" resultType="org.tl.user.provider.entity.Conversations">
+        SELECT
+            c.*,
+            CASE
+                WHEN c.conversation_type = 0 THEN
+                    CASE
+                        WHEN c.user1_id = #{userId} THEN tu2.nick_name
+                        ELSE tu1.nick_name
+                        END
+                ELSE '系统通知'
+                END AS toUserName,
+            CASE
+                WHEN c.conversation_type = 0 THEN
+                    CASE
+                        WHEN c.user1_id = #{userId} THEN tu2.avatar
+                        ELSE tu1.avatar
+                        END
+                ELSE 'system-icon.png'
+                END AS toUserAvatar
+        FROM conversations c
+                 LEFT JOIN t_user tu1 ON c.user1_id = tu1.user_id
+                 LEFT JOIN t_user tu2 ON c.user2_id = tu2.user_id
+        WHERE
+            c.conversation_type = 0 AND (#{userId} IN (c.user1_id, c.user2_id))
+           OR c.conversation_type = 1 AND c.receiver_id = #{userId}
+        ORDER BY c.last_message_time DESC
+    </select>
+    <select id="selectByUserIdAndType" resultType="org.tl.user.provider.entity.Conversations">
+        SELECT
+            c.*
+        FROM conversations c
+        WHERE c.conversation_type = #{conversationType}
+          AND #{user1Id} = c.user1_id
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from conversations
+        where  id = #{id} 
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.tl.user.provider.entity.Conversations" useGeneratedKeys="true">
+        insert into conversations
+        ( id,conversation_type,user1_id,user2_id,receiver_id,preview,
+        last_message_time,created_at)
+        values (#{id},#{conversationType},#{user1Id},#{user2Id},#{receiverId},#{preview},
+        #{lastMessageTime},#{createdAt})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.tl.user.provider.entity.Conversations" useGeneratedKeys="true">
+        insert into conversations
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="conversationType != null">conversation_type,</if>
+                <if test="user1Id != null">user1_id,</if>
+                <if test="user2Id != null">user2_id,</if>
+                <if test="receiverId != null">receiver_id,</if>
+                <if test="preview != null">preview,</if>
+                <if test="lastMessageTime != null">last_message_time,</if>
+                <if test="createdAt != null">created_at,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id},</if>
+                <if test="conversationType != null">#{conversationType},</if>
+                <if test="user1Id != null">#{user1Id},</if>
+                <if test="user2Id != null">#{user2Id},</if>
+                <if test="receiverId != null">#{receiverId},</if>
+                <if test="preview != null">#{preview},</if>
+                <if test="lastMessageTime != null">#{lastMessageTime},</if>
+                <if test="createdAt != null">#{createdAt},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.tl.user.provider.entity.Conversations">
+        update conversations
+        <set>
+                <if test="conversationType != null">
+                    conversation_type = #{conversationType},
+                </if>
+                <if test="user1Id != null">
+                    user1_id = #{user1Id},
+                </if>
+                <if test="user2Id != null">
+                    user2_id = #{user2Id},
+                </if>
+                <if test="receiverId != null">
+                    receiver_id = #{receiverId},
+                </if>
+                <if test="preview != null">
+                    preview = #{preview},
+                </if>
+                <if test="lastMessageTime != null">
+                    last_message_time = #{lastMessageTime},
+                </if>
+                <if test="createdAt != null">
+                    created_at = #{createdAt},
+                </if>
+        </set>
+        where   id = #{id} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.tl.user.provider.entity.Conversations">
+        update conversations
+        set 
+            conversation_type =  #{conversationType},
+            user1_id =  #{user1Id},
+            user2_id =  #{user2Id},
+            receiver_id =  #{receiverId},
+            preview =  #{preview},
+            last_message_time =  #{lastMessageTime},
+            created_at =  #{createdAt}
+        where   id = #{id} 
+    </update>
+</mapper>

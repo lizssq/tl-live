@@ -26,11 +26,40 @@
         where  id = #{id} 
     </select>
     <select id="selectByUserId" resultType="org.tl.user.provider.entity.UserProfile">
-        select
-            up.* ,tu.nick_name as nickname
-        from user_profile up
-        left join t_user tu on up.user_id = tu.user_id
-        where  tu.user_id = #{userId}
+        SELECT
+            up.*,
+            tu.nick_name AS nickname,
+            (SELECT COUNT(*) FROM user_follow WHERE target_id = up.user_id) AS follower_count,
+            (SELECT COUNT(*) FROM user_follow WHERE user_id = up.user_id) AS follow_count
+        FROM
+            user_profile up
+                LEFT JOIN
+            t_user tu ON up.user_id = tu.user_id
+        WHERE
+            up.user_id = #{userId}
+    </select>
+    <select id="search" resultType="org.tl.user.provider.entity.UserProfile">
+        SELECT
+            up.*,
+            tu.nick_name AS nickname,
+            (SELECT COUNT(*) FROM user_follow WHERE target_id = up.user_id) AS follower_count,
+            (SELECT COUNT(*) FROM user_follow WHERE user_id = up.user_id) AS follow_count,
+            CASE
+                WHEN uf.id IS NOT NULL THEN 1
+                ELSE 0
+                END AS is_follow
+        FROM
+            user_profile up
+                LEFT JOIN
+            t_user tu ON up.user_id = tu.user_id
+                LEFT JOIN
+            t_user_phone tup ON up.user_id = tup.user_id
+                LEFT JOIN
+            user_follow uf ON uf.user_id = #{userId} AND uf.target_id = up.user_id
+        WHERE
+            tu.nick_name LIKE CONCAT('%', #{keyword}, '%')
+           OR tup.phone LIKE CONCAT('%', #{keyword}, '%')
+           OR up.user_id LIKE CONCAT('%', #{keyword}, '%')
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
